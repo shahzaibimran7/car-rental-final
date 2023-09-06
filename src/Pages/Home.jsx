@@ -19,8 +19,6 @@ function Home() {
       <Banner />
       <ChooseUs />
       <Testimonials />
-      <Faq />
-      <Download />
       <Footer />
     </>
   );

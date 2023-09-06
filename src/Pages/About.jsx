@@ -7,6 +7,10 @@ import Box2 from "../images/about/icon2.png";
 import Box3 from "../images/about/icon3.png";
 
 function About() {
+  const whatsAppLink="https://wa.me/971545505407";
+  const openWhatsApp = () => {
+    window.open(whatsAppLink, '_blank');
+  };
   return (
     <>
       <section className="about-page">
@@ -62,8 +66,8 @@ function About() {
           <div className="text-content">
             <h2>Book a car by getting in touch with us</h2>
             <span>
-              <i className="fa-solid fa-phone"></i>
-              <h3>(123) 456-7869</h3>
+              <i className="fa fa-whatsapp" style={{color:'#25D366',cursor:'pointer'}} onClick={openWhatsApp}></i>
+              <h3>(+971) 54 567 5505</h3>
             </span>
           </div>
         </div>

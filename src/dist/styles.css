@@ -1459,11 +1459,10 @@ footer {
 }
 
 .footer-content {
-  display: grid;
+  display: flex;
   color: #010103;
-  grid-template-columns: 27fr 21fr 21fr 21fr;
   gap: 8rem;
-  justify-content: center;
+  justify-content: space-between;
   text-align: left;
   color: #010103;
 }
