@@ -1,3 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 * {
   box-sizing: border-box;
   margin: 0;
@@ -67,12 +70,12 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 2.7rem 2rem;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  background-color: transparent;
-  z-index: 99999;
+  background-color: #ffffff;
+  z-index: 50;
   margin: 0 auto;
 }
 .navbar__img {

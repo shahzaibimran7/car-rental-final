@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import Logo from "../images/logo/logo.png";
 import { useState } from "react";
 
@@ -111,6 +111,7 @@ function Navbar() {
           </div>
         </div>
       </nav>
+      <Outlet/>
     </>
   );
 }
