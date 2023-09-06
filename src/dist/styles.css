@@ -1812,6 +1812,18 @@ footer {
   width: 35rem;
   flex-direction: column;
 }
+
+.car-img {
+  border-radius: 38px;
+  cursor: pointer;
+  transition: transform 0.3s; 
+}
+
+.car-img:hover {
+  transform: scale(0.9); 
+}
+
+
 @media (max-width: 400px) {
   .models-div__box {
     grid-template-columns: 1fr;
