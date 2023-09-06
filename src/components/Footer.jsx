@@ -28,16 +28,7 @@ function Footer() {
                 </a>
               </li>
 
-              <li>
-                <a
-                  style={{ fontSize: "14px" }}
-                  target="_blank"
-                  rel="noreferrer"
-                  href="https://jephunneh.com/"
-                >
-                  Design by cjephuneh
-                </a>
-              </li>
+          
             </ul>
 
             <ul className="footer-content__2">
