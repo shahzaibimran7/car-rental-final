@@ -8,7 +8,6 @@ import CarImg5 from "../images/cars-big/benz-box.png";
 import CarImg6 from "../images/cars-big/passat-box.png";
 import { Link } from "react-router-dom";
 
-
 const carData = [
   {
     name: "Audi A1",
@@ -54,8 +53,8 @@ function Models() {
         <HeroPages name="Vehicle Models" />
         <div className="container">
           <div className="models-div">
-          {carData.map(car => 
-            <div className="models-div__box" style={{borderRadius: "38px"}}>
+          {carData.map((car,index) => 
+            <div className="models-div__box" style={{borderRadius: "38px"}} key={index}>
               <div className="models-div__box__img">
                 <img src={car.image} alt="car_img" className="car-img"/>
                 <div className="models-div__box__descr">
@@ -89,11 +88,9 @@ function Models() {
                       {car.fuel} &nbsp; <i className="fa-solid fa-car-side"></i>
                     </span>
                   </div>
-                  <div className="models-div__box__descr__name-price__btn">
-                    <Link to={`${car.name}`}>
+                    <Link to={`/models/${car.name}`} className="models-div__box__descr__name-price__btn">
                       Book Ride
                     </Link>
-                  </div>
                 </div>
               </div>
             </div>)}

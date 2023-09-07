@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -1906,11 +1904,12 @@ footer {
   background-color: #163474;
   padding: 1.8rem 3rem;
   border-radius: 0.3rem;
-  ;
   transition: all 0.3s;
   border: 2px solid #163474;
   font-size: 1.8rem;
   cursor: pointer;
+  text-decoration: none;
+  color: white;
 }
 .models-div__box__descr__name-price__btn:hover {
   
@@ -2080,3 +2079,29 @@ footer {
   
   background-color: #163474;
 }/*# sourceMappingURL=styles.css.map */
+.label-class{
+  text-size-adjust: 100%;
+  font-size: 3.6rem;
+  font-weight: 600;
+  padding-top: 6rem;
+
+}
+.details-class{
+  display: flex;
+  flex-direction: column;
+  padding-top: 8rem;
+  margin-left: 2rem;
+}
+.carousel{
+  border-radius: 10px;
+}
+.horizontal-line {
+  width: 64%; /* Adjust this value to set the width of the horizontal line */
+  border-top: 2px solid gray; /* Adjust the color and thickness as needed */
+  opacity: 0.15;
+}
+.br-margin {
+  display: block; /* Ensures <span> is rendered as a block element */
+  margin-top: 10px; /* Add desired top margin */
+  margin-bottom: 10px; /* Add desired bottom margin */
+}
