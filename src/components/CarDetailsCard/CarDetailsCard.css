@@ -1,39 +1,49 @@
+*{
+  font-family: 'Poppins', sans-serif;
+}
 .CardContainer {
-  height: 45rem;
-  width: 30rem;
+  height: 64rem;
+  width: 35rem;
   /* border: 1px solid black; */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   padding: 1rem 1.5rem;
-  border-radius: 2rem;
+  border-radius: 1rem;
 }
 .header {
   display: flex;
   justify-content: space-between;
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 .ButtonContainer {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   padding: 1.5rem 0;
 }
 .text {
-  font-size: 1.5rem;
+  font-size: 2rem;
+  margin-left: 2rem;
 }
 .ButtonContainer button {
-  padding: 1rem 4.5rem;
+  padding: 1rem;
   border: none;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   color: black;
-  border-radius: 1.5rem;
+  border-radius: 0.5rem;
   background-color: rgb(255, 255, 255);
+  width: 14rem;
+  text-align: center;
+  font-weight: bold;
+
 }
 .ButtonContainer #btn-1 {
   padding: 1rem 4.5rem;
   border: none;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   color: white;
-  border-radius: 1.5rem;
-  background-color: rgb(233, 200, 86);
+  border-radius: 0.5rem;
+  background-color: #163474;
+  width: 14rem;
+
 }
 .bodyComponent {
   border: 1px solid black;
@@ -46,6 +56,22 @@
 }
 .selectLocations select {
   border: none;
+  font-size: large;
+  padding-left: 2rem;
+  padding-top: 1rem;
+  font-weight: 500;
+  border-radius: 5px;
+  font-family: 'Poppins', sans-serif;
+  padding-bottom: 1rem;
+  outline: none;
+}
+option{
+  background-color: #163474;
+  color: white;
+}
+option:hover{
+  background-color: #163474;
+  color: white;
 }
 .RangePicker {
   border: none;
@@ -66,19 +92,27 @@
 .footer button {
   border: none;
   padding: 1rem 7rem;
-  border-radius: 2rem;
-  background-color: rgb(233, 200, 86);
+  border-radius: 0.5rem;
+  background-color: #163474;
   color: whitesmoke;
-  font-size: 1.25rem;
+  font-size: 2rem;
   font-weight: 500;
+  text-align: center;
+
 }
 
 .dateInput input {
   border: none;
   padding: 1rem 3rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  outline: none;
 }
 .totalPriceContainer {
-  font-size: 1.45rem;
+  font-size: 2rem;
   font-weight: 600;
   margin: 1rem 0;
 }
@@ -89,17 +123,39 @@
 }
 .inputFields {
   padding: 1rem 0;
+  width: 100%;
 }
 .inputFields input {
   width: 100%;
   padding: 1rem;
-  border-radius: 1rem;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
 }
 .inputFields button {
   border: none;
-  padding: 1rem 6.5rem;
-  background-color: rgb(233, 200, 86);
-  border-radius: 1.5rem;
+  padding: 1rem 2.5rem;
+  background-color: #163474;
+  border-radius: 0.5rem;
   color: white;
-  font-weight: 800;
+  font-weight: bold;
+  width: 20rem;
+  text-align: center;
+  margin-left: 7rem;
+  margin-top: 3rem;
+}
+.picker-text{
+  margin-left: 2rem;
+}
+.Price-Container{
+  font-weight:500
+}
+.error{
+  color:red;
+  margin-left: 5px;
+  font-size: small;
+  margin-top: 5px;
+}
+.whiteClass{
+  color: white;
+
 }

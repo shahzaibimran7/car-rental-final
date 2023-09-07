@@ -13,7 +13,7 @@ const CarDetailCard = ({ rate = 200 }) => {
   const validationSchema = Yup.object().shape({
     name: Yup.string().required('Name is required'),
     email: Yup.string().email('Invalid email').required('Email is required'),
-    phone: Yup.number(),
+    phone: Yup.number().required('Phone is required'),
     note: Yup.string(),
   })
 
@@ -60,7 +60,7 @@ const CarDetailCard = ({ rate = 200 }) => {
     <>
       <div className="CardContainer">
         <div className="header">
-          <div className="Price Container">{rate} AED/Day</div>
+          <div className="Price-Container">{rate} AED/Day</div>
           <div className="reviewContainer">
             <span>
               <FontAwesomeIcon icon={faStar} color="#ffb21d" />
@@ -112,7 +112,9 @@ const CarDetailCard = ({ rate = 200 }) => {
               </div>
               <div className="border">
                 <label htmlFor="picktime" className="text">
-                  <i className="fa-regular fa-calendar-days "></i> &nbsp; Pick-up <b>*</b>
+                  <div className='picker-text'>
+                  <i className="fa-regular fa-calendar-days" ></i> &nbsp; Pick-up <b>*</b>
+                  </div>
                 </label>
                 <div className="dateInput">
                   <input id="picktime" value={pickTime} onChange={handlePickTime} type="date"></input>
@@ -120,7 +122,9 @@ const CarDetailCard = ({ rate = 200 }) => {
               </div>
               <div className="box-form__car-time">
                 <label htmlFor="droptime" className="text">
-                  <i className="fa-regular fa-calendar-days "></i> &nbsp; Drop-of <b>*</b>
+                  <div className='picker-text'>
+                  <i className="fa-regular fa-calendar-days "></i> &nbsp; Drop-off <b>*</b>
+                  </div>
                 </label>
                 <div className="dateInput">
                   <input id="droptime" value={dropTime} onChange={handleDropTime} type="date"></input>
@@ -143,15 +147,22 @@ const CarDetailCard = ({ rate = 200 }) => {
                 <div className="inquiryComponent">
                   <div className="inputFields">
                     <Field type="text" name="name" placeholder="Name*" required />
+                    <div style={{display:"flex"}}>
                     <ErrorMessage name="name" component="div" className="error" />
-                  </div>
+                    <span className={`${touched.name && errors.name ? "error" : "whiteClass"}`}>*</span>
+                    </div>                  </div>
                   <div className="inputFields">
                     <Field type="email" name="email" placeholder="Email*" required />
+                    <div style={{display:"flex"}}>
                     <ErrorMessage name="email" component="div" className="error" />
-                  </div>
+                    <span className={`${touched.email && errors.email ? "error" : "whiteClass"}`}>*</span>
+                    </div>                  </div>
                   <div className="inputFields">
                     <Field type="number" name="phone" placeholder="Phone" />
+                    <div style={{display:"flex"}}>
                     <ErrorMessage name="phone" component="div" className="error" />
+                    <span className={`${touched.phone && errors.phone ? "error" : "whiteClass"}`}>*</span>
+                    </div>
                   </div>
                   <div className="inputFields">
                     <Field type="text" name="note" placeholder="Note" />
@@ -165,6 +176,7 @@ const CarDetailCard = ({ rate = 200 }) => {
           </Formik>
         )}
       </div>
+      
     </>
   )
 }

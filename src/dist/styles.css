@@ -2084,4 +2084,32 @@ footer {
 .contact-div__form form button:hover {
   box-shadow: 0 10px 15px 0 rgba(255, 83, 48, 0.6);
   background-color: #fa4226;
-}/*# sourceMappingURL=styles.css.map */
+}
+.br-margin {
+  display: block; /* Ensures <span> is rendered as a block element */
+  margin-top: 10px; /* Add desired top margin */
+  margin-bottom: 10px; /* Add desired bottom margin */
+}
+.horizontal-line {
+  width: 64%; /* Adjust this value to set the width of the horizontal line */
+  border-top: 2px solid gray; /* Adjust the color and thickness as needed */
+  opacity: 0.15;
+}
+.details-class{
+margin-top: 6rem;
+margin-left: 2rem;
+}
+.carousel{
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+.label-class{
+  margin-top: 12rem;
+  font-size: 32px;
+  margin-left: 4rem;
+}
+.parent-carousel{
+  display: flex;
+}

@@ -7,6 +7,7 @@ import CarImg3 from "../images/cars-big/toyota-box.png";
 import CarImg4 from "../images/cars-big/bmw-box.png";
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import CarDetailCard from './CarDetailsCard/CarDetailsCard';
 const carData = [
     {
       name: "Audi A1",
@@ -53,6 +54,7 @@ const CarDetails = () => {
     {car && ( 
       <div className='details-class'>
       <h1 className='label-class'>{car.name}</h1>
+      <div className='parent-carousel'>
       <div className='carousel'>
         <Carousel showThumbs={true} width={800}>
           <div>
@@ -68,6 +70,8 @@ const CarDetails = () => {
             <img src="https://unsplash.it/640/425?image=50" alt="3" />
           </div>
         </Carousel>
+        <CarDetailCard/>
+      </div>
       </div>
       <div className='horizontal-line'>
       </div>
@@ -86,7 +90,7 @@ const CarDetails = () => {
       <h2 style={{marginTop:"4rem", marginBottom:"2rem",fontSize:"32px",marginLeft:"2rem"}}>
       <span>{car.name} </span>For Rent in Dubai
       </h2>
-      <p style={{width:"64%",fontSize:"16px",marginLeft:"2rem"}}>
+      <p style={{width:"85%",fontSize:"16px",marginLeft:"2rem"}}>
         55 Car Rental LLC in Dubai offers an extensive selection of the latest model <span style={{fontWeight: 'bold'}}>{car.name}</span> car available for self-drive rentals in Dubai.
         These luxury vehicles are perfect for special occasions, allowing you to experience the exhilaration of driving a supercar on the open roads of Dubai. 
         Renting a <span style={{fontWeight: 'bold'}}>{car.name} </span>in Dubai provides an opportunity to indulge in one of the most prestigious sports car brands ever created.<span className='br-margin'></span> 
@@ -100,9 +104,10 @@ const CarDetails = () => {
       <h2 style={{marginTop:"4rem", marginBottom:"2rem",fontSize:"32px",marginLeft:"2rem"}}>
       <span>{car.name} </span>For Rent in Dubai Requirements
       </h2>
-      <p style={{width:"64%",fontSize:"16px",marginLeft:"2rem"}}>It's a straightforward and hassle-free process. However, it's essential to prepare the necessary documents for a smooth rental experience. Depending on your residency status, different sets of documents are required from tourists and UAE residents.</p>
+      <p style={{width:"85%",fontSize:"16px",marginLeft:"2rem"}}>It's a straightforward and hassle-free process. However, it's essential to prepare the necessary documents for a smooth rental experience. Depending on your residency status, different sets of documents are required from tourists and UAE residents.</p>
       <span className='br-margin'></span>
-  <h3 style={{width:"64%",fontSize:"16px",marginLeft:"2rem"}}>For Tourists:</h3>
+      <div style={{marginLeft:"2rem"}}>
+  <h3 style={{width:"64%",fontSize:"16px",marginLeft:"2rem",marginTop:"1rem"}}>For Tourists:</h3>
   <ul style={{width:"64%",fontSize:"16px",marginLeft:"2rem"}}>
     <li>Passport</li>
     <li>Driving License from their home country</li>
@@ -112,14 +117,14 @@ const CarDetails = () => {
 
   <p style={{width:"64%",fontSize:"16px",marginLeft:"2rem"}}>Please note that visitors from certain countries, such as the GCC, US, UK, Canada, and Europe, may drive with their home country's driving license without needing an IDP.</p>
   <span className='br-margin'></span>
-  <h3 style={{width:"64%",fontSize:"16px",marginLeft:"2rem"}}>For UAE Residents:</h3>
+  <h3 style={{width:"64%",fontSize:"16px",marginLeft:"2rem",marginTop:"1rem"}}>For UAE Residents:</h3>
   <ul style={{width:"64%",fontSize:"16px",marginLeft:"2rem"}}>
     <li>A copy of your passport</li>
     <li>Emirates ID</li>
     <li>UAE driving license</li>
   </ul>
-
-  <p style={{width:"64%",fontSize:"16px",marginLeft:"2rem"}}>By preparing these documents in advance, you'll be ready to cruise around Dubai in style with the Ferrari 488. Don't miss the chance to feel the thrill of driving a luxury car in one of the most glamorous cities in the world. Renting a Ferrari 488 in Dubai has never been easier, so book now and enjoy the ride!</p>
+  </div>
+  <p style={{width:"85%",fontSize:"16px",marginLeft:"2rem",marginTop:"1rem"}}>By preparing these documents in advance, you'll be ready to cruise around Dubai in style with the Ferrari 488. Don't miss the chance to feel the thrill of driving a luxury car in one of the most glamorous cities in the world. Renting a Ferrari 488 in Dubai has never been easier, so book now and enjoy the ride!</p>
 
       <Footer />
     </div>
