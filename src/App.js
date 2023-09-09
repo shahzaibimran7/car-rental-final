@@ -8,11 +8,14 @@ import TestimonialsPage from './Pages/TestimonialsPage'
 import Team from './Pages/Team'
 import Contact from './Pages/Contact'
 import CarDetails from './components/CarDetails'
+import { SignIn } from './Pages/SignIn'
+import Signup from './components/Signup/Signup'
+import Login from './components/LoginForm/Login'
 
 function App() {
   return (
     <>
-      <Navbar />
+      {/* <Navbar />
       <Routes>
         <Route index path="/" element={<Home />} />
         <Route path="about" element={<About />} />
@@ -21,9 +24,14 @@ function App() {
         <Route path="testimonials" element={<TestimonialsPage />} />
         <Route path="team" element={<Team />} />
         <Route path="contact" element={<Contact />} />
-      </Routes>
+        <Route path="login" element={<SignIn/>} />
+        <Route path="signUp" element={<SignUp/>} />
+      </Routes> */}
       {/* <DatePickerRange /> */}
       {/* <CarDetailCard /> */}
+      {/* <Signup /> */}
+      {/* <Login /> */}
+      <Signup />
     </>
   )
 }
