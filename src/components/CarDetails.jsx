@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import Footer from "../components/Footer";
 import { useParams } from "react-router-dom";
 import CarImg1 from "../images/cars-big/audi-box.png";
