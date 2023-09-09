@@ -8,7 +8,6 @@ const CarDetailCard = ({ rate = 200 }) => {
   const [pickTime, setPickTime] = useState('')
   const [dropTime, setDropTime] = useState('')
   const [dateRange, setDateRange] = useState('')
-  const [inquiry, setInquiry] = useState(false)
   const [book, setBook] = useState(true)
   const validationSchema = Yup.object().shape({
     name: Yup.string().required('Name is required'),
@@ -37,8 +36,6 @@ const CarDetailCard = ({ rate = 200 }) => {
         const timeDifference = dropDate - pickDate
         const dayDifference = timeDifference / (1000 * 60 * 60 * 24)
         setDateRange(dayDifference)
-
-        console.log(dayDifference)
       } else {
         setDateRange('')
       }
@@ -55,6 +52,19 @@ const CarDetailCard = ({ rate = 200 }) => {
     console.log(dropTime)
   }
 
+  function validateDay() {
+    var dtToday = new Date()
+
+    var month = dtToday.getMonth() + 1
+    var day = dtToday.getDate()
+    var year = dtToday.getFullYear()
+    if (month < 10) month = '0' + month.toString()
+    if (day < 10) day = '0' + day.toString()
+    var maxDate = year + '-' + month + '-' + day
+    return maxDate
+  }
+  const disableButton = pickTime === '' || dropTime === ''
+
   const Locations = ['United Arab Emirates', 'Dubai,United Arab Emirates']
   return (
     <>
@@ -70,7 +80,7 @@ const CarDetailCard = ({ rate = 200 }) => {
           </div>
         </div>
         <div className="ButtonContainer">
-          <div>
+          {/* <div>
             <button
               onClick={() => {
                 setBook(true)
@@ -91,7 +101,7 @@ const CarDetailCard = ({ rate = 200 }) => {
             >
               Inquiry
             </button>
-          </div>
+          </div> */}
         </div>
         {book && (
           <div>
@@ -112,22 +122,22 @@ const CarDetailCard = ({ rate = 200 }) => {
               </div>
               <div className="border">
                 <label htmlFor="picktime" className="text">
-                  <div className='picker-text'>
-                  <i className="fa-regular fa-calendar-days" ></i> &nbsp; Pick-up <b>*</b>
+                  <div className="picker-text">
+                    <i className="fa-regular fa-calendar-days"></i> &nbsp; Pick-up <b>*</b>
                   </div>
                 </label>
                 <div className="dateInput">
-                  <input id="picktime" value={pickTime} onChange={handlePickTime} type="date"></input>
+                  <input id="picktime" value={pickTime} onChange={handlePickTime} min={validateDay()} type="date"></input>
                 </div>
               </div>
               <div className="box-form__car-time">
                 <label htmlFor="droptime" className="text">
-                  <div className='picker-text'>
-                  <i className="fa-regular fa-calendar-days "></i> &nbsp; Drop-off <b>*</b>
+                  <div className="picker-text">
+                    <i className="fa-regular fa-calendar-days "></i> &nbsp; Drop-off <b>*</b>
                   </div>
                 </label>
                 <div className="dateInput">
-                  <input id="droptime" value={dropTime} onChange={handleDropTime} type="date"></input>
+                  <input id="droptime" value={dropTime} onChange={handleDropTime} min={pickTime} type="date" disabled={pickTime === ''}></input>
                 </div>
               </div>
             </div>
@@ -136,11 +146,13 @@ const CarDetailCard = ({ rate = 200 }) => {
                 <div>Total</div>
                 <div>{dateRange * rate} AED</div>
               </div>
-              <button>Book now</button>
+              <button disabled={disableButton} style={{ backgroundColor: disableButton ? 'gray' : '#163474' }}>
+                Book now
+              </button>
             </div>
           </div>
         )}{' '}
-        {inquiry && (
+        {/* {inquiry && (
           <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={handleSubmit}>
             {({ touched, errors }) => (
               <Form>
@@ -174,9 +186,8 @@ const CarDetailCard = ({ rate = 200 }) => {
               </Form>
             )}
           </Formik>
-        )}
+        )} */}
       </div>
-      
     </>
   )
 }
