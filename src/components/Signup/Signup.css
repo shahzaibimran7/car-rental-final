@@ -1,0 +1,54 @@
+.login_Root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  background-image: url('../../images//carspic//bg.jpg');
+  background-size: cover; 
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: -1;
+}
+.form_Input_Container_s {
+  margin-top: 10%;
+  border: 2px solid black;
+  border-radius: 3rem;
+  height: 70vh;
+  width: 20vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10rem;
+  background-image: linear-gradient(to bottom, #0b2a52 0%, #6087a5 100%);
+
+  z-index: 2;
+}
+.padd_Login {
+  margin: 1rem 0rem;
+}
+.heading {
+  color: rgb(255, 255, 255);
+  font-size: 2rem;
+}
+.login_Button button {
+  color: rgb(255, 255, 255);
+  border: none;
+  background-color: #163474;
+  padding: 1rem 4rem;
+  border-radius: 0.4rem;
+}
+.inputField {
+  padding: 0.5rem 1rem;
+  border-radius: 0.4rem;
+}
+.err {
+  color: red;
+}
+.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
