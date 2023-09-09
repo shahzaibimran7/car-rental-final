@@ -2108,3 +2108,29 @@ margin-left: 2rem;
 .parent-carousel{
   display: flex;
 }
+.table-container {
+  margin-top: 10%;
+  background-color: whitesmoke;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 12px 15px;
+  text-align: left;
+}
+
+thead {
+  background-color:  #163474;
+  color: #fff;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #3498db;
+  color:white
+}

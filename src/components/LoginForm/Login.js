@@ -1,7 +1,7 @@
 import { Formik, ErrorMessage, Field, Form } from 'formik'
 import * as Yup from 'yup'
-// import image from '../../images/carspic/bg'
 import './Login.css'
+import { LoginUser } from '../../services/admin-api-services'
 const Login = () => {
   const initialValues = {
     email: '',
@@ -10,17 +10,21 @@ const Login = () => {
   const validationSchema = Yup.object({
     email: Yup.string().email().required('Email is Required'),
     pass: Yup.string()
-      .matches(/^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{2,}$/, 'Password must contain one upper-case letter and a number')
       .required('Password is Required'),
   })
-  const onsubmit = values => {
-    // Handle form submission here, e.g., send data to the server
-    console.log(values)
+  const onSubmit = async (values) => {
+    const userData={
+      email:values.email,
+      password:values.pass
+    }
+    const response = await LoginUser(userData)
+    localStorage.setItem('token', response.token)
+    console.log(response.message)
   }
   return (
     <div className="login_Root">
       <div className="form_Input_Container">
-        <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onsubmit}>
+        <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
           <Form className="center">
             <div className="padd_Login">
               <h1 className="heading">Login Page</h1>
