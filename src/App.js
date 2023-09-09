@@ -24,8 +24,6 @@ function App() {
         <Route path="contact" element={<Contact />} />
         <Route path="bookings" element={<BookingsDashboard/>} />
       </Routes>
-      {/* <DatePickerRange /> */}
-      {/* <CarDetailCard /> */}
     </>
   )
 }

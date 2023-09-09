@@ -8,7 +8,8 @@ function Navbar() {
   const openNav = () => {
     setNav(!nav);
   };
-
+  const [login, setLogin] = useState(true);
+  const isLoggedIn = localStorage.getItem("token");
   return (
     <>
       <nav>
@@ -48,6 +49,13 @@ function Navbar() {
                 Contact
               </Link>
             </li>
+            {login && (
+              <li>
+                <Link onClick={openNav} to="/bookings">
+                  Bookings
+                </Link>
+              </li>
+            )}
           </ul>
         </div>
 
@@ -95,6 +103,13 @@ function Navbar() {
                 Contact
               </Link>
             </li>
+            {login && (
+              <li>
+                <Link onClick={openNav} to="/bookings">
+                  Bookings
+                </Link>
+              </li>
+            )}
           </ul>
           <div className="navbar__buttons">
             <Link className="navbar__buttons__sign-in" to="/">
@@ -111,7 +126,7 @@ function Navbar() {
           </div>
         </div>
       </nav>
-      <Outlet/>
+      <Outlet />
     </>
   );
 }
