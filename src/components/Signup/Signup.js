@@ -28,7 +28,7 @@ const Signup = () => {
         <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onsubmit}>
           <Form className="center">
             <div className="padd_Login">
-              <h1 className="heading">Signup Page</h1>
+              <h1 className="heading">Create Admin</h1>
             </div>
             <div className="padd_Login">
               <Field className="inputField" type="text" placeholder="FirstName" name="firstname" id="fName" />
