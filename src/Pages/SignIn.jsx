@@ -1,7 +1,10 @@
 import React from 'react'
+import Login from '../components/LoginForm/Login'
 
 export const SignIn = () => {
   return (
-    <div>SignIn</div>
+    <div>
+      <Login />
+    </div>
   )
 }
