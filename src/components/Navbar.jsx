@@ -105,9 +105,7 @@ function Navbar() {
             </li>
             {login && (
               <li>
-                <Link onClick={openNav} to="/bookings">
-                  Bookings
-                </Link>
+                <Link to="/bookings">Bookings</Link>
               </li>
             )}
           </ul>
