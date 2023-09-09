@@ -9,12 +9,13 @@ import Team from './Pages/Team'
 import Contact from './Pages/Contact'
 import CarDetails from './components/CarDetails'
 import { SignIn } from './Pages/SignIn'
-import SignUp from './Pages/SignUp'
+import Signup from './components/Signup/Signup'
+import Login from './components/LoginForm/Login'
 
 function App() {
   return (
     <>
-      <Navbar />
+      {/* <Navbar />
       <Routes>
         <Route index path="/" element={<Home />} />
         <Route path="about" element={<About />} />
@@ -25,9 +26,12 @@ function App() {
         <Route path="contact" element={<Contact />} />
         <Route path="login" element={<SignIn/>} />
         <Route path="signUp" element={<SignUp/>} />
-      </Routes>
+      </Routes> */}
       {/* <DatePickerRange /> */}
       {/* <CarDetailCard /> */}
+      {/* <Signup /> */}
+      {/* <Login /> */}
+      <Signup />
     </>
   )
 }
