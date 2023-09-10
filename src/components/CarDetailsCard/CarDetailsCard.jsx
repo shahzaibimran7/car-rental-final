@@ -1,6 +1,5 @@
 import "./CarDetailsCard.css";
 import { useEffect, useState } from "react";
-import { Formik, Form, Field, ErrorMessage } from "formik";
 
 import * as Yup from "yup";
 const CarDetailCard = (props) => {
@@ -10,25 +9,6 @@ const CarDetailCard = (props) => {
   const [book, setBook] = useState(true);
   const [pickUp, setPickUp] = useState("");
   const [dropOff, setDropOff] = useState("");
-
-  const validationSchema = Yup.object().shape({
-    name: Yup.string().required("Name is required"),
-    email: Yup.string().email("Invalid email").required("Email is required"),
-    phone: Yup.number().required("Phone is required"),
-    note: Yup.string(),
-  });
-
-  const handleSubmit = (values, { resetForm }) => {
-    // Handle form submission here
-    resetForm();
-  };
-
-  const initialValues = {
-    name: "",
-    email: "",
-    phone: "",
-    note: "",
-  };
   useEffect(() => {
     const calculateDateRange = () => {
       if (pickTime && dropTime) {
@@ -85,30 +65,7 @@ const CarDetailCard = (props) => {
             {/* <span>(10 Review)</span> */}
           </div>
         </div>
-        <div className="ButtonContainer">
-          {/* <div>
-            <button
-              onClick={() => {
-                setBook(true)
-                setInquiry(false)
-              }}
-              id={`${book ? 'btn-1' : ''}`}
-            >
-              Book
-            </button>
-          </div>
-          <div>
-            <button
-              onClick={() => {
-                setInquiry(true)
-                setBook(false)
-              }}
-              id={`${inquiry ? 'btn-1' : ''}`}
-            >
-              Inquiry
-            </button>
-          </div> */}
-        </div>
+        <div className="ButtonContainer"></div>
         {book && (
           <div>
             <div className="bodyComponent">
@@ -203,41 +160,6 @@ const CarDetailCard = (props) => {
             </div>
           </div>
         )}{" "}
-        {/* {inquiry && (
-          <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={handleSubmit}>
-            {({ touched, errors }) => (
-              <Form>
-                <div className="inquiryComponent">
-                  <div className="inputFields">
-                    <Field type="text" name="name" placeholder="Name*" required />
-                    <div style={{display:"flex"}}>
-                    <ErrorMessage name="name" component="div" className="error" />
-                    <span className={`${touched.name && errors.name ? "error" : "whiteClass"}`}>*</span>
-                    </div>                  </div>
-                  <div className="inputFields">
-                    <Field type="email" name="email" placeholder="Email*" required />
-                    <div style={{display:"flex"}}>
-                    <ErrorMessage name="email" component="div" className="error" />
-                    <span className={`${touched.email && errors.email ? "error" : "whiteClass"}`}>*</span>
-                    </div>                  </div>
-                  <div className="inputFields">
-                    <Field type="number" name="phone" placeholder="Phone" />
-                    <div style={{display:"flex"}}>
-                    <ErrorMessage name="phone" component="div" className="error" />
-                    <span className={`${touched.phone && errors.phone ? "error" : "whiteClass"}`}>*</span>
-                    </div>
-                  </div>
-                  <div className="inputFields">
-                    <Field type="text" name="note" placeholder="Note" />
-                  </div>
-                  <div className="inputFields">
-                    <button type="submit">Send</button>
-                  </div>
-                </div>
-              </Form>
-            )}
-          </Formik>
-        )} */}
       </div>
     </>
   );

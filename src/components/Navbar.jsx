@@ -8,8 +8,8 @@ function Navbar() {
   const openNav = () => {
     setNav(!nav);
   };
-  const [login, setLogin] = useState(true);
   const isLoggedIn = localStorage.getItem("token");
+  const admin = localStorage.getItem("role") === "ADMIN";
   return (
     <>
       <nav>
@@ -49,7 +49,7 @@ function Navbar() {
                 Contact
               </Link>
             </li>
-            {login && (
+            {admin && (
               <li>
                 <Link onClick={openNav} to="/bookings">
                   Bookings
@@ -103,16 +103,29 @@ function Navbar() {
                 Contact
               </Link>
             </li>
-            {login && (
+            {admin && (
               <li>
                 <Link to="/bookings">Bookings</Link>
               </li>
             )}
           </ul>
           <div className="navbar__buttons">
-            <Link className="navbar__buttons__sign-in" to="/login">
-              Sign In
-            </Link>
+            {isLoggedIn ? (
+              <Link
+                className="navbar__buttons__sign-in"
+                onClick={() => {
+                  localStorage.removeItem("token");
+                  window.location.reload();
+                }}
+                to="/"
+              >
+                Sign Out
+              </Link>
+            ) : (
+              <Link className="navbar__buttons__sign-in" to="/login">
+                Sign In
+              </Link>
+            )}
             <Link className="navbar__buttons__register" to="/signUp">
               Register
             </Link>
