@@ -8,6 +8,9 @@ import TestimonialsPage from './Pages/TestimonialsPage'
 import Team from './Pages/Team'
 import Contact from './Pages/Contact'
 import CarDetails from './components/CarDetails'
+import BookingsDashboard from './Pages/BookingsDashboard'
+import { SignIn } from './Pages/SignIn'
+import CreateAdmin from './Pages/SignUp'
 
 function App() {
   return (
@@ -21,9 +24,10 @@ function App() {
         <Route path="testimonials" element={<TestimonialsPage />} />
         <Route path="team" element={<Team />} />
         <Route path="contact" element={<Contact />} />
+        <Route path="bookings" element={<BookingsDashboard/>} />
+        <Route path="login" element={<SignIn/>} />
+        <Route path="signUp" element={<CreateAdmin/>} />
       </Routes>
-      {/* <DatePickerRange /> */}
-      {/* <CarDetailCard /> */}
     </>
   )
 }
