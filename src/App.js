@@ -11,20 +11,24 @@ import CarDetails from "./components/CarDetails";
 import BookingsDashboard from "./Pages/BookingsDashboard";
 import { SignIn } from "./Pages/SignIn";
 import CreateAdmin from "./Pages/SignUp";
+import AddCar from "./Pages/AddCar";
 
 function App() {
+  const admin = localStorage.getItem("role") === "ADMIN";
   return (
     <>
       <Navbar />
-      <div className="floating-whatsapp">
-        <a
-          href="https://wa.me/971545505407"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <i className="fa fa-whatsapp" id="whatsapp-float" />{" "}
-        </a>
-      </div>
+      {!admin && (
+        <div className="floating-whatsapp">
+          <a
+            href="https://wa.me/971545505407"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i className="fa fa-whatsapp" id="whatsapp-float" />{" "}
+          </a>
+        </div>
+      )}
 
       <Routes>
         <Route index path="/" element={<Home />} />
@@ -37,6 +41,7 @@ function App() {
         <Route path="bookings" element={<BookingsDashboard />} />
         <Route path="login" element={<SignIn />} />
         <Route path="signUp" element={<CreateAdmin />} />
+        <Route path="create-car" element={<AddCar />} />
       </Routes>
     </>
   );

@@ -40,11 +40,6 @@ function Navbar() {
               </Link>
             </li>
             <li>
-              <Link onClick={openNav} to="/team">
-                Our Team
-              </Link>
-            </li>
-            <li>
               <Link onClick={openNav} to="/contact">
                 Contact
               </Link>
@@ -53,6 +48,13 @@ function Navbar() {
               <li>
                 <Link onClick={openNav} to="/bookings">
                   Bookings
+                </Link>
+              </li>
+            )}
+            {admin && (
+              <li>
+                <Link onClick={openNav} to="/create-car">
+                  Add Car
                 </Link>
               </li>
             )}
@@ -93,12 +95,6 @@ function Navbar() {
             </li>
             <li>
               {" "}
-              <Link className="team-link" to="/team">
-                Our Team
-              </Link>
-            </li>
-            <li>
-              {" "}
               <Link className="contact-link" to="/contact">
                 Contact
               </Link>
@@ -106,6 +102,11 @@ function Navbar() {
             {admin && (
               <li>
                 <Link to="/bookings">Bookings</Link>
+              </li>
+            )}
+            {admin && (
+              <li>
+                <Link to="/create-car">Add Car</Link>
               </li>
             )}
           </ul>

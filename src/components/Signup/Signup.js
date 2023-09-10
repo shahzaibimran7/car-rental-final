@@ -111,11 +111,7 @@ const Signup = () => {
             <div className="login_Button padd_Login">
               <button type="submit">Signup</button>
             </div>
-            <div className="login_Button padd_Login">
-              {/* <button>
-                <Link to={'/Signup_Page'}>Goto Signup</Link>
-              </button> */}
-            </div>
+            <div className="login_Button padd_Login"></div>
           </Form>
         </Formik>
       </div>
