@@ -8,11 +8,13 @@ import Testimonials from "../components/Testimonials";
 import Faq from "../components/Faq";
 import Download from "../components/Download";
 import Footer from "../components/Footer";
+import BookingModal from "../components/BookingModal";
 
 function Home() {
   return (
     <>
       <Hero />
+      <BookingModal/>
       <BookCar />
       <PlanTrip />
       <PickCar />

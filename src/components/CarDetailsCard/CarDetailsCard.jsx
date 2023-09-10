@@ -1,12 +1,18 @@
-import "./CarDetailsCard.css";
-import { useEffect, useState } from "react";
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as Yup from "yup";
-const CarDetailCard = ({ rate = 200 }) => {
-  const [pickTime, setPickTime] = useState("");
-  const [dropTime, setDropTime] = useState("");
-  const [dateRange, setDateRange] = useState("");
-  const [book, setBook] = useState(true);
+import './CarDetailsCard.css'
+import { useEffect, useState } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faStar } from '@fortawesome/free-solid-svg-icons'
+import { Formik, Form, Field, ErrorMessage } from 'formik'
+
+import * as Yup from 'yup'
+const CarDetailCard = (props) => {
+  const [pickTime, setPickTime] = useState('')
+  const [dropTime, setDropTime] = useState('')
+  const [dateRange, setDateRange] = useState('')
+  const [book, setBook] = useState(true)
+  const [pickUp, setPickUp] = useState('');
+  const [dropOff, setDropOff] = useState('');
+
   const validationSchema = Yup.object().shape({
     name: Yup.string().required("Name is required"),
     email: Yup.string().email("Invalid email").required("Email is required"),
@@ -68,7 +74,7 @@ const CarDetailCard = ({ rate = 200 }) => {
     <>
       <div className="CardContainer">
         <div className="header">
-          <div className="Price-Container">{rate} AED/Day</div>
+          <div className="Price-Container">{props.rate} AED/Day</div>
           <div className="reviewContainer">
             <span>
               <i
@@ -110,10 +116,24 @@ const CarDetailCard = ({ rate = 200 }) => {
             <div className="bodyComponent">
               <div className="border">
                 <label htmlFor="" className="text">
-                  Location
+                  Pick Up Location
                 </label>
                 <div className="selectLocations">
-                  <select>
+                  <select value={pickUp} onChange={(e) => setPickUp(e.target.value)}>
+                    {Locations.map((ele, index) => (
+                      <option key={index} value={ele}>
+                        {ele}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+              <div className="border" style={{ marginTop: "24px" }}>
+                <label htmlFor="" className="text">
+                  Drop off Location
+                </label>
+                <div className="selectLocations">
+                  <select value={dropOff} onChange={(e) => setDropOff(e.target.value)}>
                     {Locations.map((ele, index) => (
                       <option key={index} value={ele}>
                         {ele}
@@ -161,17 +181,23 @@ const CarDetailCard = ({ rate = 200 }) => {
             <div className="footer">
               <div className="totalPriceContainer">
                 <div>Total</div>
-                <div>{dateRange * rate} AED</div>
+                <div>{dateRange * props.rate} AED</div>
               </div>
               <button
-                disabled={disableButton}
-                style={{ backgroundColor: disableButton ? "gray" : "#163474" }}
-              >
+                onClick={() => {
+                  props.setShowModal(true)
+                  props.setDropTime(dropTime);
+                  props.setPickTime(pickTime);
+                  props.setPickUp(pickUp);
+                  props.setDropOff(dropOff)
+                }}
+                disabled={disableButton} style={{ backgroundColor: disableButton ? 'gray' : '#163474' }}>
                 Book now
               </button>
             </div>
           </div>
-        )}{" "}
+
+        )}{' '}
         {/* {inquiry && (
           <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={handleSubmit}>
             {({ touched, errors }) => (
