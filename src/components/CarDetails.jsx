@@ -7,6 +7,8 @@ import CarImg4 from "../images/cars-big/bmw-box.png";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import CarDetailCard from "./CarDetailsCard/CarDetailsCard";
+import { useState } from "react";
+import BookingModal from "./BookingModal";
 const carData = [
   {
     name: "Audi A1",
@@ -72,10 +74,32 @@ const carData = [
 const CarDetails = () => {
   const { slug } = useParams();
   const car = carData.find((car) => car.slug === slug);
+  const [showModal, setShowModal] = useState(false);
+  // pickUp === "" ||
+  //     dropOff === "" ||
+  //     pickTime === "" ||
+  //     dropTime === "" ||
+  //     carType === ""
+  const [pickUp, setPickUp] = useState('');
+  const [dropOff, setDropOff] = useState('');
+  const [pickTime, setPickTime] = useState('');
+  const [dropTime, setDropTime] = useState('');
+
+  console.log(showModal);
+
   return (
     <>
       {car && (
         <div className="details-class">
+          {showModal && <BookingModal
+            showModal={showModal}
+            pickUp={pickUp}
+            dropOff={dropOff}
+            pickTime={pickTime}
+            dropTime={dropTime}
+            carType={car.name}
+            imgUrl={car.image}
+          />}
           <h1 className="label-class">{car.name}</h1>
           <div className="parent-carousel">
             <div className="carousel">
@@ -98,7 +122,13 @@ const CarDetails = () => {
                   <img src="https://unsplash.it/640/425?image=50" alt="3" />
                 </div> */}
               </Carousel>
-              <CarDetailCard />
+              <CarDetailCard
+                setShowModal={setShowModal}
+                setPickUp={setPickUp}
+                setDropOff={setDropOff}
+                setDropTime={setDropTime}
+                setPickTime={setPickTime}
+              />
             </div>
           </div>
           <div className="horizontal-line"></div>
