@@ -7,9 +7,9 @@ import Box2 from "../images/about/icon2.png";
 import Box3 from "../images/about/icon3.png";
 
 function About() {
-  const whatsAppLink="https://wa.me/971545505407";
+  const whatsAppLink = "https://wa.me/971545505407";
   const openWhatsApp = () => {
-    window.open(whatsAppLink, '_blank');
+    window.open(whatsAppLink, "_blank");
   };
   return (
     <>
@@ -34,21 +34,26 @@ function About() {
               </p>
               <div className="about-main__text__icons">
                 <div className="about-main__text__icons__box">
-                  <img src={Box1} alt="car-icon" />
+                  <img src={Box1} alt="car-icon" id="about-images" />
                   <span>
                     <h4>20</h4>
                     <p>Car Types</p>
                   </span>
                 </div>
                 <div className="about-main__text__icons__box">
-                  <img src={Box2} alt="car-icon" />
+                  <img src={Box2} alt="car-icon" id="about-images" />
                   <span>
                     <h4>85</h4>
                     <p>Rental Outlets</p>
                   </span>
                 </div>
                 <div className="about-main__text__icons__box">
-                  <img src={Box3} alt="car-icon" className="last-fk" />
+                  <img
+                    src={Box3}
+                    alt="car-icon"
+                    className="last-fk"
+                    id="about-images"
+                  />
                   <span>
                     <h4>75</h4>
                     <p>Repair Shop</p>
@@ -66,7 +71,11 @@ function About() {
           <div className="text-content">
             <h2>Book a car by getting in touch with us</h2>
             <span>
-              <i className="fa fa-whatsapp" style={{color:'#25D366',cursor:'pointer'}} onClick={openWhatsApp}></i>
+              <i
+                className="fa fa-whatsapp"
+                style={{ color: "#25D366", cursor: "pointer" }}
+                onClick={openWhatsApp}
+              ></i>
               <h3>(+971) 54 567 5505</h3>
             </span>
           </div>

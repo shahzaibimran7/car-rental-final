@@ -1,71 +1,69 @@
-import './CarDetailsCard.css'
-import { useEffect, useState } from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faStar } from '@fortawesome/free-solid-svg-icons'
-import { Formik, Form, Field, ErrorMessage } from 'formik'
-import * as Yup from 'yup'
+import "./CarDetailsCard.css";
+import { useEffect, useState } from "react";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
 const CarDetailCard = ({ rate = 200 }) => {
-  const [pickTime, setPickTime] = useState('')
-  const [dropTime, setDropTime] = useState('')
-  const [dateRange, setDateRange] = useState('')
-  const [book, setBook] = useState(true)
+  const [pickTime, setPickTime] = useState("");
+  const [dropTime, setDropTime] = useState("");
+  const [dateRange, setDateRange] = useState("");
+  const [book, setBook] = useState(true);
   const validationSchema = Yup.object().shape({
-    name: Yup.string().required('Name is required'),
-    email: Yup.string().email('Invalid email').required('Email is required'),
-    phone: Yup.number().required('Phone is required'),
+    name: Yup.string().required("Name is required"),
+    email: Yup.string().email("Invalid email").required("Email is required"),
+    phone: Yup.number().required("Phone is required"),
     note: Yup.string(),
-  })
+  });
 
   const handleSubmit = (values, { resetForm }) => {
     // Handle form submission here
-    resetForm()
-  }
+    resetForm();
+  };
 
   const initialValues = {
-    name: '',
-    email: '',
-    phone: '',
-    note: '',
-  }
+    name: "",
+    email: "",
+    phone: "",
+    note: "",
+  };
   useEffect(() => {
     const calculateDateRange = () => {
       if (pickTime && dropTime) {
-        const pickDate = new Date(pickTime)
-        const dropDate = new Date(dropTime)
-        console.log(pickDate, dropDate)
-        const timeDifference = dropDate - pickDate
-        const dayDifference = timeDifference / (1000 * 60 * 60 * 24)
-        setDateRange(dayDifference)
+        const pickDate = new Date(pickTime);
+        const dropDate = new Date(dropTime);
+        console.log(pickDate, dropDate);
+        const timeDifference = dropDate - pickDate;
+        const dayDifference = timeDifference / (1000 * 60 * 60 * 24);
+        setDateRange(dayDifference);
       } else {
-        setDateRange('')
+        setDateRange("");
       }
-    }
-    calculateDateRange()
-  }, [pickTime, dropTime])
-  const handlePickTime = e => {
-    setPickTime(e.target.value)
-    console.log(pickTime)
-  }
+    };
+    calculateDateRange();
+  }, [pickTime, dropTime]);
+  const handlePickTime = (e) => {
+    setPickTime(e.target.value);
+    console.log(pickTime);
+  };
 
-  const handleDropTime = e => {
-    setDropTime(e.target.value)
-    console.log(dropTime)
-  }
+  const handleDropTime = (e) => {
+    setDropTime(e.target.value);
+    console.log(dropTime);
+  };
 
   function validateDay() {
-    var dtToday = new Date()
+    var dtToday = new Date();
 
-    var month = dtToday.getMonth() + 1
-    var day = dtToday.getDate()
-    var year = dtToday.getFullYear()
-    if (month < 10) month = '0' + month.toString()
-    if (day < 10) day = '0' + day.toString()
-    var maxDate = year + '-' + month + '-' + day
-    return maxDate
+    var month = dtToday.getMonth() + 1;
+    var day = dtToday.getDate();
+    var year = dtToday.getFullYear();
+    if (month < 10) month = "0" + month.toString();
+    if (day < 10) day = "0" + day.toString();
+    var maxDate = year + "-" + month + "-" + day;
+    return maxDate;
   }
-  const disableButton = pickTime === '' || dropTime === ''
+  const disableButton = pickTime === "" || dropTime === "";
 
-  const Locations = ['United Arab Emirates', 'Dubai,United Arab Emirates']
+  const Locations = ["United Arab Emirates", "Dubai,United Arab Emirates"];
   return (
     <>
       <div className="CardContainer">
@@ -73,7 +71,11 @@ const CarDetailCard = ({ rate = 200 }) => {
           <div className="Price-Container">{rate} AED/Day</div>
           <div className="reviewContainer">
             <span>
-              <FontAwesomeIcon icon={faStar} color="#ffb21d" />
+              <i
+                className="fa fa-star"
+                aria-hidden="true"
+                style={{ color: "#ffb21d" }}
+              />
             </span>
             <span>4.9</span>
             {/* <span>(10 Review)</span> */}
@@ -123,21 +125,36 @@ const CarDetailCard = ({ rate = 200 }) => {
               <div className="border">
                 <label htmlFor="picktime" className="text">
                   <div className="picker-text">
-                    <i className="fa-regular fa-calendar-days"></i> &nbsp; Pick-up <b>*</b>
+                    <i className="fa-regular fa-calendar-days"></i> &nbsp;
+                    Pick-up <b>*</b>
                   </div>
                 </label>
                 <div className="dateInput">
-                  <input id="picktime" value={pickTime} onChange={handlePickTime} min={validateDay()} type="date"></input>
+                  <input
+                    id="picktime"
+                    value={pickTime}
+                    onChange={handlePickTime}
+                    min={validateDay()}
+                    type="date"
+                  ></input>
                 </div>
               </div>
               <div className="box-form__car-time">
                 <label htmlFor="droptime" className="text">
                   <div className="picker-text">
-                    <i className="fa-regular fa-calendar-days "></i> &nbsp; Drop-off <b>*</b>
+                    <i className="fa-regular fa-calendar-days "></i> &nbsp;
+                    Drop-off <b>*</b>
                   </div>
                 </label>
                 <div className="dateInput">
-                  <input id="droptime" value={dropTime} onChange={handleDropTime} min={pickTime} type="date" disabled={pickTime === ''}></input>
+                  <input
+                    id="droptime"
+                    value={dropTime}
+                    onChange={handleDropTime}
+                    min={pickTime}
+                    type="date"
+                    disabled={pickTime === ""}
+                  ></input>
                 </div>
               </div>
             </div>
@@ -146,12 +163,15 @@ const CarDetailCard = ({ rate = 200 }) => {
                 <div>Total</div>
                 <div>{dateRange * rate} AED</div>
               </div>
-              <button disabled={disableButton} style={{ backgroundColor: disableButton ? 'gray' : '#163474' }}>
+              <button
+                disabled={disableButton}
+                style={{ backgroundColor: disableButton ? "gray" : "#163474" }}
+              >
                 Book now
               </button>
             </div>
           </div>
-        )}{' '}
+        )}{" "}
         {/* {inquiry && (
           <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={handleSubmit}>
             {({ touched, errors }) => (
@@ -189,7 +209,7 @@ const CarDetailCard = ({ rate = 200 }) => {
         )} */}
       </div>
     </>
-  )
-}
+  );
+};
 
-export default CarDetailCard
+export default CarDetailCard;

@@ -966,7 +966,7 @@ body {
   font-weight: 600;
   color: white;
   font-family: "Poppins", sans-serif;
-  background-color: #ff4d30;
+  background-color: #163474;
   padding: 1rem 1rem;
   display: flex;
   width: 100%;
@@ -2133,4 +2133,30 @@ thead {
 tbody tr:nth-child(even) {
   background-color: #3498db;
   color:white
+}
+
+#whatsapp-float {
+  color: #25d366;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 40px;
+  width: 60px;
+  height: 60px;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 1000;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+/* Media Query for Mobile Devices */
+@media (max-width: 767px) {
+  #whatsapp-float {
+    font-size: 30px; /* Reduce the font size for smaller screens */
+    width: 50px; /* Adjust the button size for smaller screens */
+    height: 50px; /* Adjust the button size for smaller screens */
+    bottom: 20px; /* Adjust the bottom position for smaller screens */
+    right: 20px; /* Adjust the right position for smaller screens */
+  }
 }
