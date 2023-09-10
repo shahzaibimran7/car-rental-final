@@ -44,8 +44,10 @@ function Models() {
   useEffect(() => {
     const uploadImage = async (data) => {
       const response = await AdditionalImage(data);
-      console.log(response);
-      if (response.status === 200) alert("Image uploaded successfully");
+      if (response.status === 201) {
+        alert("Image uploaded successfully");
+        window.location.reload();
+      }
     };
 
     if (selectedImage && selectedImage.carId) {
@@ -110,7 +112,7 @@ function Models() {
                         <i className="fa-solid fa-car-side"></i>
                       </span>
                     </div>
-                    {admin ? (
+                    {!admin ? (
                       <Link
                         to={`/models/${car.id}`}
                         className="models-div__box__descr__name-price__btn"

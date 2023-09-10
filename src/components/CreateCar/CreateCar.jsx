@@ -50,7 +50,7 @@ function CreateCar() {
         onSubmit={handleSubmit}
       >
         {() => (
-          <Form>
+          <Form className="signup-form">
             <div className="form-group">
               <label htmlFor="name">Car Name:</label>
               <Field type="text" name="name" id="carName" />
