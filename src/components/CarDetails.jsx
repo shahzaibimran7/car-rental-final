@@ -1,127 +1,66 @@
 import Footer from "../components/Footer";
 import { useParams } from "react-router-dom";
-import CarImg1 from "../images/cars-big/audi-box.png";
-import CarImg2 from "../images/cars-big/golf6-box.png";
-import CarImg3 from "../images/cars-big/toyota-box.png";
-import CarImg4 from "../images/cars-big/bmw-box.png";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import CarDetailCard from "./CarDetailsCard/CarDetailsCard";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import BookingModal from "./BookingModal";
-const carData = [
-  {
-    name: "Audi A1",
-    image: CarImg1,
-    slug: "audi-a1",
-    price: 45,
-    brand: "Audi",
-    other_images: [
-      "https://unsplash.it/640/425?image=30",
-      "https://unsplash.it/640/425?image=40",
-      "https://unsplash.it/640/425?image=50",
-    ],
-    transmission: "Auto",
-    fuel: "Diesel",
-    doors: "4",
-  },
-  {
-    name: "Mercedes C1",
-    slug: "mercedes-c1",
-    other_images: [
-      "https://unsplash.it/640/425?image=30",
-      "https://unsplash.it/640/425?image=40",
-      "https://unsplash.it/640/425?image=50",
-    ],
-    image: CarImg2,
-    price: 67,
-    brand: "Mercedes",
-    transmission: "Manual",
-    fuel: "Petrol",
-    doors: "5",
-  },
-  {
-    name: "BMW 69",
-    slug: "bmw-69",
-    image: CarImg3,
-    other_images: [
-      "https://unsplash.it/640/425?image=30",
-      "https://unsplash.it/640/425?image=40",
-      "https://unsplash.it/640/425?image=50",
-    ],
-    price: 69,
-    brand: "BMW",
-    transmission: "Auto",
-    fuel: "Petrol",
-    doors: "5",
-  },
-  {
-    name: "Lamborghini 69",
-    image: CarImg4,
-    slug: "lamborghini-69",
-    price: 69,
-    brand: "Lamborghini",
-    transmission: "Manual",
-    other_images: [
-      "https://unsplash.it/640/425?image=30",
-      "https://unsplash.it/640/425?image=40",
-      "https://unsplash.it/640/425?image=50",
-    ],
-    fuel: "Petrol",
-    doors: "5",
-  },
-];
+import { GetCar } from "../services/car-api-services";
 const CarDetails = () => {
-  const { slug } = useParams();
-  const car = carData.find((car) => car.slug === slug);
+  const { id } = useParams();
+  const [car, setCar] = useState([]);
   const [showModal, setShowModal] = useState(false);
-  // pickUp === "" ||
-  //     dropOff === "" ||
-  //     pickTime === "" ||
-  //     dropTime === "" ||
-  //     carType === ""
-  const [pickUp, setPickUp] = useState('');
-  const [dropOff, setDropOff] = useState('');
-  const [pickTime, setPickTime] = useState('');
-  const [dropTime, setDropTime] = useState('');
+  const [pickUp, setPickUp] = useState("");
+  const [dropOff, setDropOff] = useState("");
+  const [pickTime, setPickTime] = useState("");
+  const [dropTime, setDropTime] = useState("");
+  const [extraImages, setExtraImages] = useState([]);
+  const convertImage = (image) => {
+    const imageElement = "data:image/jpeg;base64," + image;
 
+    return imageElement;
+  };
   console.log(showModal);
+  useEffect(() => {
+    const getCarDetails = async () => {
+      const response = await GetCar(id);
+      setCar(response.data);
+      const extraImagesSet = new Set(
+        response.data?.additionalImages.map((img) => img.buffer)
+      );
+      setExtraImages([...extraImagesSet]);
+    };
+    getCarDetails();
+  }, [id]);
 
   return (
     <>
       {car && (
         <div className="details-class">
-          {showModal && <BookingModal
-            showModal={showModal}
-            setShowModal={setShowModal}
-            pickUp={pickUp}
-            dropOff={dropOff}
-            pickTime={pickTime}
-            dropTime={dropTime}
-            carType={car.name}
-            imgUrl={car.image}
-          />}
+          {showModal && (
+            <BookingModal
+              showModal={showModal}
+              setShowModal={setShowModal}
+              pickUp={pickUp}
+              dropOff={dropOff}
+              pickTime={pickTime}
+              dropTime={dropTime}
+              carType={car.name}
+              imgUrl={convertImage(car.image)}
+            />
+          )}
           <h1 className="label-class">{car.name}</h1>
           <div className="parent-carousel">
             <div className="carousel">
               <Carousel showThumbs={true} width={800}>
                 <div>
-                  <img src={car.image} alt={car.name} />
+                  <img src={convertImage(car.image)} alt={car.name} />
                 </div>
-                {car.other_images.map((img, key) => (
+                {extraImages?.map((img, key) => (
                   <div key={key}>
-                    <img src={img} alt={key} />
+                    <img src={convertImage(img)} alt={key} />
                   </div>
                 ))}
-                {/* <div>
-                  <img src="https://unsplash.it/640/425?image=30" alt="1" />
-                </div>
-                <div>
-                  <img src="https://unsplash.it/640/425?image=40" alt="2" />
-                </div>
-                <div>
-                  <img src="https://unsplash.it/640/425?image=50" alt="3" />
-                </div> */}
               </Carousel>
               <CarDetailCard
                 rate={car.price}

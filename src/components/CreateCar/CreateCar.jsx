@@ -13,7 +13,7 @@ const validationSchema = Yup.object().shape({
   doors: Yup.number().required("Number of Doors is required"),
 });
 
-const brands = ["Mercedes", "BMW", "Audi", "Lexus", "Tesla"];
+const brands = ["Mercedes", "BMW", "Audi", "Lexus", "Tesla", "Bentley"];
 const transmissions = ["Automatic", "Manual"];
 const fuelTypes = ["Petrol", "Diesel", "Electric"];
 

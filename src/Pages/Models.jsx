@@ -1,66 +1,80 @@
-import Footer from '../components/Footer'
-import HeroPages from '../components/HeroPages'
-import CarImg1 from '../images/cars-big/audi-box.png'
-import CarImg2 from '../images/cars-big/golf6-box.png'
-import CarImg3 from '../images/cars-big/toyota-box.png'
-import CarImg4 from '../images/cars-big/bmw-box.png'
-import CarImg5 from '../images/cars-big/benz-box.png'
-import CarImg6 from '../images/cars-big/passat-box.png'
-import { Link } from 'react-router-dom'
-
-const carData = [
-  {
-    name: 'Audi A1',
-    image: CarImg1,
-    slug: 'audi-a1',
-    price: 45,
-    brand: 'Audi',
-    transmission: 'Auto',
-    fuel: 'Diesel',
-    doors: '4',
-  },
-  {
-    name: 'Mercedes C1',
-    slug: 'mercedes-c1',
-    image: CarImg2,
-    price: 67,
-    brand: 'Mercedes',
-    transmission: 'Manual',
-    fuel: 'Petrol',
-    doors: '5',
-  },
-  {
-    name: 'BMW 69',
-    slug: 'bmw-69',
-    image: CarImg3,
-    price: 69,
-    brand: 'BMW',
-    transmission: 'Auto',
-    fuel: 'Petrol',
-    doors: '5',
-  },
-  {
-    name: 'Lamborghini 69',
-    image: CarImg4,
-    slug: 'lamborghini-69',
-    price: 69,
-    brand: 'Lamborghini',
-    transmission: 'Manual',
-    fuel: 'Petrol',
-    doors: '5',
-  },
-]
+import Footer from "../components/Footer";
+import HeroPages from "../components/HeroPages";
+import { Link } from "react-router-dom";
+import React, { useEffect, useRef } from "react";
+import { AdditionalImage, GetCars } from "../services/car-api-services";
 function Models() {
+  const [cars, setCars] = React.useState([]);
+  const convertImage = (image) => {
+    const imageElement = "data:image/jpeg;base64," + image;
+
+    return imageElement;
+  };
+  // Step 1: Create a state variable to hold the selected image file
+  const [selectedImage, setSelectedImage] = React.useState(null);
+  const [carId, setCarId] = React.useState(null);
+  // Step 2: Create a ref for the file input element
+  const fileInputRef = useRef(null);
+
+  // Step 3: Handle the image selection and update the state
+  const handleImageChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      setSelectedImage({
+        image: file,
+      });
+    }
+  };
+
+  useEffect(() => {
+    const getAllCars = async () => {
+      const response = await GetCars();
+      setCars(response.data);
+    };
+    getAllCars();
+  }, []);
+  useEffect(() => {
+    if (carId) {
+      setSelectedImage({
+        ...selectedImage,
+        carId: carId,
+      });
+    }
+  }, [carId]);
+  useEffect(() => {
+    const uploadImage = async (data) => {
+      const response = await AdditionalImage(data);
+      console.log(response);
+      if (response.status === 200) alert("Image uploaded successfully");
+    };
+
+    if (selectedImage && selectedImage.carId) {
+      const formData = new FormData();
+      formData.append("image", selectedImage.image);
+      formData.append("carId", selectedImage.carId);
+      uploadImage(formData);
+    }
+  }, [selectedImage]);
+
+  const admin = localStorage.getItem("role") === "ADMIN";
   return (
     <>
       <section className="models-section">
         <HeroPages name="Vehicle Models" />
         <div className="container">
           <div className="models-div">
-            {carData.map((car, index) => (
-              <div className="models-div__box" style={{ borderRadius: '38px' }} key={index}>
+            {cars.map((car, index) => (
+              <div
+                className="models-div__box"
+                style={{ borderRadius: "38px" }}
+                key={index}
+              >
                 <div className="models-div__box__img">
-                  <img src={car.image} alt="car_img" className="car-img" />
+                  <img
+                    src={convertImage(car.image)}
+                    alt="car_img"
+                    className="car-img"
+                  />
                   <div className="models-div__box__descr">
                     <div className="models-div__box__descr__name-price">
                       <div className="models-div__box__descr__name-price__name">
@@ -80,21 +94,52 @@ function Models() {
                     </div>
                     <div className="models-div__box__descr__name-price__details">
                       <span>
-                        <i className="fa-solid fa-car-side"></i> &nbsp; {car.brand}
+                        <i className="fa-solid fa-car-side"></i> &nbsp;{" "}
+                        {car.brand}
                       </span>
-                      <span style={{ textAlign: 'right' }}>
-                        {car.doors}/5 &nbsp; <i className="fa-solid fa-car-side"></i>
+                      <span style={{ textAlign: "right" }}>
+                        {car.doors}/5 &nbsp;{" "}
+                        <i className="fa-solid fa-car-side"></i>
                       </span>
                       <span>
-                        <i className="fa-solid fa-car-side"></i> &nbsp; {car.transmission}
+                        <i className="fa-solid fa-car-side"></i> &nbsp;{" "}
+                        {car.transmission}
                       </span>
-                      <span style={{ textAlign: 'right' }}>
-                        {car.fuel} &nbsp; <i className="fa-solid fa-car-side"></i>
+                      <span style={{ textAlign: "right" }}>
+                        {car.fuel} &nbsp;{" "}
+                        <i className="fa-solid fa-car-side"></i>
                       </span>
                     </div>
-                    <Link to={`/models/${car.slug}`} className="models-div__box__descr__name-price__btn">
-                      Book Ride
-                    </Link>
+                    {admin ? (
+                      <Link
+                        to={`/models/${car.id}`}
+                        className="models-div__box__descr__name-price__btn"
+                      >
+                        Book Ride
+                      </Link>
+                    ) : (
+                      <div
+                        className="models-div__box__descr__name-price__btn"
+                        onClick={() => {
+                          fileInputRef.current.click();
+                        }}
+                      >
+                        <input
+                          type="file"
+                          ref={fileInputRef}
+                          style={{ display: "none" }}
+                          onChange={(event) => {
+                            handleImageChange(event);
+                            setCarId(car.id);
+                          }}
+                        />
+                        <i
+                          className="fa fa-upload"
+                          aria-hidden="true"
+                          id="additional"
+                        ></i>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
@@ -117,7 +162,7 @@ function Models() {
         <Footer />
       </section>
     </>
-  )
+  );
 }
 
-export default Models
+export default Models;

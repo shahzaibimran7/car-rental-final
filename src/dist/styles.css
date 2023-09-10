@@ -2160,3 +2160,10 @@ tbody tr:nth-child(even) {
     right: 20px; /* Adjust the right position for smaller screens */
   }
 }
+.upload-additional{
+  display: flex;
+}
+#additional{
+  margin-left: 2rem;
+ font-size: larger;
+}

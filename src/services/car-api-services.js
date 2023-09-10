@@ -6,7 +6,7 @@ const GetCars = () => {
   return instance.get("getAllCars");
 };
 const GetCar = (id) => {
-  return instance.get(`getCarsById/${id}`);
+  return instance.get(`getAllDetails/${id}`);
 };
 const CreateOneCar = (car) => {
   return instance.post("createCar", car);
@@ -17,4 +17,7 @@ const UpdateCar = (id, car) => {
 const DeleteCar = (id) => {
   return instance.delete(`deleteCarById/${id}`);
 };
-export { GetCars, GetCar, CreateOneCar, UpdateCar, DeleteCar };
+const AdditionalImage = (image) => {
+  return axios.post(`http://localhost:8000/carImage/uploadImage`, image);
+};
+export { GetCars, GetCar, CreateOneCar, UpdateCar, DeleteCar, AdditionalImage };
