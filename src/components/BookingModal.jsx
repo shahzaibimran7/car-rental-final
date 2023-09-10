@@ -30,7 +30,8 @@ const BookingModal = (props) => {
       dropTime === "" ||
       carType === ""
     ) {
-      errorMsg.style.display = "flex";
+      // setModal(false);
+      props.setShowModal(false);
     } else {
       setModal(!modal);
       const modalDiv = document.querySelector(".booking-modal");
@@ -71,11 +72,12 @@ const BookingModal = (props) => {
   const handleZip = (e) => {
     setZipCode(e.target.value);
   };
+
   return (
     <div className={`booking-modal ${modal ? "active-modal" : ""}`}>
       <div className="booking-modal__title">
         <h2>Complete Reservation</h2>
-        <i onClick={openModal} className="fa-solid fa-xmark"></i>
+        <i onClick={(e) => openModal(e)} className="fa-solid fa-xmark"></i>
       </div>
       {/* message */}
       <div className="booking-modal__message">
@@ -265,7 +267,7 @@ const BookingModal = (props) => {
           </span>
 
           <div className="reserve-button">
-            {/* <button onClick={confirmBooking}>Reserve Now</button> */}
+            <button onClick={(e) => e.preventDefault()}>Reserve Now</button>
           </div>
         </form>
       </div>

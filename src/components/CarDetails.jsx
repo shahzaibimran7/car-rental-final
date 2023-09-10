@@ -93,6 +93,7 @@ const CarDetails = () => {
         <div className="details-class">
           {showModal && <BookingModal
             showModal={showModal}
+            setShowModal={setShowModal}
             pickUp={pickUp}
             dropOff={dropOff}
             pickTime={pickTime}
@@ -123,6 +124,7 @@ const CarDetails = () => {
                 </div> */}
               </Carousel>
               <CarDetailCard
+                rate={car.price}
                 setShowModal={setShowModal}
                 setPickUp={setPickUp}
                 setDropOff={setDropOff}

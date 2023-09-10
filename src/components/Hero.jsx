@@ -6,10 +6,6 @@ import { useEffect, useState } from "react";
 function Hero() {
   const [goUp, setGoUp] = useState(false);
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: (0, 0), behavior: "smooth" });
-  };
-
   const bookBtn = () => {
     document
       .querySelector("#booking-section")
@@ -66,14 +62,6 @@ function Hero() {
               className="hero-content__car-img"
             />
           </div>
-        </div>
-
-        {/* page up */}
-        <div
-          onClick={scrollToTop}
-          className={`scroll-up ${goUp ? "show-scroll" : ""}`}
-        >
-          <i className="fa-solid fa-angle-up"></i>
         </div>
       </section>
     </>
