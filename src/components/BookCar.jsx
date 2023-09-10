@@ -97,6 +97,18 @@ function BookCar() {
     doneMsg.style.display = "flex";
   };
 
+  function validateDay() {
+    var dtToday = new Date();
+
+    var month = dtToday.getMonth() + 1;
+    var day = dtToday.getDate();
+    var year = dtToday.getFullYear();
+    if (month < 10) month = "0" + month.toString();
+    if (day < 10) day = "0" + day.toString();
+    var maxDate = year + "-" + month + "-" + day;
+    return maxDate;
+  }
+
   // taking value of booking inputs
   const handleCar = (e) => {
     setCarType(e.target.value);
@@ -232,6 +244,7 @@ function BookCar() {
                     value={pickTime}
                     onChange={handlePickTime}
                     type="date"
+                    min={validateDay()}
                   ></input>
                 </div>
 
@@ -245,6 +258,8 @@ function BookCar() {
                     value={dropTime}
                     onChange={handleDropTime}
                     type="date"
+                    disabled={pickTime === ""}
+                    min={pickTime}
                   ></input>
                 </div>
 

@@ -14,7 +14,6 @@ function Home() {
   return (
     <>
       <Hero />
-      <BookingModal/>
       <BookCar />
       <PlanTrip />
       <PickCar />
