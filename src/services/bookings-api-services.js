@@ -8,7 +8,7 @@ const CreateBooking = (booking) => {
 const GetBookings = () => {
   return instance.get("getAllBooking");
 };
-const UpdateBooking = (id, booking) => {
-  return instance.put(`markBookingDone/${id}`, booking);
+const UpdateBooking = (id) => {
+  return instance.post(`markBookingDone/${id}`);
 };
 export { CreateBooking, GetBookings, UpdateBooking };

@@ -1,6 +1,31 @@
 import React from "react";
+import { GetBookings, UpdateBooking } from "../services/bookings-api-services";
+import { GetCars } from "../services/car-api-services";
+import { useState, useEffect } from "react";
 
 const BookingsDashboard = () => {
+  const [bookings, setBookings] = useState([]);
+  const [cars, setCars] = useState([]);
+  useEffect(() => {
+    const getAllBookings = async () => {
+      const response = await GetBookings();
+      setBookings(response.data);
+    };
+    getAllBookings();
+  }, []);
+  useEffect(() => {
+    const getAllCars = async () => {
+      const response = await GetCars();
+      setCars(response.data);
+    };
+    getAllCars();
+  }, []);
+
+  const activeBookings = bookings?.filter(
+    (booking) => booking.status === "pending" || booking.status === "PENDING"
+  );
+  const carsData = cars?.map((car) => ({ id: car.id, name: car.name }));
+
   return (
     <div className="table-container">
       <table>
@@ -13,33 +38,54 @@ const BookingsDashboard = () => {
             <th>End Date</th>
             <th>Client Contact Number</th>
             <th>Client Address</th>
-            <th>Pickup Location</th>
             <th>Drop-off Location</th>
+            <th>License Number</th>
+            <th>End Booking</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Model 1</td>
-            <td>John Doe</td>
-            <td>johndoe@example.com</td>
-            <td>2023-09-10</td>
-            <td>2023-09-20</td>
-            <td>123-456-7890</td>
-            <td>123 Main St</td>
-            <td>Pickup A</td>
-            <td>Drop-off B</td>
-          </tr>
-          <tr>
-            <td>Model 1</td>
-            <td>John Doe</td>
-            <td>johndoe@example.com</td>
-            <td>2023-09-10</td>
-            <td>2023-09-20</td>
-            <td>123-456-7890</td>
-            <td>123 Main St</td>
-            <td>Pickup A</td>
-            <td>Drop-off B</td>
-          </tr>{" "}
+          {activeBookings?.map((booking) => (
+            <tr>
+              <td>
+                {" "}
+                {carsData?.find((car) => car.id === booking.carId)?.name ||
+                  "N/A"}
+              </td>
+              <td>{booking.firstName + " " + booking.lastName}</td>
+              <td>{booking.email}</td>
+              <td>{booking.pickupDate}</td>
+              <td>{booking.dropOffDate}</td>
+              <td>{booking.phoneNumber}</td>
+              <td>{booking.address}</td>
+              <td>{booking.location}</td>
+              <td>{booking.licenseNumber}</td>
+              <td>
+                <button
+                  title="End Booking"
+                  onClick={async () => {
+                    await UpdateBooking(booking.id);
+                    const response = await GetBookings();
+                    const activeBookings = response.data.filter(
+                      (booking) =>
+                        booking.status === "pending" ||
+                        booking.status === "PENDING"
+                    );
+                    setBookings(activeBookings);
+                  }}
+                >
+                  <i
+                    className="fa fa-archive"
+                    aria-hidden="true"
+                    style={{
+                      color: "red",
+                      cursor: "pointer",
+                      fontSize: "12px",
+                    }}
+                  />
+                </button>
+              </td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>
