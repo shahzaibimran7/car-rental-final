@@ -2099,6 +2099,7 @@ margin-left: 2rem;
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
+  max-height: 40%;
 }
 .label-class{
   margin-top: 12rem;

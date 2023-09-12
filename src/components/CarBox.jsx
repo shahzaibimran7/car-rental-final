@@ -2,16 +2,21 @@ import { useState } from "react";
 
 function CarBox({ data, carID }) {
   const [carLoad, setCarLoad] = useState(true);
+  const convertImage = (image) => {
+    const imageElement = "data:image/jpeg;base64," + image;
+
+    return imageElement;
+  };
   return (
     <>
-      {data[carID].map((car, id) => (
+      {data.map((car, id) => (
         <div key={id} className="box-cars">
           {/* car */}
           <div className="pick-car">
             {carLoad && <span className="loader"></span>}
             <img
               style={{ display: carLoad ? "none" : "block" }}
-              src={car.img}
+              src={convertImage(car.image)}
               alt="car_img"
               onLoad={() => setCarLoad(false)}
             />
@@ -23,20 +28,9 @@ function CarBox({ data, carID }) {
             </div>
             <div className="pick-description__table">
               <div className="pick-description__table__col">
-                <span>Model</span>
-                <span>{car.model}</span>
-              </div>
-
-              <div className="pick-description__table__col">
                 <span>Mark</span>
-                <span>{car.mark}</span>
+                <span>{car.brand}</span>
               </div>
-
-              <div className="pick-description__table__col">
-                <span>Year</span>
-                <span>{car.year}</span>
-              </div>
-
               <div className="pick-description__table__col">
                 <span>Doors</span>
                 <span>{car.doors}</span>
@@ -44,7 +38,7 @@ function CarBox({ data, carID }) {
 
               <div className="pick-description__table__col">
                 <span>AC</span>
-                <span>{car.air}</span>
+                <span>yes</span>
               </div>
 
               <div className="pick-description__table__col">
