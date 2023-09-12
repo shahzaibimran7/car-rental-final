@@ -2166,6 +2166,5 @@ tbody tr:nth-child(even) {
   display: flex;
 }
 #additional{
-  margin-left: 2rem;
  font-size: larger;
 }

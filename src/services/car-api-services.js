@@ -12,10 +12,10 @@ const CreateOneCar = (car) => {
   return instance.post("createCar", car);
 };
 const UpdateCar = (id, car) => {
-  return instance.put(`updateCarById/${id}`, car);
+  return instance.post(`updateCarById/${id}`, car);
 };
 const DeleteCar = (id) => {
-  return instance.delete(`deleteCarById/${id}`);
+  return instance.post(`deleteCarById/${id}`);
 };
 const AdditionalImage = (image) => {
   return axios.post(`http://localhost:8000/carImage/uploadImage`, image);

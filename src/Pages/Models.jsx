@@ -2,7 +2,11 @@ import Footer from "../components/Footer";
 import HeroPages from "../components/HeroPages";
 import { Link } from "react-router-dom";
 import React, { useEffect, useRef } from "react";
-import { AdditionalImage, GetCars } from "../services/car-api-services";
+import {
+  AdditionalImage,
+  GetCars,
+  DeleteCar,
+} from "../services/car-api-services";
 function Models() {
   const [cars, setCars] = React.useState([]);
   const convertImage = (image) => {
@@ -112,7 +116,7 @@ function Models() {
                         <i className="fa-solid fa-car-side"></i>
                       </span>
                     </div>
-                    {admin ? (
+                    {!admin ? (
                       <Link
                         to={`/models/${car.id}`}
                         className="models-div__box__descr__name-price__btn"
@@ -121,25 +125,50 @@ function Models() {
                       </Link>
                     ) : (
                       <div
-                        className="models-div__box__descr__name-price__btn"
-                        onClick={() => {
-                          fileInputRef.current.click();
+                        style={{
+                          display: "flex",
+                          gap: "10px",
+                          marginLeft: "5rem",
                         }}
                       >
-                        <input
-                          type="file"
-                          ref={fileInputRef}
-                          style={{ display: "none" }}
-                          onChange={(event) => {
-                            handleImageChange(event);
-                            setCarId(car.id);
+                        <div
+                          className="models-div__box__descr__name-price__btn"
+                          title="Upload Additional Image"
+                          onClick={() => {
+                            fileInputRef.current.click();
                           }}
-                        />
-                        <i
-                          className="fa fa-upload"
-                          aria-hidden="true"
-                          id="additional"
-                        ></i>
+                        >
+                          <input
+                            type="file"
+                            ref={fileInputRef}
+                            style={{ display: "none" }}
+                            onChange={(event) => {
+                              handleImageChange(event);
+                              setCarId(car.id);
+                            }}
+                          />
+                          <i
+                            className="fa fa-upload"
+                            aria-hidden="true"
+                            id="additional"
+                          ></i>
+                        </div>
+                        <div
+                          className="models-div__box__descr__name-price__btn"
+                          title="Delete Car"
+                          onClick={() => {
+                            if (window.confirm("Are you sure?")) {
+                              DeleteCar(car.id);
+                              window.location.reload();
+                            }
+                          }}
+                        >
+                          <i
+                            className="fa fa-archive"
+                            aria-hidden="true"
+                            id="additional"
+                          ></i>
+                        </div>
                       </div>
                     )}
                   </div>
