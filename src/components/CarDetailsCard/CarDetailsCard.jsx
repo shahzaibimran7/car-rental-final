@@ -1,7 +1,6 @@
 import "./CarDetailsCard.css";
 import { useEffect, useState } from "react";
 
-import * as Yup from "yup";
 const CarDetailCard = (props) => {
   const [pickTime, setPickTime] = useState("");
   const [dropTime, setDropTime] = useState("");
@@ -24,15 +23,6 @@ const CarDetailCard = (props) => {
     };
     calculateDateRange();
   }, [pickTime, dropTime]);
-  const handlePickTime = (e) => {
-    setPickTime(e.target.value);
-    console.log(pickTime);
-  };
-
-  const handleDropTime = (e) => {
-    setDropTime(e.target.value);
-    console.log(dropTime);
-  };
 
   function validateDay() {
     var dtToday = new Date();
@@ -47,7 +37,13 @@ const CarDetailCard = (props) => {
   }
   const disableButton = pickTime === "" || dropTime === "";
 
-  const Locations = ["United Arab Emirates", "Dubai,United Arab Emirates"];
+  const Locations = [
+    "United Arab Emirates",
+    "Dubai, United Arab Emirates",
+    "Abu Dhabi, United Arab Emirates",
+    "Sharjah, United Arab Emirates",
+    "Alain, United Arab Emirates",
+  ];
   return (
     <>
       <div className="CardContainer">
@@ -69,23 +65,6 @@ const CarDetailCard = (props) => {
         {book && (
           <div>
             <div className="bodyComponent">
-              <div className="border">
-                <label htmlFor="" className="text">
-                  Pick Up Location
-                </label>
-                <div className="selectLocations">
-                  <select
-                    value={pickUp}
-                    onChange={(e) => setPickUp(e.target.value)}
-                  >
-                    {Locations.map((ele, index) => (
-                      <option key={index} value={ele}>
-                        {ele}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-              </div>
               <div className="border" style={{ marginTop: "24px" }}>
                 <label htmlFor="" className="text">
                   Drop off Location
@@ -93,7 +72,10 @@ const CarDetailCard = (props) => {
                 <div className="selectLocations">
                   <select
                     value={dropOff}
-                    onChange={(e) => setDropOff(e.target.value)}
+                    onChange={(e) => {
+                      setDropOff(e.target.value);
+                      props.setDropOff(e.target.value);
+                    }}
                   >
                     {Locations.map((ele, index) => (
                       <option key={index} value={ele}>
@@ -114,7 +96,10 @@ const CarDetailCard = (props) => {
                   <input
                     id="picktime"
                     value={pickTime}
-                    onChange={handlePickTime}
+                    onChange={(e) => {
+                      setPickTime(e.target.value);
+                      props.setPickTime(e.target.value);
+                    }}
                     min={validateDay()}
                     type="date"
                   ></input>
@@ -131,7 +116,10 @@ const CarDetailCard = (props) => {
                   <input
                     id="droptime"
                     value={dropTime}
-                    onChange={handleDropTime}
+                    onChange={(e) => {
+                      setDropTime(e.target.value);
+                      props.setDropTime(e.target.value);
+                    }}
                     min={pickTime}
                     type="date"
                     disabled={pickTime === ""}
@@ -147,10 +135,6 @@ const CarDetailCard = (props) => {
               <button
                 onClick={() => {
                   props.setShowModal(true);
-                  props.setDropTime(dropTime);
-                  props.setPickTime(pickTime);
-                  props.setPickUp(pickUp);
-                  props.setDropOff(dropOff);
                 }}
                 disabled={disableButton}
                 style={{ backgroundColor: disableButton ? "gray" : "#163474" }}

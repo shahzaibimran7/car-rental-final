@@ -41,12 +41,12 @@ const CarDetails = () => {
             <BookingModal
               showModal={showModal}
               setShowModal={setShowModal}
-              pickUp={pickUp}
               dropOff={dropOff}
               pickTime={pickTime}
               dropTime={dropTime}
               carType={car.name}
               imgUrl={convertImage(car.image)}
+              carId={car.id}
             />
           )}
           <h1 className="label-class">{car.name}</h1>

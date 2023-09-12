@@ -112,7 +112,7 @@ function Models() {
                         <i className="fa-solid fa-car-side"></i>
                       </span>
                     </div>
-                    {!admin ? (
+                    {admin ? (
                       <Link
                         to={`/models/${car.id}`}
                         className="models-div__box__descr__name-price__btn"

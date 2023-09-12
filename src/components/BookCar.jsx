@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { CreateBooking } from "../services/bookings-api-services";
 function BookCar({ cars }) {
-  const [modal, setModal] = useState(false); //  class - active-modal
+  const [modal, setModal] = useState(false);
 
   // booking car
   const [carType, setCarType] = useState("");
@@ -123,11 +123,11 @@ function BookCar({ cars }) {
     return imageElement;
   };
   const options = cars.map((car) => car.name);
-  //handleCar would contain the car selected option. Will filter against name to show modal and picture
   useEffect(() => {
     const carSelected = cars.filter((car) => car.name === carType);
     setCarImg(carSelected[0]?.image);
     setCarId(carSelected[0]?.id);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [carType]);
   const dropOffOptions = [
     "United Arab Emirates",

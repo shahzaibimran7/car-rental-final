@@ -1,6 +1,16 @@
 import React, { useState } from "react";
+import { CreateBooking } from "../services/bookings-api-services";
 const BookingModal = (props) => {
-  const { dropTime, pickTime, showModal, dropOff, carType, imgUrl } = props;
+  const {
+    dropTime,
+    pickTime,
+    showModal,
+    dropOff,
+    carType,
+    imgUrl,
+    carId,
+    setShowModal,
+  } = props;
 
   const [name, setName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -11,26 +21,25 @@ const BookingModal = (props) => {
   const [city, setCity] = useState("");
   const [zipcode, setZipCode] = useState("");
   const [modal, setModal] = useState(showModal);
+  const [license, setLicense] = useState("");
 
   const openModal = (e) => {
     e.preventDefault();
-    const errorMsg = document.querySelector(".error-message");
+    const errorMsg = document.querySelector(".error-modal");
     if (
       dropOff === "" ||
       pickTime === "" ||
       dropTime === "" ||
       carType === ""
     ) {
-      // setModal(false);
-      props.setShowModal(false);
+      errorMsg.style.display = "flex";
     } else {
-      setModal(!modal);
+      setShowModal(false);
       const modalDiv = document.querySelector(".booking-modal");
       modalDiv.scroll(0, 0);
       errorMsg.style.display = "none";
     }
   };
-
   // taking value of modal inputs
   const handleName = (e) => {
     setName(e.target.value);
@@ -63,23 +72,45 @@ const BookingModal = (props) => {
   const handleZip = (e) => {
     setZipCode(e.target.value);
   };
-
+  const handleLicense = (e) => {
+    setLicense(e.target.value);
+  };
+  const bookingData = {
+    firstName: name,
+    lastName: lastName,
+    age: age,
+    status: "pending",
+    phoneNumber: phone,
+    email: email,
+    address: address,
+    city: city,
+    zipCode: zipcode,
+    carId: carId,
+    licenseNumber: license,
+    pickupDate: pickTime,
+    dropOffDate: dropTime,
+    location: dropOff,
+  };
+  const confirmBooking = async (e) => {
+    e.preventDefault();
+    const hasEmptyFields = Object.values(bookingData).some((value) => {
+      if (typeof value === "string") {
+        return !value.trim();
+      }
+      return false;
+    });
+    if (hasEmptyFields) {
+      alert("Please fill in all the fields as they are required.");
+    } else {
+      setShowModal(false);
+      const response = await CreateBooking(bookingData);
+    }
+  };
   return (
     <div className={`booking-modal ${modal ? "active-modal" : ""}`}>
       <div className="booking-modal__title">
         <h2>Complete Reservation</h2>
-        <i onClick={(e) => openModal(e)} className="fa-solid fa-xmark"></i>
-      </div>
-      {/* message */}
-      <div className="booking-modal__message">
-        <h4>
-          <i className="fa-solid fa-circle-info"></i> Upon completing this
-          reservation enquiry, you will receive:
-        </h4>
-        <p>
-          Your rental voucher to produce on arrival at the rental desk and a
-          toll-free customer support number.
-        </p>
+        <i onClick={openModal} className="fa-solid fa-xmark"></i>
       </div>
       {/* car info */}
       <div className="booking-modal__car-info">
@@ -233,9 +264,21 @@ const BookingModal = (props) => {
               ></input>
               <p className="error-modal ">This field is required.</p>
             </span>
+            <span>
+              <label>
+                Licence Number <b>*</b>
+              </label>
+              <input
+                value={license}
+                onChange={handleLicense}
+                type="text"
+                placeholder="Enter your licence number"
+              ></input>
+              <p className="error-modal">This field is required.</p>
+            </span>
           </div>
           <div className="reserve-button">
-            <button onClick={(e) => e.preventDefault()}>Reserve Now</button>
+            <button onClick={confirmBooking}>Reserve Now</button>
           </div>
         </form>
       </div>
