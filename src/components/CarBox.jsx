@@ -11,7 +11,6 @@ function CarBox({ data, carID }) {
     <>
       {data.map((car, id) => (
         <div key={id} className="box-cars">
-          {/* car */}
           <div className="pick-car">
             {carLoad && <span className="loader"></span>}
             <img
@@ -21,7 +20,6 @@ function CarBox({ data, carID }) {
               onLoad={() => setCarLoad(false)}
             />
           </div>
-          {/* description */}
           <div className="pick-description">
             <div className="pick-description__price">
               <span>${car.price}</span>/ rent per day
@@ -51,7 +49,6 @@ function CarBox({ data, carID }) {
                 <span>{car.fuel}</span>
               </div>
             </div>
-            {/* btn cta */}
             <a className="cta-btn" href="#booking-section">
               Reserve Now
             </a>

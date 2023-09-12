@@ -40,6 +40,7 @@ function Models() {
         carId: carId,
       });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [carId]);
   useEffect(() => {
     const uploadImage = async (data) => {
@@ -90,8 +91,7 @@ function Models() {
                         </span>
                       </div>
                       <div className="models-div__box__descr__name-price__price">
-                        <h4>{car.price} AED</h4>
-                        <p>/ day</p>
+                        <h4>${car.price}/ day</h4>
                       </div>
                     </div>
                     <div className="models-div__box__descr__name-price__details">

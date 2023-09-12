@@ -1,10 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import CarBox from "./CarBox";
-import { CAR_DATA } from "./CarData";
-import { GetCars } from "../services/car-api-services";
 
-function PickCar() {
-  const [cars, setCars] = useState([]);
+function PickCar({ cars }) {
   const [active, setActive] = useState(null);
   const [colorBtn, setColorBtn] = useState(null);
 
@@ -15,14 +12,6 @@ function PickCar() {
   const coloringButton = (carName) => {
     return carName === colorBtn ? "colored-button" : "";
   };
-  useEffect(() => {
-    const getAllCars = async () => {
-      const response = await GetCars();
-      setCars(response.data);
-    };
-    getAllCars();
-  }, []);
-  console.log(active);
   return (
     <>
       <section className="pick-section">
@@ -37,7 +26,6 @@ function PickCar() {
               </p>
             </div>
             <div className="pick-container__car-content">
-              {/* pick car */}
               <div className="pick-box">
                 {cars.map((car) => (
                   <button

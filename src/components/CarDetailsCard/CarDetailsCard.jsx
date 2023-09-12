@@ -52,7 +52,7 @@ const CarDetailCard = (props) => {
     <>
       <div className="CardContainer">
         <div className="header">
-          <div className="Price-Container">{props.rate} AED/Day</div>
+          <div className="Price-Container">${props.rate}/Day</div>
           <div className="reviewContainer">
             <span>
               <i
@@ -142,7 +142,7 @@ const CarDetailCard = (props) => {
             <div className="footer">
               <div className="totalPriceContainer">
                 <div>Total</div>
-                <div>{dateRange * props.rate} AED</div>
+                <div>${dateRange * props.rate}</div>
               </div>
               <button
                 onClick={() => {

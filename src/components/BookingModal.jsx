@@ -1,14 +1,6 @@
 import React, { useState } from "react";
 const BookingModal = (props) => {
-  const {
-    pickUp,
-    dropTime,
-    pickTime,
-    showModal,
-    dropOff,
-    carType,
-    imgUrl
-  } = props;
+  const { dropTime, pickTime, showModal, dropOff, carType, imgUrl } = props;
 
   const [name, setName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -24,7 +16,6 @@ const BookingModal = (props) => {
     e.preventDefault();
     const errorMsg = document.querySelector(".error-message");
     if (
-      pickUp === "" ||
       dropOff === "" ||
       pickTime === "" ||
       dropTime === "" ||
@@ -98,11 +89,8 @@ const BookingModal = (props) => {
             <span>
               <i className="fa-solid fa-location-dot"></i>
               <div>
-                <h6>Pick-Up Date & Time</h6>
-                <p>
-                  {pickTime} /{" "}
-                  <input type="time" className="input-time"></input>
-                </p>
+                <h6>Pick-Up Date</h6>
+                <p>{pickTime}</p>
               </div>
             </span>
           </div>
@@ -111,25 +99,11 @@ const BookingModal = (props) => {
             <span>
               <i className="fa-solid fa-location-dot"></i>
               <div>
-                <h6>Drop-Off Date & Time</h6>
-                <p>
-                  {dropTime} /{" "}
-                  <input type="time" className="input-time"></input>
-                </p>
+                <h6>Drop-Off Date</h6>
+                <p>{dropTime}</p>
               </div>
             </span>
           </div>
-
-          <div className="booking-modal__car-info__dates">
-            <span>
-              <i className="fa-solid fa-calendar-days"></i>
-              <div>
-                <h6>Pick-Up Location</h6>
-                <p>{pickUp}</p>
-              </div>
-            </span>
-          </div>
-
           <div className="booking-modal__car-info__dates">
             <span>
               <i className="fa-solid fa-calendar-days"></i>
@@ -260,19 +234,13 @@ const BookingModal = (props) => {
               <p className="error-modal ">This field is required.</p>
             </span>
           </div>
-
-          <span className="info-form__checkbox">
-            <input type="checkbox"></input>
-            <p>Please send me latest news and updates</p>
-          </span>
-
           <div className="reserve-button">
             <button onClick={(e) => e.preventDefault()}>Reserve Now</button>
           </div>
         </form>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default BookingModal;
