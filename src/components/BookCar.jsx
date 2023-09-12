@@ -122,9 +122,9 @@ function BookCar({ cars }) {
 
     return imageElement;
   };
-  const options = cars.map((car) => car.name);
+  const options = cars?.map((car) => car.name);
   useEffect(() => {
-    const carSelected = cars.filter((car) => car.name === carType);
+    const carSelected = cars?.filter((car) => car.name === carType);
     setCarImg(carSelected[0]?.image);
     setCarId(carSelected[0]?.id);
     // eslint-disable-next-line react-hooks/exhaustive-deps

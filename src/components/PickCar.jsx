@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import CarBox from "./CarBox";
 
 function PickCar({ cars }) {
-  const [active, setActive] = useState(null);
+  const [active, setActive] = useState(cars[0]?.name);
   const [colorBtn, setColorBtn] = useState(null);
 
   const btnID = (carName) => {
@@ -27,7 +27,7 @@ function PickCar({ cars }) {
             </div>
             <div className="pick-container__car-content">
               <div className="pick-box">
-                {cars.map((car) => (
+                {cars?.map((car) => (
                   <button
                     key={car.id}
                     className={`button ${coloringButton(car.name)}`}
@@ -42,7 +42,9 @@ function PickCar({ cars }) {
               </div>
 
               {active !== null && (
-                <CarBox data={[...cars.filter((car) => car.name === active)]} />
+                <CarBox
+                  data={[...cars?.filter((car) => car.name === active)]}
+                />
               )}
             </div>
           </div>
