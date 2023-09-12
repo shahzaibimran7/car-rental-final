@@ -20,6 +20,11 @@ const BookingsDashboard = () => {
     };
     getAllCars();
   }, []);
+  const extractDate = (dateString) => {
+    const date = new Date(dateString);
+    const formattedDate = date.toLocaleDateString("en-UK");
+    return formattedDate;
+  };
 
   const activeBookings = bookings?.filter(
     (booking) => booking.status === "pending" || booking.status === "PENDING"
@@ -53,8 +58,8 @@ const BookingsDashboard = () => {
               </td>
               <td>{booking.firstName + " " + booking.lastName}</td>
               <td>{booking.email}</td>
-              <td>{booking.pickupDate}</td>
-              <td>{booking.dropOffDate}</td>
+              <td>{extractDate(booking.pickupDate)}</td>
+              <td>{extractDate(booking.dropOffDate)}</td>
               <td>{booking.phoneNumber}</td>
               <td>{booking.address}</td>
               <td>{booking.location}</td>
