@@ -3,6 +3,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import "./CreateCar.css";
 import { CreateOneCar } from "../../services/car-api-services";
+import { Link, redirect } from "react-router-dom";
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().required("Car Name is required"),
@@ -130,7 +131,9 @@ function CreateCar() {
             </div>
 
             <div className="form-group">
-              <button type="submit">Create</button>
+              <Link to="/models">
+                <button type="submit">Create</button>
+              </Link>
             </div>
           </Form>
         )}
