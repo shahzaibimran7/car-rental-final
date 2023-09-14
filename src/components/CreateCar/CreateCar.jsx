@@ -3,7 +3,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import "./CreateCar.css";
 import { CreateOneCar } from "../../services/car-api-services";
-import { Link, redirect } from "react-router-dom";
+import { redirect } from "react-router-dom";
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().required("Car Name is required"),
@@ -14,10 +14,31 @@ const validationSchema = Yup.object().shape({
   doors: Yup.number().required("Number of Doors is required"),
 });
 
-const brands = ["Mercedes", "BMW", "Audi", "Lexus", "Tesla", "Bentley"];
+const brands = [
+  "Mercedes",
+  "BMW",
+  "Audi",
+  "Lexus",
+  "Tesla",
+  "Bentley",
+  "Toyota",
+  "Cadillac Escalade",
+  "Chevrolet",
+  "Ferrari",
+  "Ford",
+  "GMC",
+  "Jeep",
+  "Mini Cooper",
+  "Nissan",
+  "Porsche",
+  "Range Rover",
+  "Rolls Royce",
+  "KIA",
+  "Maserati",
+  "Yachts",
+];
 const transmissions = ["Automatic", "Manual"];
 const fuelTypes = ["Petrol", "Diesel", "Electric"];
-
 function CreateCar() {
   const handleIcon = async (e, setFieldValue) => {
     const file = e.target.files[0];
@@ -32,7 +53,12 @@ function CreateCar() {
     }
 
     const response = await CreateOneCar(formData);
-    console.log("response", response);
+    if (response.status === 200) {
+      alert("Car Created Successfully");
+      window.location.reload();
+    } else {
+      alert("Something went wrong");
+    }
   };
 
   return (
@@ -131,9 +157,7 @@ function CreateCar() {
             </div>
 
             <div className="form-group">
-              <Link to="/models">
-                <button type="submit">Create</button>
-              </Link>
+              <button type="submit">Create</button>
             </div>
           </Form>
         )}

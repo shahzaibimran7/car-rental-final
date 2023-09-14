@@ -26,7 +26,6 @@ function Home() {
       <PickCar cars={cars} />
       <Banner />
       <ChooseUs />
-      <Testimonials />
       <Footer />
     </>
   );
