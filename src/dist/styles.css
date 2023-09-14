@@ -1294,38 +1294,6 @@ body {
   }
 }
 
-.faq-section {
-  background-image: url('/src/images/faq/car.png');
-  padding: 10rem 0;
-  background-size: auto;
-  background-repeat: no-repeat;
-  background-position: 0 70%;
-}
-
-.faq-content {
-  display: flex;
-  flex-direction: column;
-  color: #010103;
-}
-.faq-content__title {
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
-  text-align: center;
-  max-width: 80rem;
-  line-height: 1.5;
-}
-.faq-content__title h5 {
-  font-size: 2.2rem;
-}
-.faq-content__title h2 {
-  font-size: 4.2rem;
-  margin-bottom: 1.7rem;
-}
-.faq-content__title p {
-  font-size: 1.6rem;
-  color: #706f7b;
-}
 
 .all-questions {
   display: flex;

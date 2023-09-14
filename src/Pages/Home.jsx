@@ -5,7 +5,6 @@ import PlanTrip from "../components/PlanTrip";
 import PickCar from "../components/PickCar";
 import Banner from "../components/Banner";
 import ChooseUs from "../components/ChooseUs";
-import Testimonials from "../components/Testimonials";
 import Footer from "../components/Footer";
 import { GetCars } from "../services/car-api-services";
 
