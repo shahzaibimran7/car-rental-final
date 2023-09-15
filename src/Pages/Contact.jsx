@@ -21,14 +21,14 @@ function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    emailjs.init("LbMpdcp6_YWXlL27e");
+    emailjs.init("U0B35fYtpoC6loUyp");
     const templateParams = {
       from_name: formData.name,
       from_email: formData.email,
       message: formData.message,
     };
     emailjs
-      .send("service_8af7nkk", "template_xq2w6zb", templateParams)
+      .send("service_y120tlm", "template_3vb9c1z", templateParams)
       .then((response) => {
         alert("Email sent successfully!");
         setFormData({
