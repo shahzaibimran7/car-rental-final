@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import BgShape from "../images/hero/hero-bg.png";
-import HeroCar from "../images/hero/main-car.jpg";
 import { useEffect, useState } from "react";
+import Pic from "../images/hero/6e7c9c98-9f38-44fe-bf9f-c2b7de174235-removebg-preview.png"
 
 function Hero() {
   const [goUp, setGoUp] = useState(false);
@@ -60,7 +60,7 @@ function Hero() {
 
             {/* img */}
             <img
-              src={HeroCar}
+              src={Pic}
               alt="car-img"
               className="hero-content__car-img"
             />
