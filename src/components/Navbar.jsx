@@ -1,7 +1,6 @@
 import { Link, Outlet } from "react-router-dom";
 import Logo from "../images/logo/logoo.png";
-import { useEffect, useState } from "react";
-import { GetCars } from "../services/car-api-services";
+import { useState, useRef, useEffect } from "react";
 
 function Navbar() {
   const [nav, setNav] = useState(false);
@@ -34,7 +33,18 @@ function Navbar() {
     "Yachts",
   ];
   const [showList, setShowList] = useState(false);
-
+  const brandsRef = useRef(null);
+  const handleClickOutside = (event) => {
+    if (brandsRef.current && !brandsRef.current.contains(event.target)) {
+      setShowList(false);
+    }
+  };
+  useEffect(() => {
+    document.addEventListener("click", handleClickOutside);
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
   const Brands = ({ isMobile }) => {
     return (
       <div className={!isMobile ? "brands-card" : "mobile-brands-card"}>
@@ -45,7 +55,7 @@ function Navbar() {
                 className="about-link"
                 onClick={() => {
                   setShowList(false);
-                  openNav();
+                  isMobile && openNav();
                 }}
                 to={`models/${brand}`}
               >
@@ -129,6 +139,7 @@ function Navbar() {
               <Link
                 className="about-link"
                 onClick={() => setShowList(!showList)}
+                ref={brandsRef}
               >
                 Brands
               </Link>

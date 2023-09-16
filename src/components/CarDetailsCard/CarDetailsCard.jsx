@@ -6,7 +6,6 @@ const CarDetailCard = (props) => {
   const [dropTime, setDropTime] = useState("");
   const [dateRange, setDateRange] = useState("");
   const [book, setBook] = useState(true);
-  const [pickUp, setPickUp] = useState("");
   const [dropOff, setDropOff] = useState("");
   useEffect(() => {
     props.setTotalPrice(dateRange * props.rate);

@@ -11,7 +11,7 @@ const CarDetails = () => {
   const [car, setCar] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [pickUp, setPickUp] = useState("");
-  const [dropOff, setDropOff] = useState("");
+  const [dropOff, setDropOff] = useState("United Arab Emirates");
   const [pickTime, setPickTime] = useState("");
   const [dropTime, setDropTime] = useState("");
   const [extraImages, setExtraImages] = useState([]);

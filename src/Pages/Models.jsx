@@ -39,7 +39,9 @@ function Models() {
       setLoading(true);
       const response = await GetCars();
       setCars(response.data);
+      setLoading(false);
       if (brand) {
+        setLoading(true);
         const filteredCars = response.data.filter((car) => car.brand === brand);
         setCars(filteredCars);
         setLoading(false);
