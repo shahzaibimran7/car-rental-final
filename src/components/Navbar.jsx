@@ -180,6 +180,7 @@ function Navbar() {
                 className="navbar__buttons__sign-in"
                 onClick={() => {
                   localStorage.removeItem("token");
+                  localStorage.removeItem("role");
                   window.location.reload();
                 }}
                 to="/"

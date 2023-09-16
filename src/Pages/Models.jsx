@@ -88,7 +88,7 @@ function Models() {
                 {cars.map((car, index) => (
                   <div
                     className="models-div__box"
-                    style={{ borderRadius: "38px" }}
+                    style={{ borderRadius: "38px", height: "100%" }}
                     key={index}
                   >
                     <div className="models-div__box__img">
@@ -114,21 +114,21 @@ function Models() {
                           </div>
                         </div>
                         <div className="models-div__box__descr__name-price__details">
-                          <span>
+                          <span title="Brand">
                             <i className="fa-solid fa-car-side"></i> &nbsp;{" "}
                             {car.brand}
                           </span>
-                          <span style={{ textAlign: "right" }}>
-                            {car.doors}/5 &nbsp;{" "}
-                            <i className="fa-solid fa-car-side"></i>
+                          <span title="Doors">
+                            <i className="fa-solid fa-door-open"></i>&nbsp;{" "}
+                            {car.doors}/5
                           </span>
-                          <span>
-                            <i className="fa-solid fa-car-side"></i> &nbsp;{" "}
+                          <span title="Gear Shift">
+                            <i className="fa-solid fa-gear"></i>
                             {car.transmission}
                           </span>
-                          <span style={{ textAlign: "right" }}>
-                            {car.fuel} &nbsp;{" "}
-                            <i className="fa-solid fa-car-side"></i>
+                          <span title="Fuel Type">
+                            <i className="fa-solid fa-gas-pump"></i>&nbsp;{" "}
+                            {car.fuel}
                           </span>
                         </div>
                         {!admin ? (
@@ -210,7 +210,7 @@ function Models() {
               <h2>Book a car by getting in touch with us</h2>
               <span>
                 <i className="fa-solid fa-phone"></i>
-                <h3>(123) 456-7869</h3>
+                <h3>(971) 54 567 5505</h3>
               </span>
             </div>
           </div>
