@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Pic from "../images/hero/main-carr.png";
 
 function Hero() {
+  // eslint-disable-next-line
   const [goUp, setGoUp] = useState(false);
 
   const bookBtn = () => {

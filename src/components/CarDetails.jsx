@@ -10,6 +10,7 @@ const CarDetails = () => {
   const { id } = useParams();
   const [car, setCar] = useState([]);
   const [showModal, setShowModal] = useState(false);
+  // eslint-disable-next-line
   const [pickUp, setPickUp] = useState("");
   const [dropOff, setDropOff] = useState("United Arab Emirates");
   const [pickTime, setPickTime] = useState("");

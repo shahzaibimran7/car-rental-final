@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { CreateBooking } from "../services/bookings-api-services";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import axios from "axios";
 import emailjs from "emailjs-com";
 
@@ -25,6 +25,7 @@ const BookingModal = (props) => {
   const [address, setAddress] = useState("");
   const [city, setCity] = useState("");
   const [zipcode, setZipCode] = useState("");
+  // eslint-disable-next-line
   const [modal, setModal] = useState(showModal);
   const [license, setLicense] = useState("");
 
