@@ -18,13 +18,9 @@ function Models() {
 
     return imageElement;
   };
-  // Step 1: Create a state variable to hold the selected image file
   const [selectedImage, setSelectedImage] = React.useState(null);
   const [carId, setCarId] = React.useState(null);
-  // Step 2: Create a ref for the file input element
   const fileInputRef = useRef(null);
-
-  // Step 3: Handle the image selection and update the state
   const handleImageChange = (event) => {
     const file = event.target.files[0];
     if (file) {
@@ -57,6 +53,7 @@ function Models() {
         carId: carId,
       });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [carId]);
 
   useEffect(() => {

@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { CreateBooking } from "../services/bookings-api-services";
-import { toast } from "react-toastify";
 import axios from "axios";
 import emailjs from "emailjs-com";
 
@@ -175,12 +174,6 @@ function BookCar({ cars }) {
   };
   const confirmBooking = async (e) => {
     e.preventDefault();
-    const hasEmptyFields = Object.values(bookingData).some((value) => {
-      if (typeof value === "string") {
-        return !value.trim();
-      }
-      return false;
-    });
     setModal(!modal);
     console.log(bookingData);
     const doneMsg = document.querySelector(".booking-done");

@@ -5,10 +5,12 @@ const CarDetailCard = (props) => {
   const [pickTime, setPickTime] = useState("");
   const [dropTime, setDropTime] = useState("");
   const [dateRange, setDateRange] = useState("");
+  // eslint-disable-next-line
   const [book, setBook] = useState(true);
   const [dropOff, setDropOff] = useState("");
   useEffect(() => {
     props.setTotalPrice(dateRange * props.rate);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dateRange]);
 
   useEffect(() => {

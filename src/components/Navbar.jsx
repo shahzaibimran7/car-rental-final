@@ -8,7 +8,6 @@ function Navbar() {
   const openNav = () => {
     setNav(!nav);
   };
-  const [cars, setCars] = useState([]);
   const brands = [
     "Mercedes",
     "BMW",
