@@ -1,13 +1,17 @@
 import Footer from "../components/Footer";
 import HeroPages from "../components/HeroPages";
-import { Link } from "react-router-dom";
-import React, { useEffect, useRef } from "react";
+import { Link, useParams } from "react-router-dom";
+import React, { useEffect, useRef, useState } from "react";
 import {
   AdditionalImage,
   GetCars,
   DeleteCar,
 } from "../services/car-api-services";
+import { RingLoader } from "react-spinners";
 function Models() {
+  const params = useParams();
+  const { brand } = params;
+  const [loading, setLoading] = useState(false);
   const [cars, setCars] = React.useState([]);
   const convertImage = (image) => {
     const imageElement = "data:image/jpeg;base64," + image;
@@ -32,11 +36,18 @@ function Models() {
 
   useEffect(() => {
     const getAllCars = async () => {
+      setLoading(true);
       const response = await GetCars();
       setCars(response.data);
+      if (brand) {
+        const filteredCars = response.data.filter((car) => car.brand === brand);
+        setCars(filteredCars);
+        setLoading(false);
+      }
     };
     getAllCars();
-  }, []);
+  }, [brand]);
+
   useEffect(() => {
     if (carId) {
       setSelectedImage({
@@ -44,8 +55,8 @@ function Models() {
         carId: carId,
       });
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [carId]);
+
   useEffect(() => {
     const uploadImage = async (data) => {
       const response = await AdditionalImage(data);
@@ -68,115 +79,127 @@ function Models() {
     <>
       <section className="models-section">
         <HeroPages name="Vehicle Models" />
-        <div className="container">
-          <div className="models-div">
-            {cars.map((car, index) => (
-              <div
-                className="models-div__box"
-                style={{ borderRadius: "38px" }}
-                key={index}
-              >
-                <div className="models-div__box__img">
-                  <img
-                    src={convertImage(car.image)}
-                    alt="car_img"
-                    className="car-img"
-                  />
-                  <div className="models-div__box__descr">
-                    <div className="models-div__box__descr__name-price">
-                      <div className="models-div__box__descr__name-price__name">
-                        <p>{car.name}</p>
-                        <span>
-                          <i className="fa-solid fa-star"></i>
-                          <i className="fa-solid fa-star"></i>
-                          <i className="fa-solid fa-star"></i>
-                          <i className="fa-solid fa-star"></i>
-                          <i className="fa-solid fa-star"></i>
-                        </span>
-                      </div>
-                      <div className="models-div__box__descr__name-price__price">
-                        <h4>${car.price}/ day</h4>
-                      </div>
-                    </div>
-                    <div className="models-div__box__descr__name-price__details">
-                      <span>
-                        <i className="fa-solid fa-car-side"></i> &nbsp;{" "}
-                        {car.brand}
-                      </span>
-                      <span style={{ textAlign: "right" }}>
-                        {car.doors}/5 &nbsp;{" "}
-                        <i className="fa-solid fa-car-side"></i>
-                      </span>
-                      <span>
-                        <i className="fa-solid fa-car-side"></i> &nbsp;{" "}
-                        {car.transmission}
-                      </span>
-                      <span style={{ textAlign: "right" }}>
-                        {car.fuel} &nbsp;{" "}
-                        <i className="fa-solid fa-car-side"></i>
-                      </span>
-                    </div>
-                    {!admin ? (
-                      <Link
-                        to={`/models/${car.id}`}
-                        className="models-div__box__descr__name-price__btn"
-                      >
-                        Book Ride
-                      </Link>
-                    ) : (
-                      <div
-                        style={{
-                          display: "flex",
-                          gap: "10px",
-                          marginLeft: "5rem",
-                        }}
-                      >
-                        <div
-                          className="models-div__box__descr__name-price__btn"
-                          title="Upload Additional Image"
-                          onClick={() => {
-                            fileInputRef.current.click();
-                          }}
-                        >
-                          <input
-                            type="file"
-                            ref={fileInputRef}
-                            style={{ display: "none" }}
-                            onChange={(event) => {
-                              handleImageChange(event);
-                              setCarId(car.id);
+        {!loading ? (
+          <div className="container">
+            {cars.length ? (
+              <div className="models-div">
+                {cars.map((car, index) => (
+                  <div
+                    className="models-div__box"
+                    style={{ borderRadius: "38px" }}
+                    key={index}
+                  >
+                    <div className="models-div__box__img">
+                      <img
+                        src={convertImage(car.image)}
+                        alt="car_img"
+                        className="car-img"
+                      />
+                      <div className="models-div__box__descr">
+                        <div className="models-div__box__descr__name-price">
+                          <div className="models-div__box__descr__name-price__name">
+                            <p>{car.name}</p>
+                            <span>
+                              <i className="fa-solid fa-star"></i>
+                              <i className="fa-solid fa-star"></i>
+                              <i className="fa-solid fa-star"></i>
+                              <i className="fa-solid fa-star"></i>
+                              <i className="fa-solid fa-star"></i>
+                            </span>
+                          </div>
+                          <div className="models-div__box__descr__name-price__price">
+                            <h4>${car.price}/ day</h4>
+                          </div>
+                        </div>
+                        <div className="models-div__box__descr__name-price__details">
+                          <span>
+                            <i className="fa-solid fa-car-side"></i> &nbsp;{" "}
+                            {car.brand}
+                          </span>
+                          <span style={{ textAlign: "right" }}>
+                            {car.doors}/5 &nbsp;{" "}
+                            <i className="fa-solid fa-car-side"></i>
+                          </span>
+                          <span>
+                            <i className="fa-solid fa-car-side"></i> &nbsp;{" "}
+                            {car.transmission}
+                          </span>
+                          <span style={{ textAlign: "right" }}>
+                            {car.fuel} &nbsp;{" "}
+                            <i className="fa-solid fa-car-side"></i>
+                          </span>
+                        </div>
+                        {!admin ? (
+                          <Link
+                            to={`/model/${car.id}`}
+                            className="models-div__box__descr__name-price__btn"
+                          >
+                            Book Ride
+                          </Link>
+                        ) : (
+                          <div
+                            style={{
+                              display: "flex",
+                              gap: "10px",
+                              marginLeft: "5rem",
                             }}
-                          />
-                          <i
-                            className="fa fa-upload"
-                            aria-hidden="true"
-                            id="additional"
-                          ></i>
-                        </div>
-                        <div
-                          className="models-div__box__descr__name-price__btn"
-                          title="Delete Car"
-                          onClick={() => {
-                            if (window.confirm("Are you sure?")) {
-                              DeleteCar(car.id);
-                              window.location.reload();
-                            }
-                          }}
-                        >
-                          <i
-                            className="fa fa-archive"
-                            aria-hidden="true"
-                            id="additional"
-                          ></i>
-                        </div>
+                          >
+                            <div
+                              className="models-div__box__descr__name-price__btn"
+                              title="Upload Additional Image"
+                              onClick={() => {
+                                fileInputRef.current.click();
+                              }}
+                            >
+                              <input
+                                type="file"
+                                ref={fileInputRef}
+                                style={{ display: "none" }}
+                                onChange={(event) => {
+                                  handleImageChange(event);
+                                  setCarId(car.id);
+                                }}
+                              />
+                              <i
+                                className="fa fa-upload"
+                                aria-hidden="true"
+                                id="additional"
+                              ></i>
+                            </div>
+                            <div
+                              className="models-div__box__descr__name-price__btn"
+                              title="Delete Car"
+                              onClick={() => {
+                                if (window.confirm("Are you sure?")) {
+                                  DeleteCar(car.id);
+                                  window.location.reload();
+                                }
+                              }}
+                            >
+                              <i
+                                className="fa fa-archive"
+                                aria-hidden="true"
+                                id="additional"
+                              ></i>
+                            </div>
+                          </div>
+                        )}
                       </div>
-                    )}
+                    </div>
                   </div>
-                </div>
+                ))}
               </div>
-            ))}
+            ) : (
+              <div className="no-cars">
+                <h1>Coming Soon!!</h1>
+              </div>
+            )}
           </div>
-        </div>
+        ) : (
+          <div style={{ marginTop: "44px", marginLeft: "50%" }}>
+            <RingLoader color="#163474" />
+          </div>
+        )}
 
         <div className="book-banner">
           <div className="book-banner__overlay"></div>

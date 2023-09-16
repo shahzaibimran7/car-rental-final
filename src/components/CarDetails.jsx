@@ -15,6 +15,8 @@ const CarDetails = () => {
   const [pickTime, setPickTime] = useState("");
   const [dropTime, setDropTime] = useState("");
   const [extraImages, setExtraImages] = useState([]);
+  const [totalPrice, setTotalPrice] = useState();
+
   const convertImage = (image) => {
     const imageElement = "data:image/jpeg;base64," + image;
 
@@ -47,6 +49,7 @@ const CarDetails = () => {
               carType={car.name}
               imgUrl={convertImage(car.image)}
               carId={car.id}
+              totalPrice={totalPrice}
             />
           )}
           <h1 className="label-class">{car.name}</h1>
@@ -69,6 +72,7 @@ const CarDetails = () => {
                 setDropOff={setDropOff}
                 setDropTime={setDropTime}
                 setPickTime={setPickTime}
+                setTotalPrice={setTotalPrice}
               />
             </div>
           </div>

@@ -9,6 +9,10 @@ const CarDetailCard = (props) => {
   const [pickUp, setPickUp] = useState("");
   const [dropOff, setDropOff] = useState("");
   useEffect(() => {
+    props.setTotalPrice(dateRange * props.rate);
+  }, [dateRange]);
+
+  useEffect(() => {
     const calculateDateRange = () => {
       if (pickTime && dropTime) {
         const pickDate = new Date(pickTime);

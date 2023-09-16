@@ -1,5 +1,9 @@
 import { useEffect, useState } from "react";
 import { CreateBooking } from "../services/bookings-api-services";
+import { toast } from "react-toastify";
+import axios from "axios";
+import emailjs from "emailjs-com";
+
 function BookCar({ cars }) {
   const [modal, setModal] = useState(false);
 
@@ -9,6 +13,7 @@ function BookCar({ cars }) {
   const [pickTime, setPickTime] = useState("");
   const [dropTime, setDropTime] = useState("");
   const [carImg, setCarImg] = useState("");
+  const [dateRange, setDateRange] = useState("");
 
   // modal infos
   const [name, setName] = useState("");
@@ -97,6 +102,22 @@ function BookCar({ cars }) {
     return maxDate;
   }
 
+  useEffect(() => {
+    const calculateDateRange = () => {
+      if (pickTime && dropTime) {
+        const pickDate = new Date(pickTime);
+        const dropDate = new Date(dropTime);
+        console.log(pickDate, dropDate);
+        const timeDifference = dropDate - pickDate;
+        const dayDifference = timeDifference / (1000 * 60 * 60 * 24);
+        setDateRange(dayDifference);
+      } else {
+        setDateRange("");
+      }
+    };
+    calculateDateRange();
+  }, [pickTime, dropTime]);
+
   // taking value of booking inputs
   const handleCar = (e) => {
     setCarType(e.target.value);
@@ -160,15 +181,47 @@ function BookCar({ cars }) {
       }
       return false;
     });
-    if (hasEmptyFields) {
-      alert("Please fill in all the fields as they are required.");
-    } else {
-      setModal(!modal);
+    setModal(!modal);
+    console.log(bookingData);
+    const doneMsg = document.querySelector(".booking-done");
+    doneMsg.style.display = "flex";
+    const response = await CreateBooking(bookingData);
+    if (response.status === 201) {
+      const booking = response.data;
+      const car = await axios.get(
+        `http://localhost:8000/car/getCarsById/${booking.carId}`
+      );
+      const bookingData = `Booking ID: ${booking.id} \n First Name: ${
+        booking.firstName
+      } \n Last Name: ${booking.lastName} \n Age: ${
+        booking.age
+      } \n Phone Number: ${booking.phoneNumber} \n Email: ${
+        booking.email
+      } \n Address: ${booking.address} \n City: ${booking.city} \n Zip Code: ${
+        booking.zipCode
+      } \n Car Name: ${car.data.name} \n Pick-Up Date: ${
+        booking.pickupDate
+      } \n Drop-Off Date: ${booking.dropOffDate} \n Location: ${
+        booking.location
+      } \n License Number: ${booking.licenseNumber} \n Total Price: ${
+        dateRange * car.data.price
+      }`;
       console.log(bookingData);
-      const doneMsg = document.querySelector(".booking-done");
-      doneMsg.style.display = "flex";
-      const response = await CreateBooking(bookingData);
-      console.log(response.data);
+      emailjs.init("U0B35fYtpoC6loUyp");
+      const templateParams = {
+        from_name: `${booking.firstName} ${booking.lastName}`,
+        from_email: booking.email,
+        message: bookingData,
+      };
+      emailjs
+        .send("service_y120tlm", "template_3vb9c1z", templateParams)
+        .then((response) => {
+          // alert("Email sent successfully!");
+        })
+        .catch((error) => {
+          console.error("Error sending email:", error);
+          alert("Failed to send email. Please try again later.");
+        });
     }
   };
 

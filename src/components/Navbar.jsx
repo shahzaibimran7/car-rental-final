@@ -1,6 +1,7 @@
 import { Link, Outlet } from "react-router-dom";
-import Logo from "../images/logo/logo.png";
-import { useState } from "react";
+import Logo from "../images/logo/logoo.png";
+import { useEffect, useState } from "react";
+import { GetCars } from "../services/car-api-services";
 
 function Navbar() {
   const [nav, setNav] = useState(false);
@@ -8,6 +9,55 @@ function Navbar() {
   const openNav = () => {
     setNav(!nav);
   };
+  const [cars, setCars] = useState([]);
+  const brands = [
+    "Mercedes",
+    "BMW",
+    "Audi",
+    "Lexus",
+    "Tesla",
+    "Bentley",
+    "Toyota",
+    "Cadillac Escalade",
+    "Chevrolet",
+    "Ferrari",
+    "Ford",
+    "GMC",
+    "Jeep",
+    "Mini Cooper",
+    "Nissan",
+    "Porsche",
+    "Range Rover",
+    "Rolls Royce",
+    "KIA",
+    "Maserati",
+    "Yachts",
+  ];
+  const [showList, setShowList] = useState(false);
+
+  const Brands = ({ isMobile }) => {
+    return (
+      <div className={!isMobile ? "brands-card" : "mobile-brands-card"}>
+        {brands.map((brand) => {
+          return (
+            <li key={brand} style={{ zIndex: 50 }}>
+              <Link
+                className="about-link"
+                onClick={() => {
+                  setShowList(false);
+                  openNav();
+                }}
+                to={`models/${brand}`}
+              >
+                {brand}
+              </Link>
+            </li>
+          );
+        })}
+      </div>
+    );
+  };
+
   const isLoggedIn = localStorage.getItem("token");
   const admin = localStorage.getItem("role") === "ADMIN";
   return (
@@ -34,6 +84,10 @@ function Navbar() {
                 Models
               </Link>
             </li>
+            <li>
+              <Link onClick={() => setShowList(!showList)}>Brands</Link>
+            </li>
+            {showList && <Brands isMobile />}
             <li>
               <Link onClick={openNav} to="/contact">
                 Contact
@@ -72,6 +126,16 @@ function Navbar() {
             </li>
             <li>
               {" "}
+              <Link
+                className="about-link"
+                onClick={() => setShowList(!showList)}
+              >
+                Brands
+              </Link>
+            </li>
+            {showList && <Brands />}
+            <li>
+              {" "}
               <Link className="about-link" to="/about">
                 About
               </Link>
@@ -79,7 +143,7 @@ function Navbar() {
             <li>
               {" "}
               <Link className="models-link" to="/models">
-                Vehicle Models
+                Our Fleet
               </Link>
             </li>
             <li>

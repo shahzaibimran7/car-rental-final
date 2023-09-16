@@ -1,5 +1,9 @@
 import React, { useState } from "react";
 import { CreateBooking } from "../services/bookings-api-services";
+import { ToastContainer, toast } from "react-toastify";
+import axios from "axios";
+import emailjs from "emailjs-com";
+
 const BookingModal = (props) => {
   const {
     dropTime,
@@ -10,6 +14,7 @@ const BookingModal = (props) => {
     imgUrl,
     carId,
     setShowModal,
+    totalPrice,
   } = props;
 
   const [name, setName] = useState("");
@@ -104,6 +109,29 @@ const BookingModal = (props) => {
     } else {
       setShowModal(false);
       const response = await CreateBooking(bookingData);
+      if (response.status === 201) {
+        const booking = response.data;
+        const car = await axios.get(
+          `http://localhost:8000/car/getCarsById/${booking.carId}`
+        );
+        const bookingData = `Booking ID: ${booking.id} \n First Name: ${booking.firstName} \n Last Name: ${booking.lastName} \n Age: ${booking.age} \n Phone Number: ${booking.phoneNumber} \n Email: ${booking.email} \n Address: ${booking.address} \n City: ${booking.city} \n Zip Code: ${booking.zipCode} \n Car Name: ${car.data.name} \n Pick-Up Date: ${booking.pickupDate} \n Drop-Off Date: ${booking.dropOffDate} \n Location: ${booking.location} \n License Number: ${booking.licenseNumber} \n Total Price: ${totalPrice}`;
+        console.log(bookingData);
+        emailjs.init("U0B35fYtpoC6loUyp");
+        const templateParams = {
+          from_name: `${booking.firstName} ${booking.lastName}`,
+          from_email: booking.email,
+          message: bookingData,
+        };
+        emailjs
+          .send("service_y120tlm", "template_3vb9c1z", templateParams)
+          .then((response) => {
+            alert("Email sent successfully!");
+          })
+          .catch((error) => {
+            console.error("Error sending email:", error);
+            alert("Failed to send email. Please try again later.");
+          });
+      }
     }
   };
   return (
@@ -279,6 +307,7 @@ const BookingModal = (props) => {
           </div>
           <div className="reserve-button">
             <button onClick={confirmBooking}>Reserve Now</button>
+            <ToastContainer style={{ marginTop: "700px" }} />
           </div>
         </form>
       </div>

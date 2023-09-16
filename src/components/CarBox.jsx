@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function CarBox({ data, carID }) {
   const [carLoad, setCarLoad] = useState(true);
@@ -14,7 +15,9 @@ function CarBox({ data, carID }) {
           <div className="pick-car">
             {carLoad && <span className="loader"></span>}
             <img
-              style={{ display: carLoad ? "none" : "block" }}
+              style={{
+                display: carLoad ? "none" : "block",
+              }}
               src={convertImage(car.image)}
               alt="car_img"
               onLoad={() => setCarLoad(false)}
@@ -49,9 +52,9 @@ function CarBox({ data, carID }) {
                 <span>{car.fuel}</span>
               </div>
             </div>
-            <a className="cta-btn" href="#booking-section">
+            <Link className="cta-btn" to={`/models/${car.id}`}>
               Reserve Now
-            </a>
+            </Link>
           </div>
         </div>
       ))}
