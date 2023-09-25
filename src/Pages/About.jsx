@@ -2,11 +2,12 @@ import Footer from "../components/Footer";
 import HeroPages from "../components/HeroPages";
 import PlanTrip from "../components/PlanTrip";
 import AboutMain from "../images/about/about-main.jpg";
-import Box1 from "../images/about/icon1.png";
-import Box2 from "../images/about/icon2.png";
-import Box3 from "../images/about/icon3.png";
 
 function About() {
+  const whatsAppLink = "https://wa.me/971545505407";
+  const openWhatsApp = () => {
+    window.open(whatsAppLink, "_blank");
+  };
   return (
     <>
       <section className="about-page">
@@ -22,35 +23,23 @@ function About() {
               <h3>About Company</h3>
               <h2>You start the engine and your adventure begins</h2>
               <p>
-                Certain but she but shyness why cottage. Guy the put instrument
-                sir entreaties affronting. Pretended exquisite see cordially the
-                you. Weeks quiet do vexed or whose. Motionless if no to
-                affronting imprudence no precaution. My indulged as disposal
-                strongly attended.
+                Welcome to 55 Car Rental LLC, where your journey begins with a
+                touch of luxury and convenience. At 55 Car Rental, we don't just
+                offer cars; we offer experiences. Whether you're exploring the
+                vibrant streets of the city or embarking on a scenic road trip,
+                we provide the wheels that match your style and the service that
+                exceeds your expectations. Our mission is to make every mile
+                memorable. With a fleet of meticulously maintained vehicles,
+                from sleek sedans to spacious SUVs, we cater to all your travel
+                needs. Our commitment to excellence extends to our exceptional
+                customer service, ensuring a seamless rental experience from
+                start to finish. At 55 Car Rental, we're not just in the
+                business of renting cars; we're in the business of making
+                memories. Join us on the open road, and let us be your trusted
+                partner in every adventure. Your journey awaits, and we're here
+                to make it extraordinary. Discover the world with 55 Car Rental
+                LLC today!
               </p>
-              <div className="about-main__text__icons">
-                <div className="about-main__text__icons__box">
-                  <img src={Box1} alt="car-icon" />
-                  <span>
-                    <h4>20</h4>
-                    <p>Car Types</p>
-                  </span>
-                </div>
-                <div className="about-main__text__icons__box">
-                  <img src={Box2} alt="car-icon" />
-                  <span>
-                    <h4>85</h4>
-                    <p>Rental Outlets</p>
-                  </span>
-                </div>
-                <div className="about-main__text__icons__box">
-                  <img src={Box3} alt="car-icon" className="last-fk" />
-                  <span>
-                    <h4>75</h4>
-                    <p>Repair Shop</p>
-                  </span>
-                </div>
-              </div>
             </div>
           </div>
           <PlanTrip />
@@ -62,8 +51,12 @@ function About() {
           <div className="text-content">
             <h2>Book a car by getting in touch with us</h2>
             <span>
-              <i className="fa-solid fa-phone"></i>
-              <h3>(123) 456-7869</h3>
+              <i
+                className="fa fa-whatsapp"
+                style={{ color: "#25D366", cursor: "pointer" }}
+                onClick={openWhatsApp}
+              ></i>
+              <h3>(+971) 54 567 5505</h3>
             </span>
           </div>
         </div>

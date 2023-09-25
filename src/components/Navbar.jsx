@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
-import Logo from "../images/logo/logo.png";
-import { useState } from "react";
+import { Link, Outlet } from "react-router-dom";
+import Logo from "../images/logo/logoo.png";
+import { useState, useRef, useEffect } from "react";
 
 function Navbar() {
   const [nav, setNav] = useState(false);
@@ -8,14 +8,74 @@ function Navbar() {
   const openNav = () => {
     setNav(!nav);
   };
+  const brands = [
+    "Mercedes",
+    "BMW",
+    "Audi",
+    "Lexus",
+    "Tesla",
+    "Bentley",
+    "Toyota",
+    "Cadillac Escalade",
+    "Chevrolet",
+    "Ferrari",
+    "Ford",
+    "GMC",
+    "Jeep",
+    "Mini Cooper",
+    "Nissan",
+    "Porsche",
+    "Range Rover",
+    "Rolls Royce",
+    "KIA",
+    "Maserati",
+    "Yachts",
+  ];
+  const [showList, setShowList] = useState(false);
+  const brandsRef = useRef(null);
+  const handleClickOutside = (event) => {
+    if (brandsRef.current && !brandsRef.current.contains(event.target)) {
+      setShowList(false);
+    }
+  };
+  useEffect(() => {
+    document.addEventListener("click", handleClickOutside);
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
+  const Brands = ({ isMobile }) => {
+    return (
+      <div className={!isMobile ? "brands-card" : "mobile-brands-card"}>
+        {brands.map((brand) => {
+          return (
+            <li key={brand} style={{ zIndex: 50 }}>
+              <Link
+                className="about-link"
+                onClick={() => {
+                  setShowList(false);
+                  isMobile && openNav();
+                }}
+                to={`models/${brand}`}
+              >
+                {brand}
+              </Link>
+            </li>
+          );
+        })}
+      </div>
+    );
+  };
 
+  const isLoggedIn = localStorage.getItem("token");
+  const admin = localStorage.getItem("role") === "ADMIN";
   return (
     <>
       <nav>
         {/* mobile */}
         <div className={`mobile-navbar ${nav ? "open-nav" : ""}`}>
           <div onClick={openNav} className="mobile-navbar__close">
-            <i className="fa-solid fa-xmark"></i>
+            <i className="fa-solid fa-xmark" />
           </div>
           <ul className="mobile-navbar__links">
             <li>
@@ -34,20 +94,28 @@ function Navbar() {
               </Link>
             </li>
             <li>
-              <Link onClick={openNav} to="/testimonials">
-                Testimonials
-              </Link>
+              <Link onClick={() => setShowList(!showList)}>Brands</Link>
             </li>
-            <li>
-              <Link onClick={openNav} to="/team">
-                Our Team
-              </Link>
-            </li>
+            {showList && <Brands isMobile />}
             <li>
               <Link onClick={openNav} to="/contact">
                 Contact
               </Link>
             </li>
+            {admin && (
+              <li>
+                <Link onClick={openNav} to="/bookings">
+                  Bookings
+                </Link>
+              </li>
+            )}
+            {admin && (
+              <li>
+                <Link onClick={openNav} to="/create-car">
+                  Add Car
+                </Link>
+              </li>
+            )}
           </ul>
         </div>
 
@@ -67,6 +135,17 @@ function Navbar() {
             </li>
             <li>
               {" "}
+              <Link
+                className="about-link"
+                onClick={() => setShowList(!showList)}
+                ref={brandsRef}
+              >
+                Brands
+              </Link>
+            </li>
+            {showList && <Brands />}
+            <li>
+              {" "}
               <Link className="about-link" to="/about">
                 About
               </Link>
@@ -74,19 +153,7 @@ function Navbar() {
             <li>
               {" "}
               <Link className="models-link" to="/models">
-                Vehicle Models
-              </Link>
-            </li>
-            <li>
-              {" "}
-              <Link className="testi-link" to="/testimonials">
-                Testimonials
-              </Link>
-            </li>
-            <li>
-              {" "}
-              <Link className="team-link" to="/team">
-                Our Team
+                Our Fleet
               </Link>
             </li>
             <li>
@@ -95,12 +162,36 @@ function Navbar() {
                 Contact
               </Link>
             </li>
+            {admin && (
+              <li>
+                <Link to="/bookings">Bookings</Link>
+              </li>
+            )}
+            {admin && (
+              <li>
+                <Link to="/create-car">Add Car</Link>
+              </li>
+            )}
           </ul>
           <div className="navbar__buttons">
-            <Link className="navbar__buttons__sign-in" to="/">
-              Sign In
-            </Link>
-            <Link className="navbar__buttons__register" to="/">
+            {isLoggedIn ? (
+              <Link
+                className="navbar__buttons__sign-in"
+                onClick={() => {
+                  localStorage.removeItem("token");
+                  localStorage.removeItem("role");
+                  window.location.reload();
+                }}
+                to="/"
+              >
+                Sign Out
+              </Link>
+            ) : (
+              <Link className="navbar__buttons__sign-in" to="/login">
+                Sign In
+              </Link>
+            )}
+            <Link className="navbar__buttons__register" to="/signUp">
               Register
             </Link>
           </div>
@@ -111,6 +202,7 @@ function Navbar() {
           </div>
         </div>
       </nav>
+      <Outlet />
     </>
   );
 }

@@ -1,14 +1,11 @@
 import { Link } from "react-router-dom";
 import BgShape from "../images/hero/hero-bg.png";
-import HeroCar from "../images/hero/main-car.png";
 import { useEffect, useState } from "react";
+import Pic from "../images/hero/main-carr.png";
 
 function Hero() {
+  // eslint-disable-next-line
   const [goUp, setGoUp] = useState(false);
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: (0, 0), behavior: "smooth" });
-  };
 
   const bookBtn = () => {
     document
@@ -53,27 +50,18 @@ function Hero() {
                 >
                   Book Ride &nbsp; <i className="fa-solid fa-circle-check"></i>
                 </Link>
-                <Link className="hero-content__text__btns__learn-more" to="/">
+                <Link
+                  className="hero-content__text__btns__learn-more"
+                  to="/about"
+                >
                   Learn More &nbsp; <i className="fa-solid fa-angle-right"></i>
                 </Link>
               </div>
             </div>
 
             {/* img */}
-            <img
-              src={HeroCar}
-              alt="car-img"
-              className="hero-content__car-img"
-            />
+            <img src={Pic} alt="car-img" className="hero-content__car-img" />
           </div>
-        </div>
-
-        {/* page up */}
-        <div
-          onClick={scrollToTop}
-          className={`scroll-up ${goUp ? "show-scroll" : ""}`}
-        >
-          <i className="fa-solid fa-angle-up"></i>
         </div>
       </section>
     </>

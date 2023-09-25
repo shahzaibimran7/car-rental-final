@@ -1,7 +1,56 @@
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 import HeroPages from "../components/HeroPages";
+import emailjs from "emailjs-com";
 
 function Contact() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    emailjs.init("U0B35fYtpoC6loUyp");
+    const templateParams = {
+      from_name: formData.name,
+      from_email: formData.email,
+      message: formData.message,
+    };
+    emailjs
+      .send("service_y120tlm", "template_3vb9c1z", templateParams)
+      .then((response) => {
+        alert("Email sent successfully!");
+        setFormData({
+          name: "",
+          email: "",
+          message: "",
+        });
+      })
+      .catch((error) => {
+        console.error("Error sending email:", error);
+        alert("Failed to send email. Please try again later.");
+      });
+  };
+  const whatsAppLink = "https://wa.me/971545505407";
+  const gmailLink = "mailto:fiftyfivecarrental@gmail.com";
+  const openWhatsApp = () => {
+    window.open(whatsAppLink, "_blank");
+  };
+  const openGmail = () => {
+    window.open(gmailLink, "_blank");
+  };
+
   return (
     <>
       <section className="contact-page">
@@ -10,39 +59,57 @@ function Contact() {
           <div className="contact-div">
             <div className="contact-div__text">
               <h2>Need additional information?</h2>
-              <p>
-                A multifaceted professional skilled in multiple fields of
-                research, development as well as a learning specialist. Over 15
-                years of experience.
-              </p>
-              <a href="/">
-                <i className="fa-solid fa-phone"></i>&nbsp; (123) 456-7869
-              </a>
-              <a href="/">
-                <i className="fa-solid fa-envelope"></i>&nbsp;
-                carrental@carmail.com
-              </a>
-              <a href="/">
-                <i className="fa-solid fa-location-dot"></i>&nbsp; Belgrade,
-                Serbia
-              </a>
+              <p>Our Service has NO SPEED LIMITS</p>
+              <Link to={""}>
+                <i
+                  className="fa fa-whatsapp"
+                  style={{ color: "#25D366" }}
+                  onClick={openWhatsApp}
+                ></i>
+                &nbsp; (+971) 54 550 5407
+              </Link>
+              <Link to={""}>
+                <i className="fa-solid fa-envelope" onClick={openGmail}></i>
+                &nbsp; fiftyfivecarrental@gmail.com
+              </Link>
+              <Link to={""}>
+                <i className="fa-solid fa-location-dot"></i>&nbsp; Al khaimah
+                building 2, Al Barsha 1 Office# 6F-09, Dubai
+              </Link>
             </div>
             <div className="contact-div__form">
-              <form>
+              <form onSubmit={handleSubmit}>
                 <label>
                   Full Name <b>*</b>
                 </label>
-                <input type="text" placeholder='E.g: "Joe Shmoe"'></input>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder='E.g: "Joe Shmoe"'
+                  value={formData.name}
+                  onChange={handleChange}
+                />
 
                 <label>
                   Email <b>*</b>
                 </label>
-                <input type="email" placeholder="youremail@example.com"></input>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="youremail@example.com"
+                  value={formData.email}
+                  onChange={handleChange}
+                />
 
                 <label>
                   Tell us about it <b>*</b>
                 </label>
-                <textarea placeholder="Write Here.."></textarea>
+                <textarea
+                  placeholder="Write Here.."
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                />
 
                 <button type="submit">
                   <i className="fa-solid fa-envelope-open-text"></i>&nbsp; Send
@@ -58,8 +125,12 @@ function Contact() {
             <div className="text-content">
               <h2>Book a car by getting in touch with us</h2>
               <span>
-                <i className="fa-solid fa-phone"></i>
-                <h3>(123) 456-7869</h3>
+                <i
+                  className="fa fa-whatsapp"
+                  style={{ color: "#25D366", cursor: "pointer" }}
+                  onClick={openWhatsApp}
+                ></i>
+                <h3>(+971) 54 550 5407</h3>
               </span>
             </div>
           </div>
