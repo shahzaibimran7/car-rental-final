@@ -181,7 +181,9 @@ function BookCar({ cars }) {
     const response = await CreateBooking(bookingData);
     if (response.status === 201) {
       const booking = response.data;
-      const car = await axios.get(`https://193.203.165.224/${booking.carId}`);
+      const car = await axios.get(
+        `https://app.fiftyfivecarrental.com/car/getCarsById/${booking.carId}`
+      );
       const bookingData = `Booking ID: ${booking.id} \n First Name: ${
         booking.firstName
       } \n Last Name: ${booking.lastName} \n Age: ${
