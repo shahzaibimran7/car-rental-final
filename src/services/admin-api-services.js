@@ -1,6 +1,6 @@
 import axios from "axios";
 const instance = axios.create({
-  baseURL: "http://localhost:8000/auth/",
+  baseURL: "https://193.203.165.224/",
 });
 const LoginUser = (user) => {
   return instance.post("login", user);
