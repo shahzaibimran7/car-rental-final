@@ -1,6 +1,6 @@
 import axios from "axios";
 const instance = axios.create({
-  baseURL: "http://localhost:8000/car/",
+  baseURL: "https://app.fiftyfivecarrental.com/car/",
 });
 const GetCars = () => {
   return instance.get("getAllCars");
@@ -18,6 +18,9 @@ const DeleteCar = (id) => {
   return instance.post(`deleteCarById/${id}`);
 };
 const AdditionalImage = (image) => {
-  return axios.post(`http://localhost:8000/carImage/uploadImage`, image);
+  return axios.post(
+    `https://app.fiftyfivecarrental.com/carImage/uploadImage`,
+    image
+  );
 };
 export { GetCars, GetCar, CreateOneCar, UpdateCar, DeleteCar, AdditionalImage };

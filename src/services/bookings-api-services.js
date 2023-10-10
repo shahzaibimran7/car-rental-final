@@ -1,6 +1,6 @@
 import axios from "axios";
 const instance = axios.create({
-  baseURL: "http://localhost:8000/booking/",
+  baseURL: "https://app.fiftyfivecarrental.com/booking/",
 });
 const CreateBooking = (booking) => {
   return instance.post("createBooking", booking);

@@ -58,7 +58,7 @@ const Signup = () => {
         >
           <Form className="center">
             <div className="padd_Login">
-              <h1 className="heading">Create Admin</h1>
+              <h1 className="heading">Sign up</h1>
             </div>
             <div className="padd_Login">
               <Field
