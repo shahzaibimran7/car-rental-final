@@ -1610,7 +1610,12 @@ flex: 1;
   margin-top: 4rem;
   /* height: 3rem; */
 }
-
+.about-main__text h3{
+  text-align: center;
+}
+.about-main__text h2{
+  text-align: center;
+}
 .linksContainer  i{
   margin-left: 0.5rem;
   color: black;
@@ -1620,6 +1625,12 @@ flex: 1;
 }
 .links i{
   display: flex;
+}
+.links i h4{
+  font-size: 1.5rem;
+}
+.links i{
+  font-size: 1.5rem;
 }
 .submit-email {
   text-decoration: none;
@@ -2210,20 +2221,40 @@ tbody tr:nth-child(even) {
   width: 60px;
   height: 60px;
   position: fixed;
-  bottom: 30px;
+  bottom: 20px;
   right: 30px;
   z-index: 1000;
   transition: all 0.3s ease-in-out;
   cursor: pointer;
 }
-
+#phone-float {
+  color: black;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 30px;
+  width: 60px;
+  height: 60px;
+  position: fixed;
+  bottom: 65px;
+  right: 30px;
+  z-index: 1000;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
 /* Media Query for Mobile Devices */
 @media (max-width: 767px) {
   #whatsapp-float {
     font-size: 30px; /* Reduce the font size for smaller screens */
     width: 50px; /* Adjust the button size for smaller screens */
     height: 50px; /* Adjust the button size for smaller screens */
-    bottom: 20px; /* Adjust the bottom position for smaller screens */
+    bottom: 10px; /* Adjust the bottom position for smaller screens */
+    right: 20px; /* Adjust the right position for smaller screens */
+  }
+  #phone-float {
+    font-size: 23px; /* Reduce the font size for smaller screens */
+    width: 50px; /* Adjust the button size for smaller screens */
+    height: 50px; /* Adjust the button size for smaller screens */
+    bottom: 38px; /* Adjust the bottom position for smaller screens */
     right: 20px; /* Adjust the right position for smaller screens */
   }
 }

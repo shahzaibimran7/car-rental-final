@@ -1,13 +1,9 @@
 import { Link } from "react-router-dom";
 
 function Footer() {
-  const whatsAppLink = "https://wa.me/971545505407";
+  const whatsAppLink = "https://wa.me/971545505358";
   const gmailLink = "mailto:fiftyfivecarrental@gmail.com";
-  // const Facebook=" https://www.facebook.com/profile.php?id=61551860040920"
-  // const Insta="https://www.instagram.com/fiftyfivecarrental/"
-  // const twitter="https://twitter.com/FiftyFiveCar"
-  // const pinterest=" https://www.pinterest.com/fiftyfivecarrental/"
-  // const youtube=" https://www.youtube.com/@FIFTYFIVECARRENTAL"
+
   const openWhatsApp = () => {
     window.open(whatsAppLink, "_blank");
   };
@@ -49,12 +45,12 @@ function Footer() {
               <li>
                 <h2>Collections</h2>
               </li>
+              <li>SUVs</li>
               <li>Luxury Cars</li>
               <li>Sports Cars</li>
               <li>Hybrid Cars</li>
-              <li>Fully Electric Cars</li>
-              <li>SUVs</li>
               <li>Sedan Cars</li>
+              <li>Electric Cars</li>
               <li>All Cars</li>
             </ul>
             <ul className="footer-content-mid2">
@@ -62,14 +58,14 @@ function Footer() {
                 <h2>Brands</h2>
               </li>
               <li>Ferrari</li>
-              <li>Lamborghini</li>
               <li>Audi</li>
+              <li>Ford</li>
               <li>Bentley</li>
+              <li>Porsche</li>
               <li>Rolls-Royce</li>
               <li>Range Rover</li>
               <li>Mercedes-Benz</li>
-              <li>Porsche</li>
-              <li>Ford</li>
+              <li>Lamborghini</li>
             </ul>
             <ul className="footer-content__2">
               <li>Working Hours</li>
@@ -83,16 +79,12 @@ function Footer() {
               to={"https://www.youtube.com/@FIFTYFIVECARRENTAL"}
               target="_blank"
             >
-              <i className="fa fa-youtube">
-                <h4>Youtube</h4>
-              </i>
+              <i className="fa fa-youtube fa-2xl"></i>
             </Link>
           </span>
           <span className="links">
             <Link to={"https://twitter.com/FiftyFiveCar"} target="_blank">
-              <i className="fa fa-twitter">
-                <h4>Twitter</h4>
-              </i>
+              <i className="fa fa-twitter fa-2xl">{/* <h4>Twitter</h4> */}</i>
             </Link>
           </span>
           <span className="links">
@@ -100,9 +92,7 @@ function Footer() {
               to={"https://www.facebook.com/profile.php?id=61551860040920"}
               target="_blank"
             >
-              <i className="fa fa-facebook">
-                <h4>Facebook</h4>
-              </i>
+              <i className="fa fa-facebook fa-2xl">{/* <h4>Facebook</h4> */}</i>
             </Link>
           </span>
           <span className="links">
@@ -110,8 +100,8 @@ function Footer() {
               to={"https://www.instagram.com/fiftyfivecarrental/"}
               target="_blank"
             >
-              <i className="fa fa-instagram">
-                <h4>instagram</h4>
+              <i className="fa fa-instagram fa-2xl">
+                {/* <h4>instagram</h4> */}
               </i>
             </Link>
           </span>
@@ -120,8 +110,8 @@ function Footer() {
               to={" https://www.pinterest.com/fiftyfivecarrental/"}
               target="_blank"
             >
-              <i className="fa fa-pinterest">
-                <h4>Pinterest</h4>
+              <i className="fa fa-pinterest fa-2xl">
+                {/* <h4>Pinterest</h4> */}
               </i>
             </Link>
           </span>

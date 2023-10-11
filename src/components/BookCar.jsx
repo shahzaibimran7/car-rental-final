@@ -150,11 +150,13 @@ function BookCar({ cars }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [carType]);
   const dropOffOptions = [
-    "United Arab Emirates",
-    "Dubai, United Arab Emirates",
-    "Abu Dhabi, United Arab Emirates",
-    "Sharjah, United Arab Emirates",
-    "Alain, United Arab Emirates",
+    "Dubai",
+    "Abu Dhabi",
+    "Al Ain",
+    "Sharjah",
+    "Ras Al-Khaimah",
+    "Ajman",
+    "Fujairah",
   ];
   const bookingData = {
     firstName: name,
