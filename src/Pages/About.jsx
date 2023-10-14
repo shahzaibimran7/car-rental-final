@@ -56,7 +56,7 @@ function About() {
                 style={{ color: "#25D366", cursor: "pointer" }}
                 onClick={openWhatsApp}
               ></i>
-              <h3>(+971) 54 567 5505</h3>
+              <h3>(+971) 54 550 5358</h3>
             </span>
           </div>
         </div>

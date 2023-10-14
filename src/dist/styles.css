@@ -1,4 +1,3 @@
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -12,7 +11,7 @@ html {
 
 body {
   background-color: #ffffff;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   position: relative;
 }
 
@@ -60,7 +59,7 @@ body {
   background-color: #163474;
 }
 
-.no-cars{
+.no-cars {
   margin-top: 50px;
   text-align: center;
   padding: 20px;
@@ -71,32 +70,32 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-.mobile-brands-card{
-    top: 383px;
-    left: 354px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    background-color: white;
-    padding: 20px;
-    height: 200px;
-    overflow-y: scroll;
-    border-radius: 10px;
-    border: 1px solid #163474;
+.mobile-brands-card {
+  top: 383px;
+  left: 354px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background-color: white;
+  padding: 20px;
+  height: 200px;
+  overflow-y: scroll;
+  border-radius: 10px;
+  border: 1px solid #163474;
 }
 
-.brands-card{
-    position: absolute;
-    top: 85px;
-    left: 444px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    background-color: white;
-    padding: 20px;
-    height: 200px;
-    overflow-y: scroll;
-    border-radius: 10px;
+.brands-card {
+  position: absolute;
+  top: 85px;
+  left: 444px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background-color: white;
+  padding: 20px;
+  height: 200px;
+  overflow-y: scroll;
+  border-radius: 10px;
 }
 
 .navbar {
@@ -129,7 +128,7 @@ body {
 }
 .navbar__links a {
   font-size: 1.6rem;
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   font-weight: 500;
   color: #010103;
   text-decoration: none;
@@ -148,7 +147,7 @@ body {
   display: flex;
   gap: 2.5rem;
   font-size: 1.6rem;
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   font-weight: 500;
   align-items: center;
 }
@@ -173,7 +172,6 @@ body {
   transition: all 0.3s;
 }
 .navbar__buttons__register:hover {
-  
   background-color: #163474;
 }
 .navbar__buttons a {
@@ -288,12 +286,12 @@ body {
 }
 .hero-content__text h4 {
   font-size: 2.2rem;
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   color: #010103;
 }
 .hero-content__text h1 {
   font-size: 4.8rem;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 700;
   color: #010103;
   line-height: 1.2;
@@ -305,7 +303,7 @@ body {
 }
 .hero-content__text p {
   font-size: 1.6rem;
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   line-height: 1.6;
   color: #706f7b;
   margin-bottom: 4rem;
@@ -315,7 +313,7 @@ body {
   display: flex;
   gap: 2rem;
   font-size: 1.6rem;
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
 }
 @media (max-width: 450px) {
   .hero-content__text__btns {
@@ -331,7 +329,6 @@ body {
   background-color: #163474;
   padding: 1.8rem 3rem;
   border-radius: 0.3rem;
-  ;
   transition: all 0.3s;
   border: 2px solid #163474;
 }
@@ -341,7 +338,6 @@ body {
   }
 }
 .hero-content__text__btns__book-ride:hover {
-  
   background-color: #163474;
 }
 .hero-content__text__btns__learn-more {
@@ -409,7 +405,7 @@ body {
   z-index: 4;
   color: white;
   border-radius: 5px;
-  background-image: url('/src/images/book-car/book-bg.png');
+  background-image: url("/src/images/book-car/book-bg.png");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -461,7 +457,7 @@ body {
 .book-content__box .box-form__car-type select {
   font-size: 1.5rem;
   color: #ababab;
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   border: 1px solid #ccd7e6;
   border-radius: 3px;
   font-weight: 400;
@@ -500,12 +496,12 @@ body {
   height: fit-content;
   align-self: self-end;
   border: none;
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   font-size: 1.8rem;
   font-weight: 500;
   color: white;
   background-color: #163474;
-    cursor: pointer;
+  cursor: pointer;
   transition: all 0.3s;
 }
 
@@ -771,7 +767,8 @@ body {
   font-weight: 500;
   color: #777777;
 }
-.info-form__2col span label b, .info-form__1col span label b {
+.info-form__2col span label b,
+.info-form__1col span label b {
   color: #ff4d30;
 }
 .info-form__2col span input,
@@ -832,12 +829,12 @@ body {
 }
 .plan-container__title h3 {
   font-size: 2.4rem;
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   font-weight: 500;
 }
 .plan-container__title h2 {
   font-size: 4.2rem;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   margin: 1.3rem 0 3rem 0;
 }
 .plan-container__boxes {
@@ -878,7 +875,7 @@ body {
 }
 .plan-container__boxes__box p {
   font-size: 1.6rem;
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   color: #706f7b;
   line-height: 1.43;
 }
@@ -900,18 +897,18 @@ body {
 }
 .pick-container__title p {
   font-size: 1.6rem;
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   color: #706f7b;
   line-height: 1.5;
 }
 .pick-container__title h3 {
   font-size: 2.4rem;
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   font-weight: 500;
 }
 .pick-container__title h2 {
   font-size: 4.2rem;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   margin: 0.5rem 0 1rem 0;
 }
 .pick-container__car-content {
@@ -933,7 +930,7 @@ body {
 }
 .pick-box button {
   font-size: 2rem;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 600;
   border: none;
   cursor: pointer;
@@ -956,7 +953,7 @@ body {
     width: 100%;
   }
 }
-.pick-car img {
+.pick-car-img {
   width: 100%;
   /* margin-top: 6rem; */
   margin-left: 54px;
@@ -1015,7 +1012,6 @@ body {
   justify-content: center;
   margin-top: 1.4rem;
   transition: all 0.3s;
-  
 }
 
 .box-cars {
@@ -1113,7 +1109,7 @@ body {
 .choose-section {
   background-color: white;
   padding: 2rem 0 10rem 0;
-  background-image: url('/src/images/chooseUs/bg.png');
+  background-image: url("/src/images/chooseUs/bg.png");
   background-position: -225px 255px;
   background-size: cover;
   background-repeat: no-repeat;
@@ -1165,7 +1161,7 @@ body {
   font-size: 2.2rem;
   margin-bottom: 0.7rem;
   font-weight: 600;
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
 }
 .text-container__left h2 {
   font-size: 4.2rem;
@@ -1174,7 +1170,7 @@ body {
 }
 .text-container__left p {
   font-size: 1.6rem;
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   line-height: 1.5;
   color: #706f7b;
   margin-bottom: 3.3rem;
@@ -1186,7 +1182,6 @@ body {
   background-color: #163474;
   padding: 1.5rem 2.5rem;
   border-radius: 0.3rem;
-  ;
   transition: all 0.3s;
   border: 2px solid #163474;
   font-size: 1.6rem;
@@ -1194,7 +1189,6 @@ body {
   width: fit-content;
 }
 .text-container__left a:hover {
-  
   background-color: #163474;
 }
 .text-container__right {
@@ -1229,7 +1223,7 @@ body {
 .text-container__right__box__text p {
   font-size: 1.6rem;
   color: #706f7b;
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   line-height: 1.3;
 }
 
@@ -1253,7 +1247,7 @@ body {
 }
 .testimonials-content__title h4 {
   font-size: 2.2rem;
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   font-weight: 500;
 }
 .testimonials-content__title h2 {
@@ -1262,7 +1256,7 @@ body {
 }
 .testimonials-content__title p {
   font-size: 1.6rem;
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   color: #706f7b;
   line-height: 1.4;
 }
@@ -1313,7 +1307,7 @@ body {
 }
 .all-testimonials__box__name__profile p {
   font-size: 1.6rem;
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   font-weight: 400;
 }
 
@@ -1335,7 +1329,6 @@ body {
     display: none;
   }
 }
-
 
 .all-questions {
   display: flex;
@@ -1373,7 +1366,7 @@ body {
 }
 .faq-box__answer {
   font-size: 1.6rem;
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   color: #706f7b;
   line-height: 1.7;
   max-height: 0;
@@ -1401,11 +1394,10 @@ body {
 .active-question {
   background-color: #163474;
   color: white;
-  ;
 }
 
 .download-section {
-  background-image: url('/src/images/banners/bg02.png');
+  background-image: url("/src/images/banners/bg02.png");
   background-color: #f8f8f8;
   background-position: top center;
   background-repeat: no-repeat;
@@ -1440,7 +1432,7 @@ body {
 .download-text p {
   font-size: 1.6rem;
   color: #706f7b;
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   line-height: 1.5;
 }
 .download-text__btns {
@@ -1524,7 +1516,7 @@ footer {
 .footer-content__1 li:nth-child(3),
 .footer-content__1 li:nth-child(4) {
   font-size: 1.6rem;
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   font-weight: 500;
   margin-bottom: 1rem;
 }
@@ -1552,11 +1544,11 @@ footer {
   font-size: 2.4rem;
   font-weight: 700;
   text-transform: uppercase;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   cursor: auto;
 }
 .footer-content__2 input {
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 26px;
@@ -1580,7 +1572,6 @@ footer {
   background-color: #163474;
   padding: 1.5rem 2.5rem;
   border-radius: 0.3rem;
-  ;
   transition: all 0.3s;
   border: 2px solid #163474;
   font-size: 1.6rem;
@@ -1590,14 +1581,13 @@ footer {
   width: 100%;
 }
 .submit-email:hover {
-  
   background-color: #163474;
 }
 
 .hero-pages {
   width: 100%;
   height: 41rem;
-  background-image: url('/src/images/hero/heroes-bg.png');
+  background-image: url("/src/images/hero/heroes-bg.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -1680,7 +1670,7 @@ footer {
 }
 .about-main__text h3 {
   font-size: 2.2rem;
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   font-weight: 500;
   margin-bottom: 1rem;
 }
@@ -1691,7 +1681,7 @@ footer {
 .about-main__text p {
   font-size: 1.6rem;
   color: #706f7b;
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   line-height: 1.5;
   margin-top: 2rem;
   margin-bottom: 4rem;
@@ -1745,7 +1735,7 @@ footer {
   display: flex;
   width: 100%;
   height: 20rem;
-  background-image: url('/src/images/banners/book-banner.png');
+  background-image: url("/src/images/banners/book-banner.png");
   position: relative;
   margin-top: 7rem;
 }
@@ -1833,13 +1823,12 @@ footer {
 .car-img {
   border-radius: 38px;
   cursor: pointer;
-  transition: transform 0.3s; 
+  transition: transform 0.3s;
 }
 
 .car-img:hover {
-  transform: scale(0.9); 
+  transform: scale(0.9);
 }
-
 
 @media (max-width: 400px) {
   .models-div__box {
@@ -1935,7 +1924,6 @@ footer {
   color: white;
 }
 .models-div__box__descr__name-price__btn:hover {
-  
   background-color: #163474;
 }
 .models-div__box__descr__name-price__btn a {
@@ -1972,7 +1960,6 @@ footer {
 .team-container__box {
   width: 33rem;
   background-color: white;
-  ;
 }
 @media (max-width: 400px) {
   .team-container__box {
@@ -2007,7 +1994,7 @@ footer {
   margin: 0 auto;
   color: #010103;
   padding: 10rem 2rem;
-  background-image: url('/src/images/banners/bg-contact.png');
+  background-image: url("/src/images/banners/bg-contact.png");
   background-size: auto;
   background-position: center center;
   background-repeat: no-repeat;
@@ -2037,7 +2024,7 @@ footer {
 }
 .contact-div__text p {
   font-size: 1.6rem;
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   color: #706f7b;
   line-height: 1.6;
   margin-bottom: 2rem;
@@ -2107,11 +2094,11 @@ footer {
   border-top: 2px solid gray; /* Adjust the color and thickness as needed */
   opacity: 0.15;
 }
-.details-class{
-margin-top: 6rem;
-margin-left: 2rem;
+.details-class {
+  margin-top: 6rem;
+  margin-left: 2rem;
 }
-.carousel{
+.carousel {
   border-radius: 15px;
   display: flex;
   justify-content: space-evenly;
@@ -2119,12 +2106,12 @@ margin-left: 2rem;
   height: auto;
   width: auto;
 }
-.label-class{
+.label-class {
   margin-top: 12rem;
   font-size: 32px;
   margin-left: 4rem;
 }
-.parent-carousel{
+.parent-carousel {
   display: flex;
 }
 .table-container {
@@ -2139,19 +2126,20 @@ table {
   border-collapse: collapse;
 }
 
-th, td {
+th,
+td {
   padding: 12px 15px;
   text-align: left;
 }
 
 thead {
-  background-color:  #163474;
+  background-color: #163474;
   color: #fff;
 }
 
 tbody tr:nth-child(even) {
   background-color: #3498db;
-  color:white
+  color: white;
 }
 
 #whatsapp-float {
@@ -2179,9 +2167,9 @@ tbody tr:nth-child(even) {
     right: 20px; /* Adjust the right position for smaller screens */
   }
 }
-.upload-additional{
+.upload-additional {
   display: flex;
 }
-#additional{
- font-size: larger;
+#additional {
+  font-size: larger;
 }

@@ -14,14 +14,24 @@ function CarBox({ data, carID }) {
         <div key={id} className="box-cars">
           <div className="pick-car">
             {carLoad && <span className="loader"></span>}
-            <img
+            <iframe
+              src={car.image}
+              allow="autoplay"
+              sandbox="allow-same-origin allow-scripts allow-forms"
+              width={carLoad ? "0" : "100%"}
+              height={carLoad ? "0" : "100%"}
+              onLoad={() => setCarLoad(false)}
+              className="pick-car-img"
+            />
+
+            {/* <img
               style={{
                 display: carLoad ? "none" : "block",
               }}
               src={convertImage(car.image)}
               alt="car_img"
               onLoad={() => setCarLoad(false)}
-            />
+            /> */}
           </div>
           <div className="pick-description">
             <div className="pick-description__price">

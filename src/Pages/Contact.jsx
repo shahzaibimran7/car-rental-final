@@ -66,7 +66,7 @@ function Contact() {
                   style={{ color: "#25D366" }}
                   onClick={openWhatsApp}
                 ></i>
-                &nbsp; (+971) 54 550 5407
+                &nbsp; (+971) 54 550 5358
               </Link>
               <Link to={""}>
                 <i className="fa-solid fa-envelope" onClick={openGmail}></i>
@@ -130,7 +130,7 @@ function Contact() {
                   style={{ color: "#25D366", cursor: "pointer" }}
                   onClick={openWhatsApp}
                 ></i>
-                <h3>(+971) 54 550 5407</h3>
+                <h3>(+971) 54 550 5358</h3>
               </span>
             </div>
           </div>
