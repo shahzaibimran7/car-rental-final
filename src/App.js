@@ -23,8 +23,17 @@ function App() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <i className="fa fa-whatsapp" id="whatsapp-float" />{" "}
+            <i className="fa fa-whatsapp" id="whatsapp-float" />
           </a>
+
+          <a
+            href="tel:971545505407"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i className="fa-solid fa-phone" id="phone-float"  />
+          </a>
+
         </div>
       )}
 

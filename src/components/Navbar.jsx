@@ -46,7 +46,10 @@ function Navbar() {
   }, []);
   const Brands = ({ isMobile }) => {
     return (
-      <div className={!isMobile ? "brands-card" : "mobile-brands-card"}>
+      <div
+        className={!isMobile ? "brands-card" : "mobile-brands-card"}
+        onMouseLeave={() => setShowList(false)}
+      >
         {brands.map((brand) => {
           return (
             <li key={brand} style={{ zIndex: 50 }}>
@@ -133,17 +136,13 @@ function Navbar() {
                 Home
               </Link>
             </li>
-            <li>
+            <li onMouseEnter={() => setShowList(true)}>
               {" "}
-              <Link
-                className="about-link"
-                onClick={() => setShowList(!showList)}
-                ref={brandsRef}
-              >
+              <Link className="about-link" ref={brandsRef}>
                 Brands
+                {showList && <Brands />}
               </Link>
             </li>
-            {showList && <Brands />}
             <li>
               {" "}
               <Link className="about-link" to="/about">

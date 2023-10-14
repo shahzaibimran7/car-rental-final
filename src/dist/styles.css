@@ -2,6 +2,8 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  list-style: none;
+  text-decoration: none;
 }
 
 html {
@@ -1469,19 +1471,25 @@ footer {
 .footer-content {
   display: flex;
   color: #010103;
-  gap: 8rem;
+  gap: 4rem;
   justify-content: space-between;
   text-align: left;
   color: #010103;
 }
 @media (max-width: 1100px) {
   .footer-content {
-    grid-template-columns: 1fr 1fr;
+    /* grid-template-columns: 1fr 1fr ; */
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
   }
 }
 @media (max-width: 650px) {
   .footer-content {
     grid-template-columns: 1fr;
+    text-align: center;
   }
 }
 .footer-content__1 {
@@ -1520,12 +1528,30 @@ footer {
   font-weight: 500;
   margin-bottom: 1rem;
 }
+.footer-content-mid1{
+text-align: center;
+font-size: 1.5rem;
+font-weight: 500;
+flex: 1;
+}
+.footer-content-mid2{
+  text-align: center;
+  font-size: larger;
+  font-weight: 500;
+font-size: 1.5rem;
+flex: 1;
+
+  }
 .footer-content__2 {
   list-style: none;
 }
 @media (max-width: 650px) {
   .footer-content__2 {
     text-align: center;
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    align-items: center;
   }
 }
 .footer-content__2 a {
@@ -1564,7 +1590,40 @@ footer {
     width: 100%;
   }
 }
-
+.linksContainer{
+  display: flex;
+  flex-wrap: wrap;
+  /* color:black; */
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  /* border: 0.05rem solid black; */
+  /* padding-top: 1rem; */
+  margin-top: 4rem;
+  /* height: 3rem; */
+}
+.about-main__text h3{
+  text-align: center;
+}
+.about-main__text h2{
+  text-align: center;
+}
+.linksContainer  i{
+  margin-left: 0.5rem;
+  color: black;
+}
+.linksContainer i h4{
+  margin-left: 0.5rem;
+}
+.links i{
+  display: flex;
+}
+.links i h4{
+  font-size: 1.5rem;
+}
+.links i{
+  font-size: 1.5rem;
+}
 .submit-email {
   text-decoration: none;
   color: white;
@@ -2150,20 +2209,40 @@ tbody tr:nth-child(even) {
   width: 60px;
   height: 60px;
   position: fixed;
-  bottom: 30px;
+  bottom: 20px;
   right: 30px;
   z-index: 1000;
   transition: all 0.3s ease-in-out;
   cursor: pointer;
 }
-
+#phone-float {
+  color: black;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 30px;
+  width: 60px;
+  height: 60px;
+  position: fixed;
+  bottom: 65px;
+  right: 30px;
+  z-index: 1000;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
 /* Media Query for Mobile Devices */
 @media (max-width: 767px) {
   #whatsapp-float {
     font-size: 30px; /* Reduce the font size for smaller screens */
     width: 50px; /* Adjust the button size for smaller screens */
     height: 50px; /* Adjust the button size for smaller screens */
-    bottom: 20px; /* Adjust the bottom position for smaller screens */
+    bottom: 10px; /* Adjust the bottom position for smaller screens */
+    right: 20px; /* Adjust the right position for smaller screens */
+  }
+  #phone-float {
+    font-size: 23px; /* Reduce the font size for smaller screens */
+    width: 50px; /* Adjust the button size for smaller screens */
+    height: 50px; /* Adjust the button size for smaller screens */
+    bottom: 38px; /* Adjust the bottom position for smaller screens */
     right: 20px; /* Adjust the right position for smaller screens */
   }
 }

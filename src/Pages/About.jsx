@@ -1,7 +1,7 @@
 import Footer from "../components/Footer";
 import HeroPages from "../components/HeroPages";
 import PlanTrip from "../components/PlanTrip";
-import AboutMain from "../images/about/about-main.jpg";
+// import AboutMain from "../images/about/about-main.jpg";
 
 function About() {
   const whatsAppLink = "https://wa.me/971545505407";
@@ -14,11 +14,11 @@ function About() {
         <HeroPages name="About" />
         <div className="container">
           <div className="about-main">
-            <img
+            {/* <img
               className="about-main__img"
               src={AboutMain}
               alt="car-renting"
-            />
+            /> */}
             <div className="about-main__text">
               <h3>About Company</h3>
               <h2>You start the engine and your adventure begins</h2>
