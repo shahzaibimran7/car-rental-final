@@ -58,18 +58,11 @@ const CarDetails = () => {
             <div className="carousel">
               <Carousel showThumbs={true} width={800}>
                 <div>
-                  <iframe
-                    allow="autoplay"
-                    sandbox="allow-same-origin allow-scripts allow-forms"
-                    src={car.image}
-                    alt={car.name}
-                    height={600}
-                    width={400}
-                  />
+                  <img src={convertImage(car.image)} alt={car.name} />
                 </div>
                 {extraImages?.map((img, key) => (
                   <div key={key}>
-                    <iframe src={img} alt={key} />
+                    <img src={convertImage(img)} alt={key} />
                   </div>
                 ))}
               </Carousel>
