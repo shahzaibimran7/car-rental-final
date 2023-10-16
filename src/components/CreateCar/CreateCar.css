@@ -1,66 +1,66 @@
 .form-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    align-items: center;
-    height: 100vh; 
-    background-color: #f0f8ff; 
-    margin-top: 10%;
-    overflow-y: auto;
-  }
-    .signup-form {
-    background-color: #ffffff; 
-    padding: 20px;
-    border-radius: 8px;
-    width: 80%; 
-    max-width: 400px; 
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin-top: 5rem;
-    margin-bottom: 5rem;
-  }
-  
-  .form-group {
-    margin-bottom: 20px;
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: bold;
-  }
-  
-  input[type="text"],
-  input[type="number"],
-  select {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  .error {
-    color: red;
-    font-size: 14px;
-  }
-  
-  button[type="submit"] {
-    background-color: #163474;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-    width: 100%; 
-    margin-top: 10px;
-  }
-  
-  select {
-    width: 100%; 
-  }
-  .form-container::-webkit-scrollbar {
-    width: 0.5em;
-  }
-  
-  .form-container::-webkit-scrollbar-thumb {
-    background-color: transparent;
-  }
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f8ff;
+  margin-top: 10%;
+  overflow-y: auto;
+}
+.signup-form {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 80%;
+  max-width: 400px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+}
+
+button[type="submit"] {
+  background-color: #2596be;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 10px;
+}
+
+select {
+  width: 100%;
+}
+.form-container::-webkit-scrollbar {
+  width: 0.5em;
+}
+
+.form-container::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}

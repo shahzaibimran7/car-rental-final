@@ -5,10 +5,7 @@
   align-items: center;
   height: 100vh;
   width: 100%;
-  background-image: url('../../images//carspic//bg.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+  background-color: white;
   z-index: -1;
 }
 
@@ -39,7 +36,7 @@
 .login_Button button {
   color: rgb(255, 255, 255);
   border: none;
-  background-color: #163474;
+  background-color: #13428d;
   padding: 1rem 4rem;
   border-radius: 0.4rem;
 }
@@ -65,7 +62,7 @@
   .form_Input_Container_s {
     width: 80vw;
     height: auto;
-    margin: auto
+    margin: auto;
   }
 
   .login_Button button {

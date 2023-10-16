@@ -26,7 +26,7 @@ body {
 /* Firefox */
 * {
   scrollbar-width: thin;
-  scrollbar-color: #163474 #ffffff;
+  scrollbar-color: #2596be #ffffff;
 }
 
 /* Chrome, Edge and Safari */
@@ -50,15 +50,15 @@ body {
 
 *::-webkit-scrollbar-thumb {
   border-radius: 20px;
-  background-color: #163474;
+  background-color: #2596be;
 }
 
 *::-webkit-scrollbar-thumb:hover {
-  background-color: #163474;
+  background-color: #2596be;
 }
 
 *::-webkit-scrollbar-thumb:active {
-  background-color: #163474;
+  background-color: #2596be;
 }
 
 .no-cars {
@@ -66,7 +66,7 @@ body {
   text-align: center;
   padding: 20px;
   background-color: #87ceeb;
-  color: #163474;
+  color: #2596be;
   opacity: 60%;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -83,7 +83,7 @@ body {
   height: 200px;
   overflow-y: scroll;
   border-radius: 10px;
-  border: 1px solid #163474;
+  border: 1px solid #2596be;
 }
 
 .brands-card {
@@ -138,7 +138,7 @@ body {
   transition: all 0.3s;
 }
 .navbar__links a:hover {
-  color: #163474;
+  color: #2596be;
 }
 @media (max-width: 1000px) {
   .navbar__links {
@@ -164,17 +164,17 @@ body {
   transition: all 0.3s;
 }
 .navbar__buttons__sign-in:hover {
-  color: #163474;
+  color: #2596be;
 }
 .navbar__buttons__register {
-  background-color: #163474;
+  background-color: #2596be;
   color: white;
   padding: 1.5rem 3rem;
   border-radius: 3px;
   transition: all 0.3s;
 }
 .navbar__buttons__register:hover {
-  background-color: #163474;
+  background-color: #2596be;
 }
 .navbar__buttons a {
   text-decoration: none;
@@ -187,7 +187,7 @@ body {
   transition: all 0.3s;
 }
 .mobile-hamb:hover {
-  color: #163474;
+  color: #2596be;
 }
 @media (max-width: 1000px) {
   .mobile-hamb {
@@ -218,7 +218,7 @@ body {
   transition: all 0.3s;
 }
 .mobile-navbar__close:hover {
-  color: #163474;
+  color: #2596be;
 }
 .mobile-navbar__links {
   display: flex;
@@ -235,7 +235,7 @@ body {
   transition: all 0.3s;
 }
 .mobile-navbar__links li a:hover {
-  color: #163474;
+  color: #2596be;
 }
 
 .open-nav {
@@ -301,7 +301,7 @@ body {
   margin-bottom: 2.3rem;
 }
 .hero-content__text h1 span {
-  color: #163474;
+  color: #2596be;
 }
 .hero-content__text p {
   font-size: 1.6rem;
@@ -328,11 +328,11 @@ body {
   font-weight: 700;
 }
 .hero-content__text__btns__book-ride {
-  background-color: #163474;
+  background-color: #2596be;
   padding: 1.8rem 3rem;
   border-radius: 0.3rem;
   transition: all 0.3s;
-  border: 2px solid #163474;
+  border: 2px solid #2596be;
 }
 @media (max-width: 450px) {
   .hero-content__text__btns__book-ride {
@@ -340,7 +340,7 @@ body {
   }
 }
 .hero-content__text__btns__book-ride:hover {
-  background-color: #163474;
+  background-color: #2596be;
 }
 .hero-content__text__btns__learn-more {
   background-color: #010103;
@@ -370,7 +370,7 @@ body {
   position: fixed;
   font-size: 2.5rem;
   color: white;
-  background-color: #163474;
+  background-color: #2596be;
   border: 3px solid white;
   width: 2rem;
   height: 2rem;
@@ -432,7 +432,7 @@ body {
   gap: 2rem;
 }
 .book-content__box .box-form b {
-  color: #163474;
+  color: #2596be;
 }
 @media (max-width: 1000px) {
   .book-content__box .box-form {
@@ -454,7 +454,7 @@ body {
   margin-bottom: 1.2rem;
 }
 .book-content__box .box-form__car-type label i {
-  color: #163474;
+  color: #2596be;
 }
 .book-content__box .box-form__car-type select {
   font-size: 1.5rem;
@@ -483,7 +483,7 @@ body {
   margin-bottom: 1.2rem;
 }
 .book-content__box .box-form__car-time label i {
-  color: #163474;
+  color: #2596be;
 }
 .book-content__box .box-form__car-time ::-webkit-datetime-edit {
   padding: 1.3rem 1.3rem;
@@ -502,13 +502,13 @@ body {
   font-size: 1.8rem;
   font-weight: 500;
   color: white;
-  background-color: #163474;
+  background-color: #2596be;
   cursor: pointer;
   transition: all 0.3s;
 }
 
 .error-message {
-  color: #163474;
+  color: #2596be;
   background-color: #d1eaf0;
   border-color: #d1eaf0;
   padding: 1rem 1.4rem;
@@ -594,7 +594,7 @@ body {
   display: flex;
   justify-content: space-between;
   padding: 1rem 1.5rem;
-  background-color: #163474;
+  background-color: #2596be;
   color: white;
   align-items: center;
 }
@@ -621,7 +621,7 @@ body {
 .booking-modal__message h4 {
   font-size: 1.9rem;
   font-weight: 700;
-  color: #163474;
+  color: #2596be;
 }
 .booking-modal__message h4 i {
   font-size: 2.5rem;
@@ -652,7 +652,7 @@ body {
 }
 .booking-modal__car-info__dates h5 {
   font-size: 1.8rem;
-  color: #163474;
+  color: #2596be;
 }
 .booking-modal__car-info__dates span {
   display: flex;
@@ -695,7 +695,7 @@ body {
 }
 .booking-modal__car-info__model h5 {
   font-size: 1.8rem;
-  color: #163474;
+  color: #2596be;
 }
 .booking-modal__car-info__model h5 span {
   color: #010103;
@@ -713,7 +713,7 @@ body {
 .booking-modal__person-info h4 {
   font-size: 1.8rem;
   text-transform: uppercase;
-  color: #163474;
+  color: #2596be;
   margin-bottom: 2rem;
 }
 
@@ -785,7 +785,7 @@ body {
 }
 
 .reserve-button {
-  background-color: #163474;
+  background-color: #2596be;
   margin: 0 -3rem;
   padding: 3rem;
   text-align: right;
@@ -799,14 +799,14 @@ body {
   font-size: 2.4rem;
   color: white;
   font-weight: 700;
-  background-color: #163474;
+  background-color: #2596be;
   border: 1px solid #d1eaf0;
   padding: 1.2rem 2rem;
   cursor: pointer;
   transition: all 0.2s;
 }
 .reserve-button button:hover {
-  background-color: #163474;
+  background-color: #2596be;
 }
 
 .dates-div {
@@ -942,7 +942,7 @@ body {
   text-align: left;
 }
 .pick-box button:hover {
-  background-color: #163474;
+  background-color: #2596be;
   color: white;
 }
 
@@ -967,7 +967,7 @@ body {
 }
 .pick-description__price {
   width: 100%;
-  background-color: #163474;
+  background-color: #2596be;
   font-size: 1.8rem;
   display: flex;
   align-items: center;
@@ -1007,7 +1007,7 @@ body {
   font-weight: 600;
   color: white;
   font-family: "Poppins", sans-serif;
-  background-color: #163474;
+  background-color: #2596be;
   padding: 1rem 1rem;
   display: flex;
   width: 100%;
@@ -1036,7 +1036,7 @@ body {
 }
 
 .colored-button {
-  background-color: #163474 !important;
+  background-color: #2596be !important;
   color: white;
 }
 
@@ -1104,7 +1104,7 @@ body {
   }
 }
 .banner-content__text span {
-  color: #163474;
+  color: #2596be;
   font-weight: 500;
 }
 
@@ -1181,17 +1181,17 @@ body {
   text-decoration: none;
   color: white;
   font-weight: 700;
-  background-color: #163474;
+  background-color: #2596be;
   padding: 1.5rem 2.5rem;
   border-radius: 0.3rem;
   transition: all 0.3s;
-  border: 2px solid #163474;
+  border: 2px solid #2596be;
   font-size: 1.6rem;
   width: -moz-fit-content;
   width: fit-content;
 }
 .text-container__left a:hover {
-  background-color: #163474;
+  background-color: #2596be;
 }
 .text-container__right {
   display: flex;
@@ -1315,7 +1315,7 @@ body {
 
 .quotes-icon {
   font-size: 6.2rem;
-  color: #163474;
+  color: #2596be;
   position: absolute;
   bottom: 33px;
   right: 60px;
@@ -1394,7 +1394,7 @@ body {
 }
 
 .active-question {
-  background-color: #163474;
+  background-color: #2596be;
   color: white;
 }
 
@@ -1506,7 +1506,7 @@ footer {
   transition: all 0.2s;
 }
 .footer-content__1 li a:hover {
-  color: #163474;
+  color: #2596be;
 }
 .footer-content__1 li:nth-child(1) {
   font-size: 2.4rem;
@@ -1528,20 +1528,19 @@ footer {
   font-weight: 500;
   margin-bottom: 1rem;
 }
-.footer-content-mid1{
-text-align: center;
-font-size: 1.5rem;
-font-weight: 500;
-flex: 1;
+.footer-content-mid1 {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 500;
+  flex: 1;
 }
-.footer-content-mid2{
+.footer-content-mid2 {
   text-align: center;
   font-size: larger;
   font-weight: 500;
-font-size: 1.5rem;
-flex: 1;
-
-  }
+  font-size: 1.5rem;
+  flex: 1;
+}
 .footer-content__2 {
   list-style: none;
 }
@@ -1560,7 +1559,7 @@ flex: 1;
   transition: all 0.2s;
 }
 .footer-content__2 a:hover {
-  color: #163474;
+  color: #2596be;
 }
 .footer-content__2 li {
   font-size: 1.6rem;
@@ -1590,7 +1589,7 @@ flex: 1;
     width: 100%;
   }
 }
-.linksContainer{
+.linksContainer {
   display: flex;
   flex-wrap: wrap;
   /* color:black; */
@@ -1602,37 +1601,37 @@ flex: 1;
   margin-top: 4rem;
   /* height: 3rem; */
 }
-.about-main__text h3{
+.about-main__text h3 {
   text-align: center;
 }
-.about-main__text h2{
+.about-main__text h2 {
   text-align: center;
 }
-.linksContainer  i{
+.linksContainer i {
   margin-left: 0.5rem;
   color: black;
 }
-.linksContainer i h4{
+.linksContainer i h4 {
   margin-left: 0.5rem;
 }
-.links i{
+.links i {
   display: flex;
 }
-.links i h4{
+.links i h4 {
   font-size: 1.5rem;
 }
-.links i{
+.links i {
   font-size: 1.5rem;
 }
 .submit-email {
   text-decoration: none;
   color: white;
   font-weight: 700;
-  background-color: #163474;
+  background-color: #2596be;
   padding: 1.5rem 2.5rem;
   border-radius: 0.3rem;
   transition: all 0.3s;
-  border: 2px solid #163474;
+  border: 2px solid #2596be;
   font-size: 1.6rem;
   width: -moz-fit-content;
   width: fit-content;
@@ -1640,7 +1639,7 @@ flex: 1;
   width: 100%;
 }
 .submit-email:hover {
-  background-color: #163474;
+  background-color: #2596be;
 }
 
 .hero-pages {
@@ -1684,7 +1683,7 @@ flex: 1;
   transition: all 0.2s;
 }
 .hero-pages__text p a:hover {
-  color: #163474;
+  color: #2596be;
 }
 
 .about-main {
@@ -1842,7 +1841,7 @@ flex: 1;
   font-size: 2.7rem;
   gap: 1rem;
   align-items: center;
-  color: #163474;
+  color: #2596be;
   white-space: nowrap;
 }
 
@@ -1972,18 +1971,18 @@ flex: 1;
   font-size: 1.8rem;
 }
 .models-div__box__descr__name-price__btn {
-  background-color: #163474;
+  background-color: #2596be;
   padding: 1.8rem 3rem;
   border-radius: 0.3rem;
   transition: all 0.3s;
-  border: 2px solid #163474;
+  border: 2px solid #2596be;
   font-size: 1.8rem;
   cursor: pointer;
   text-decoration: none;
   color: white;
 }
 .models-div__box__descr__name-price__btn:hover {
-  background-color: #163474;
+  background-color: #2596be;
 }
 .models-div__box__descr__name-price__btn a {
   text-decoration: none;
@@ -2097,7 +2096,7 @@ flex: 1;
   margin-bottom: 0.5rem;
 }
 .contact-div__text a:hover {
-  color: #163474;
+  color: #2596be;
 }
 .contact-div__form {
   display: flex;
@@ -2113,7 +2112,7 @@ flex: 1;
   margin-bottom: 1rem;
 }
 .contact-div__form form label b {
-  color: #163474;
+  color: #2596be;
 }
 .contact-div__form form input {
   background-color: #f2f2f2;
@@ -2133,11 +2132,11 @@ flex: 1;
   margin-bottom: 2.5rem;
 }
 .contact-div__form form button {
-  background-color: #163474;
+  background-color: #2596be;
   padding: 1.8rem 3rem;
   border-radius: 0.3rem;
   transition: all 0.3s;
-  border: 2px solid #163474;
+  border: 2px solid #2596be;
   color: white;
   font-size: 1.8rem;
   font-weight: 600;
@@ -2192,7 +2191,7 @@ td {
 }
 
 thead {
-  background-color: #163474;
+  background-color: #2596be;
   color: #fff;
 }
 

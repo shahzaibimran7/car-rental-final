@@ -89,17 +89,9 @@ function Models() {
                     key={index}
                   >
                     <div className="models-div__box__img">
-                      {/* <img
+                      <img
                         src={convertImage(car.image)}
                         alt="car_img"
-                        className="car-img"
-                      /> */}
-                      <iframe
-                        src={car.image}
-                        allow="autoplay"
-                        sandbox="allow-same-origin allow-scripts allow-forms"
-                        width="100%"
-                        height="100%"
                         className="car-img"
                       />
                       <div className="models-div__box__descr">
@@ -204,7 +196,7 @@ function Models() {
           </div>
         ) : (
           <div style={{ marginTop: "44px", marginLeft: "50%" }}>
-            <RingLoader color="#163474" />
+            <RingLoader color="#2596be" />
           </div>
         )}
 
