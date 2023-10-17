@@ -26,7 +26,13 @@ function PickCar({ cars }) {
               </p>
             </div>
             <div className="pick-container__car-content">
-              <div className="pick-box">
+              <div
+                className="pick-box"
+                style={{
+                  height: "335px",
+                  overflow: "auto",
+                }}
+              >
                 {cars?.map((car) => (
                   <button
                     key={car.id}

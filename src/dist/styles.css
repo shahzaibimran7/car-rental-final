@@ -357,8 +357,8 @@ body {
   z-index: 2;
   position: absolute;
   right: 0;
-  width: 65%;
-  margin-top: 5rem;
+  width: 52%;
+  margin-top: 11rem;
 }
 @media (max-width: 800px) {
   .hero-content__car-img {
