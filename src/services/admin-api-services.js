@@ -1,6 +1,6 @@
 import axios from "axios";
 const instance = axios.create({
-  baseURL: "http://localhost:8000/auth/",
+  baseURL: "https://app.fiftyfivecarrental.com/auth/",
 });
 const LoginUser = (user) => {
   return instance.post("login", user);
