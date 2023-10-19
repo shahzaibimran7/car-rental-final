@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 function Footer() {
   const whatsAppLink = "https://wa.me/971545505358";
   const gmailLink = "mailto:fiftyfivecarrental@gmail.com";
+  const callLink = "tel:971545505407";
 
   const openWhatsApp = () => {
     window.open(whatsAppLink, "_blank");
@@ -10,6 +11,11 @@ function Footer() {
   const openGmail = () => {
     window.open(gmailLink, "_blank");
   };
+
+  const openPhone = () => {
+    window.open(callLink, "_blank");
+  }
+
   return (
     <>
       <footer>
@@ -23,6 +29,18 @@ function Footer() {
                 We offer a big range of vehicles for all your driving needs. We
                 have the perfect car to meet your needs.
               </li>
+
+              <li style={{}}>
+                <Link to={""}>
+                  <i
+                    className="fa-solid fa-phone"
+                    style={{ color: "black" }}
+                    onClick={openPhone}
+                  ></i>{" "}
+                  &nbsp; (+971) 54 550 5358
+                </Link>
+              </li>
+
               <li>
                 <Link to={""}>
                   <i
