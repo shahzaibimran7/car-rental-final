@@ -1,12 +1,27 @@
 import React, { useState, useEffect } from "react";
-import Hero from "../components/Hero";
-import BookCar from "../components/BookCar";
 import PlanTrip from "../components/PlanTrip";
-import PickCar from "../components/PickCar";
 import Banner from "../components/Banner";
 import ChooseUs from "../components/ChooseUs";
 import Footer from "../components/Footer";
 import { GetCars } from "../services/car-api-services";
+import Loadable from "react-loadable";
+
+const Loading = () => <div>Loading...</div>;
+
+const LazyHero = Loadable({
+  loader: () => import("../components/Hero"),
+  loading: Loading,
+})
+
+const LazyBookCar = Loadable({
+  loader: () => import("../components/BookCar"),
+  loading: Loading,
+});
+
+const LazyPickCar = Loadable({
+  loader: () => import("../components/PickCar"),
+  loading: Loading,
+});
 
 function Home() {
   const [cars, setCars] = useState([]);
@@ -17,12 +32,13 @@ function Home() {
     };
     getAllCars();
   }, []);
+
   return (
     <>
-      <Hero />
-      <BookCar cars={cars} />
+      <LazyHero />
+      <LazyBookCar cars={cars} />
       <PlanTrip />
-      <PickCar cars={cars} />
+      <LazyPickCar cars={cars} />
       <Banner />
       <ChooseUs />
       <Footer />
