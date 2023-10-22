@@ -111,7 +111,10 @@ function Models() {
               hasMore={!!pagination?.nextPage}
               loader={
                 isLoadingMore ? (
-                  <RingLoader color="#2596be" />
+                  <div style={{ marginLeft: "50%" }}>
+                    <RingLoader color="#2596be" />
+                    <h2 style={{ color: "#2596be", fontWeight: "normal" }}> Loading...</h2>
+                  </div>
                 ) : null
               }
               style={{ overflow: "hidden" }}
