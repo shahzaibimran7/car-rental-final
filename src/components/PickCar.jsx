@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import CarBox from "./CarBox";
+import { GetCars } from "../services/car-api-services";
+import { RingLoader } from "react-spinners";
+import { Link } from "react-router-dom";
 
 function PickCar({ cars }) {
-  const [active, setActive] = useState(cars[0]?.name);
+  const [active, setActive] = useState(cars?.[0]?.name);
   const [colorBtn, setColorBtn] = useState(null);
 
   const btnID = (carName) => {
@@ -25,37 +28,52 @@ function PickCar({ cars }) {
                 next adventure or business trip
               </p>
             </div>
-            <div className="pick-container__car-content">
-              <div
-                className="pick-box"
-                style={{
-                  height: "335px",
-                  overflow: "auto",
-                }}
-              >
-                {cars?.map((car) => (
-                  <button
-                    key={car.id}
-                    className={`button ${coloringButton(car.name)}`}
-                    onClick={() => {
-                      setActive(car.name);
-                      btnID(car.name);
+            {cars?.length ?
+              <>
+                <div className="pick-container__car-content">
+                  <div
+                    className="pick-box"
+                    style={{
+                      height: "335px",
+                      overflow: "auto",
                     }}
                   >
-                    {car.name}
-                  </button>
-                ))}
-              </div>
+                    {cars?.map((car) => (
+                      <button
+                        key={car.id}
+                        className={`button ${coloringButton(car.name)}`}
+                        onClick={() => {
+                          setActive(car.name);
+                          btnID(car.name);
+                        }}
+                      >
+                        {car.name}
+                      </button>
+                    ))}
+                  </div>
 
-              {active !== null && (
-                <CarBox
-                  data={[...cars?.filter((car) => car.name === active)]}
-                />
-              )}
-            </div>
+                  {active !== null && (
+                    <CarBox
+                      data={[...cars?.filter((car) => car.name === active)]}
+                    />
+                  )}
+
+                </div>
+                <span style={{ marginLeft: "50%", marginTop: "30px", display: 'flex', fontSize: "medium" }}>
+                  <Link to='/models'>View All</Link>
+                </span>
+              </>
+              :
+              <div className="pick-container__car-content">
+                <div style={{ marginTop: "44px", marginLeft: "50%" }}>
+                  <RingLoader color="#2596be" />
+                  <h2 style={{ color: "#2596be" }}>Loading...</h2>
+                </div>
+              </div>
+            }
           </div>
         </div>
-      </section>
+      </section >
     </>
   );
 }

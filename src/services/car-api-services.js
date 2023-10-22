@@ -3,8 +3,13 @@ const instance = axios.create({
   baseURL: "https://app.fiftyfivecarrental.com/car/",
 });
 const GetCars = () => {
-  return instance.get("getAllCars");
+  return instance.get(`getAllCars`);
 };
+
+const GetCarsPaginated = (query) => {
+  return instance.get(`getAllCars${query}`);
+}
+
 const GetCar = (id) => {
   return instance.get(`getAllDetails/${id}`);
 };
@@ -23,4 +28,4 @@ const AdditionalImage = (image) => {
     image
   );
 };
-export { GetCars, GetCar, CreateOneCar, UpdateCar, DeleteCar, AdditionalImage };
+export { GetCars, GetCar, GetCarsPaginated, CreateOneCar, UpdateCar, DeleteCar, AdditionalImage };

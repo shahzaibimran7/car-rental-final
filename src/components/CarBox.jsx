@@ -2,12 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 function CarBox({ data, carID }) {
-  const [carLoad, setCarLoad] = useState(true);
-  const convertImage = (image) => {
-    const imageElement = "data:image/jpeg;base64," + image;
-
-    return imageElement;
-  };
+  const [carLoad, setCarLoad] = useState(false);
   return (
     <>
       {data.map((car, id) => (
@@ -19,7 +14,7 @@ function CarBox({ data, carID }) {
               style={{
                 display: carLoad ? "none" : "block",
               }}
-              src={convertImage(car.image)}
+              src={car.image}
               alt="car_img"
               onLoad={() => setCarLoad(false)}
             />

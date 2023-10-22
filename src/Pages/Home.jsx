@@ -28,7 +28,7 @@ function Home() {
   useEffect(() => {
     const getAllCars = async () => {
       const response = await GetCars();
-      setCars(response.data);
+      setCars(response.data?.cars);
     };
     getAllCars();
   }, []);
