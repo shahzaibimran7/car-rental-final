@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import { RingLoader } from "react-spinners";
 import InfiniteScroll from "react-infinite-scroll-component";
 import {
@@ -33,50 +33,43 @@ function Models() {
     }
   };
 
-  const getAllCars = async () => {
-    if (isLoadingMore) {
-      return;
-    }
-
+  const fetchCars = async (nextPage) => {
     setIsLoadingMore(true);
+    try {
+      let response;
 
-    const nextPage = pagination ? pagination.nextPage : null;
-    if (brand) {
-      try {
-        console.log("inside the brands api");
-        const response = await GetCarsByBrand(brand);
-        const newCars = response.data;
-        setCars([...newCars]);
-        setIsLoadingMore(false);
-      } catch (error) {
-        console.error("Error loading more cars:", error);
-        setIsLoadingMore(false);
+      if (brand) {
+        response = await GetCarsByBrand(brand, nextPage ? `?page=${nextPage}` : ``);
+      } else {
+        response = await GetCarsPaginated(nextPage ? `?page=${nextPage}` : ``);
       }
-    } else {
-      try {
-        console.log("inside the all cars api");
-        const response = await GetCarsPaginated(
-          nextPage ? `?page=${nextPage}` : ``
-        );
 
-        const newCars = response.data.cars;
-        setCars([...cars, ...newCars]);
+      const newCars = response.data.cars;
 
-        setPagination({
-          page: response.data.page,
-          nextPage: response.data.nextPage,
-        });
+      setCars((prevCars) => [...prevCars, ...newCars]);
 
-        setIsLoadingMore(false);
-      } catch (error) {
-        console.error("Error loading more cars:", error);
-        setIsLoadingMore(false);
-      }
+      setPagination({
+        page: response.data.page,
+        nextPage: response.data.nextPage,
+      });
+
+      setIsLoadingMore(false);
+    } catch (error) {
+      console.error("Error loading more cars:", error);
+      setIsLoadingMore(false);
+    }
+  };
+
+  const getAllCars = () => {
+    if (!isLoadingMore) {
+      const nextPage = pagination ? pagination.nextPage : null;
+      fetchCars(nextPage);
     }
   };
 
   useEffect(() => {
-    getAllCars();
+    setCars([]);
+    fetchCars(null);
   }, [brand]);
 
   useEffect(() => {
@@ -86,7 +79,6 @@ function Models() {
         carId: carId,
       });
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [carId]);
 
   useEffect(() => {
@@ -131,9 +123,9 @@ function Models() {
               }
               style={{ overflow: "hidden" }}
             >
-              {cars.length ? (
+              {cars?.length ? (
                 <div className="models-div">
-                  {cars.map((car, index) => (
+                  {cars?.map((car, index) => (
                     <div
                       className="models-div__box"
                       style={{ borderRadius: "38px", height: "100%" }}

@@ -2,14 +2,14 @@ import "../src/dist/styles.css";
 import Navbar from "../src/components/Navbar";
 import { Route, Routes } from "react-router-dom";
 import { lazy, Suspense } from "react";
+import { SignIn } from "./Pages/SignIn";
+import Models from "./Pages/Models";
 
 const Home = lazy(() => import("./Pages/Home"));
 const About = lazy(() => import("./Pages/About"));
-const Models = lazy(() => import("./Pages/Models"));
 const Contact = lazy(() => import("./Pages/Contact"));
 const CarDetails = lazy(() => import("./components/CarDetails"));
 const BookingsDashboard = lazy(() => import("./Pages/BookingsDashboard"));
-const SignIn = lazy(() => import("./Pages/SignIn"));
 const CreateAdmin = lazy(() => import("./Pages/SignUp"));
 const AddCar = lazy(() => import("./Pages/AddCar"));
 

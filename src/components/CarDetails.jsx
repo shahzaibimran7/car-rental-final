@@ -48,7 +48,7 @@ const CarDetails = () => {
               pickTime={pickTime}
               dropTime={dropTime}
               carType={car.name}
-              imgUrl={convertImage(car.image)}
+              imgUrl={car.image}
               carId={car.id}
               totalPrice={totalPrice}
             />
@@ -58,11 +58,11 @@ const CarDetails = () => {
             <div className="carousel">
               <Carousel showThumbs={true} width={800}>
                 <div>
-                  <img src={convertImage(car.image)} alt={car.name} />
+                  <img src={car.image} alt={car.name} />
                 </div>
                 {extraImages?.map((img, key) => (
                   <div key={key}>
-                    <img src={convertImage(img)} alt={key} />
+                    <img src={img} alt={key} />
                   </div>
                 ))}
               </Carousel>

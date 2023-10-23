@@ -390,6 +390,16 @@ body {
   color: #010103;
 }
 
+.mobile-pic {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  .mobile-pic {
+    width: "50%";
+  }
+}
+
 .hero-content__car-img {
   z-index: 2;
   position: absolute;

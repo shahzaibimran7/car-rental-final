@@ -9,8 +9,8 @@ const GetCars = () => {
 const GetCarsPaginated = (query) => {
   return instance.get(`getAllCars${query}`);
 };
-const GetCarsByBrand = (brand) => {
-  return instance.get(`getCarsByBrand/${brand}`);
+const GetCarsByBrand = (brand, query) => {
+  return instance.get(`getCarsByBrand/${brand}${query}`);
 };
 const GetCar = (id) => {
   return instance.get(`getAllDetails/${id}`);

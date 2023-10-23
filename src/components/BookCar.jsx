@@ -186,21 +186,14 @@ function BookCar({ cars }) {
       const car = await axios.get(
         `https://app.fiftyfivecarrental.com/car/getCarsById/${booking.carId}`
       );
-      const bookingData = `Booking ID: ${booking.id} \n First Name: ${
-        booking.firstName
-      } \n Last Name: ${booking.lastName} \n Age: ${
-        booking.age
-      } \n Phone Number: ${booking.phoneNumber} \n Email: ${
-        booking.email
-      } \n Address: ${booking.address} \n City: ${booking.city} \n Zip Code: ${
-        booking.zipCode
-      } \n Car Name: ${car.data.name} \n Pick-Up Date: ${
-        booking.pickupDate
-      } \n Drop-Off Date: ${booking.dropOffDate} \n Location: ${
-        booking.location
-      } \n License Number: ${booking.licenseNumber} \n Total Price: ${
-        dateRange * car.data.price
-      }`;
+      const bookingData = `Booking ID: ${booking.id} \n First Name: ${booking.firstName
+        } \n Last Name: ${booking.lastName} \n Age: ${booking.age
+        } \n Phone Number: ${booking.phoneNumber} \n Email: ${booking.email
+        } \n Address: ${booking.address} \n City: ${booking.city} \n Zip Code: ${booking.zipCode
+        } \n Car Name: ${car.data.name} \n Pick-Up Date: ${booking.pickupDate
+        } \n Drop-Off Date: ${booking.dropOffDate} \n Location: ${booking.location
+        } \n License Number: ${booking.licenseNumber} \n Total Price: ${dateRange * car.data.price
+        }`;
       console.log(bookingData);
       emailjs.init("U0B35fYtpoC6loUyp");
       const templateParams = {
@@ -368,7 +361,7 @@ function BookCar({ cars }) {
             <h5>
               <span>Car -</span> {carType}
             </h5>
-            {carImg && <img src={convertImage(carImg)} alt="car_img" />}
+            {carImg && <img src={carImg} alt="car_img" />}
           </div>
         </div>
         {/* personal info */}

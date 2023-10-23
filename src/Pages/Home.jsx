@@ -5,6 +5,8 @@ import ChooseUs from "../components/ChooseUs";
 import Footer from "../components/Footer";
 import { GetCars } from "../services/car-api-services";
 import Loadable from "react-loadable";
+import Pic from "../images/hero/main-carr.png";
+
 
 const Loading = () => <div>Loading...</div>;
 
