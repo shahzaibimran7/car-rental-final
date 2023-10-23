@@ -8,8 +8,10 @@ const GetCars = () => {
 
 const GetCarsPaginated = (query) => {
   return instance.get(`getAllCars${query}`);
-}
-
+};
+const GetCarsByBrand = (brand) => {
+  return instance.get(`getCarsByBrand/${brand}`);
+};
 const GetCar = (id) => {
   return instance.get(`getAllDetails/${id}`);
 };
@@ -28,4 +30,13 @@ const AdditionalImage = (image) => {
     image
   );
 };
-export { GetCars, GetCar, GetCarsPaginated, CreateOneCar, UpdateCar, DeleteCar, AdditionalImage };
+export {
+  GetCars,
+  GetCar,
+  GetCarsPaginated,
+  CreateOneCar,
+  UpdateCar,
+  DeleteCar,
+  AdditionalImage,
+  GetCarsByBrand,
+};

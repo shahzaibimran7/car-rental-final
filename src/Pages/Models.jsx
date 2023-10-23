@@ -7,6 +7,7 @@ import {
   GetCars,
   GetCarsPaginated,
   DeleteCar,
+  GetCarsByBrand,
 } from "../services/car-api-services";
 import Footer from "../components/Footer";
 import HeroPages from "../components/HeroPages";
@@ -18,11 +19,6 @@ function Models() {
   const [cars, setCars] = useState([]);
   const [pagination, setPagination] = useState(null);
   const [isLoadingMore, setIsLoadingMore] = useState(false);
-
-  const convertImage = (image) => {
-    const imageElement = "data:image/jpeg;base64," + image;
-    return imageElement;
-  };
 
   const [selectedImage, setSelectedImage] = useState(null);
   const [carId, setCarId] = useState(null);
@@ -45,24 +41,37 @@ function Models() {
     setIsLoadingMore(true);
 
     const nextPage = pagination ? pagination.nextPage : null;
+    if (brand) {
+      try {
+        console.log("inside the brands api");
+        const response = await GetCarsByBrand(brand);
+        const newCars = response.data;
+        setCars([...newCars]);
+        setIsLoadingMore(false);
+      } catch (error) {
+        console.error("Error loading more cars:", error);
+        setIsLoadingMore(false);
+      }
+    } else {
+      try {
+        console.log("inside the all cars api");
+        const response = await GetCarsPaginated(
+          nextPage ? `?page=${nextPage}` : ``
+        );
 
-    try {
-      const response = await GetCarsPaginated(
-        nextPage ? `?page=${nextPage}` : ``
-      );
+        const newCars = response.data.cars;
+        setCars([...cars, ...newCars]);
 
-      const newCars = response.data.cars;
-      setCars([...cars, ...newCars]);
+        setPagination({
+          page: response.data.page,
+          nextPage: response.data.nextPage,
+        });
 
-      setPagination({
-        page: response.data.page,
-        nextPage: response.data.nextPage,
-      });
-
-      setIsLoadingMore(false);
-    } catch (error) {
-      console.error("Error loading more cars:", error);
-      setIsLoadingMore(false);
+        setIsLoadingMore(false);
+      } catch (error) {
+        console.error("Error loading more cars:", error);
+        setIsLoadingMore(false);
+      }
     }
   };
 
@@ -113,7 +122,10 @@ function Models() {
                 isLoadingMore ? (
                   <div style={{ marginLeft: "50%" }}>
                     <RingLoader color="#2596be" />
-                    <h2 style={{ color: "#2596be", fontWeight: "normal" }}> Loading...</h2>
+                    <h2 style={{ color: "#2596be", fontWeight: "normal" }}>
+                      {" "}
+                      Loading...
+                    </h2>
                   </div>
                 ) : null
               }
@@ -253,7 +265,7 @@ function Models() {
           </div>
         </div>
         <Footer />
-      </section >
+      </section>
     </>
   );
 }
