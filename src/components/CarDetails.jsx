@@ -45,6 +45,7 @@ const CarDetails = () => {
               showModal={showModal}
               setShowModal={setShowModal}
               dropOff={dropOff}
+              pickUp={pickUp}
               pickTime={pickTime}
               dropTime={dropTime}
               carType={car.name}

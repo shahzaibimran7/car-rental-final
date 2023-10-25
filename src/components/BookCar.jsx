@@ -8,6 +8,7 @@ function BookCar({ cars }) {
 
   // booking car
   const [carType, setCarType] = useState("");
+  const [pickUp, setPickUp] = useState("");
   const [dropOff, setDropOff] = useState("");
   const [pickTime, setPickTime] = useState("");
   const [dropTime, setDropTime] = useState("");
@@ -125,6 +126,10 @@ function BookCar({ cars }) {
     setDropOff(e.target.value);
   };
 
+  const handlePick = (e) => {
+    setPickUp(e.target.value);
+  };
+
   const handlePickTime = (e) => {
     setPickTime(e.target.value);
   };
@@ -158,6 +163,17 @@ function BookCar({ cars }) {
     "Ajman",
     "Fujairah",
   ];
+
+  const pickUpLocations = [
+    "Dubai",
+    "Abu Dhabi",
+    "Al Ain",
+    "Sharjah",
+    "Ras Al-Khaimah",
+    "Ajman",
+    "Fujairah",
+  ];
+
   const bookingData = {
     firstName: name,
     lastName: lastName,
@@ -266,6 +282,21 @@ function BookCar({ cars }) {
                   </select>
                 </div>
 
+                <div className="box-form__car-type">
+                  <label>
+                    <i className="fa-solid fa-location-dot"></i> &nbsp; Pick-up{" "}
+                    <b>*</b>
+                  </label>
+                  <select value={pickUp} onChange={handlePick}>
+                    <option>Select Pickup Location</option>
+                    {pickUpLocations.map((pick, id) => (
+                      <option key={id} value={pick}>
+                        {pick}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
                 <div className="box-form__car-time">
                   <label htmlFor="picktime">
                     <i className="fa-regular fa-calendar-days "></i> &nbsp;
@@ -329,7 +360,7 @@ function BookCar({ cars }) {
             <div className="booking-modal__car-info__dates">
               <h5>Location & Date</h5>
               <span>
-                <i className="fa-solid fa-location-dot"></i>
+                <i className="fa-solid fa-calendar-days"></i>
                 <div>
                   <h6>Pick-Up Date</h6>
                   <p>{pickTime}</p>
@@ -339,7 +370,7 @@ function BookCar({ cars }) {
 
             <div className="booking-modal__car-info__dates">
               <span>
-                <i className="fa-solid fa-location-dot"></i>
+                <i className="fa-solid fa-calendar-days"></i>
                 <div>
                   <h6>Drop-Off Date</h6>
                   <p>{dropTime}</p>
@@ -349,13 +380,24 @@ function BookCar({ cars }) {
 
             <div className="booking-modal__car-info__dates">
               <span>
-                <i className="fa-solid fa-calendar-days"></i>
+                <i className="fa-solid fa-location-dot"></i>
                 <div>
                   <h6>Drop-Off Location</h6>
                   <p>{dropOff}</p>
                 </div>
               </span>
             </div>
+
+            <div className="booking-modal__car-info__dates">
+              <span>
+                <i className="fa-solid fa-location-dot"></i>
+                <div>
+                  <h6>Pick-Up Location</h6>
+                  <p>{pickUp}</p>
+                </div>
+              </span>
+            </div>
+
           </div>
           <div className="booking-modal__car-info__model">
             <h5>

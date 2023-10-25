@@ -10,6 +10,7 @@ const BookingModal = (props) => {
     pickTime,
     showModal,
     dropOff,
+    pickUp,
     carType,
     imgUrl,
     carId,
@@ -164,12 +165,24 @@ const BookingModal = (props) => {
               </div>
             </span>
           </div>
+
+
           <div className="booking-modal__car-info__dates">
             <span>
               <i className="fa-solid fa-calendar-days"></i>
               <div>
                 <h6>Drop-Off Location</h6>
                 <p>{dropOff}</p>
+              </div>
+            </span>
+          </div>
+
+          <div className="booking-modal__car-info__dates">
+            <span>
+              <i className="fa-solid fa-calendar-days"></i>
+              <div>
+                <h6>Pick-Up Location</h6>
+                <p>{pickUp}</p>
               </div>
             </span>
           </div>
