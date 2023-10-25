@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link, useLocation, useParams } from "react-router-dom";
+import { Link, useAsyncValue, useLocation, useParams } from "react-router-dom";
 import { RingLoader } from "react-spinners";
 import InfiniteScroll from "react-infinite-scroll-component";
 import {
@@ -10,6 +10,8 @@ import {
   GetCarsByBrand,
 } from "../services/car-api-services";
 import Footer from "../components/Footer";
+import imageCompression from "browser-image-compression";
+
 import HeroPages from "../components/HeroPages";
 
 function Models() {
@@ -24,11 +26,19 @@ function Models() {
   const [carId, setCarId] = useState(null);
   const fileInputRef = useRef(null);
 
-  const handleImageChange = (event) => {
+  const handleImageChange = async (event, car) => {
     const file = event.target.files[0];
     if (file) {
+      const options = {
+        maxSizeMB: 1,
+        maxWidthOrHeight: 1920,
+        useWebWorker: true,
+      };
+      const compressedFile = await imageCompression(file, options);
+      // Set carId and selectedImage synchronously
       setSelectedImage({
-        image: file,
+        image: compressedFile,
+        carId: car.id,
       });
     }
   };
@@ -39,7 +49,10 @@ function Models() {
       let response;
 
       if (brand) {
-        response = await GetCarsByBrand(brand, nextPage ? `?page=${nextPage}` : ``);
+        response = await GetCarsByBrand(
+          brand,
+          nextPage ? `?page=${nextPage}` : ``
+        );
       } else {
         response = await GetCarsPaginated(nextPage ? `?page=${nextPage}` : ``);
       }
@@ -73,15 +86,6 @@ function Models() {
   }, [brand]);
 
   useEffect(() => {
-    if (carId) {
-      setSelectedImage({
-        ...selectedImage,
-        carId: carId,
-      });
-    }
-  }, [carId]);
-
-  useEffect(() => {
     const uploadImage = async (data) => {
       const response = await AdditionalImage(data);
       if (response.status === 201) {
@@ -92,8 +96,9 @@ function Models() {
 
     if (selectedImage && selectedImage.carId) {
       const formData = new FormData();
-      formData.append("image", selectedImage.image);
-      formData.append("carId", selectedImage.carId);
+      for (const key in selectedImage) {
+        formData.append(key, selectedImage[key]);
+      }
       uploadImage(formData);
     }
   }, [selectedImage]);
@@ -198,8 +203,7 @@ function Models() {
                                   ref={fileInputRef}
                                   style={{ display: "none" }}
                                   onChange={(event) => {
-                                    handleImageChange(event);
-                                    setCarId(car.id);
+                                    handleImageChange(event, car);
                                   }}
                                 />
                                 <i

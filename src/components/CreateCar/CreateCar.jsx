@@ -3,7 +3,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import "./CreateCar.css";
 import { CreateOneCar } from "../../services/car-api-services";
-
+import imageCompression from "browser-image-compression";
 const validationSchema = Yup.object().shape({
   name: Yup.string().required("Car Name is required"),
   price: Yup.number().required("Price is required"),
@@ -41,7 +41,14 @@ const fuelTypes = ["Petrol", "Diesel", "Electric"];
 function CreateCar() {
   const handleIcon = async (e, setFieldValue) => {
     const file = e.target.files[0];
-    setFieldValue("image", file);
+    const options = {
+      maxSizeMB: 1,
+      maxWidthOrHeight: 1920,
+      useWebWorker: true,
+    };
+    const compressedFile = await imageCompression(file, options);
+    console.log(compressedFile);
+    setFieldValue("image", compressedFile);
   };
 
   const handleSubmit = async (values) => {
@@ -50,7 +57,7 @@ function CreateCar() {
     for (const key in values) {
       formData.append(key, values[key]);
     }
-
+    console.log("FORMDATA", formData.get("image"));
     const response = await CreateOneCar(formData);
     if (response.status === 200) {
       alert("Car Created Successfully");
