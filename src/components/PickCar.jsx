@@ -59,7 +59,7 @@ function PickCar({ cars }) {
                   )}
 
                 </div>
-                <span style={{ marginLeft: "50%", marginTop: "30px", display: 'flex', fontSize: "medium" }}>
+                <span className="view-all-btn">
                   <Link to='/models'>View All</Link>
                 </span>
               </>

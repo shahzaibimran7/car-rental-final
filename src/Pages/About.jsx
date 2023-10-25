@@ -23,8 +23,8 @@ function About() {
               <h3>About Company</h3>
               <h2>You start the engine and your adventure begins</h2>
               <p>
-                Welcome to 55 Car Rental LLC, where your journey begins with a
-                touch of luxury and convenience. At 55 Car Rental, we don't just
+                Welcome to Fifty Five Car Rental LLC, where your journey begins with a
+                touch of luxury and convenience. At Fifty Five Car Rental, we don't just
                 offer cars; we offer experiences. Whether you're exploring the
                 vibrant streets of the city or embarking on a scenic road trip,
                 we provide the wheels that match your style and the service that
@@ -33,11 +33,11 @@ function About() {
                 from sleek sedans to spacious SUVs, we cater to all your travel
                 needs. Our commitment to excellence extends to our exceptional
                 customer service, ensuring a seamless rental experience from
-                start to finish. At 55 Car Rental, we're not just in the
+                start to finish. At Fifty Five Car Rental, we're not just in the
                 business of renting cars; we're in the business of making
                 memories. Join us on the open road, and let us be your trusted
                 partner in every adventure. Your journey awaits, and we're here
-                to make it extraordinary. Discover the world with 55 Car Rental
+                to make it extraordinary. Discover the world with Fifty Five Car Rental
                 LLC today!
               </p>
             </div>

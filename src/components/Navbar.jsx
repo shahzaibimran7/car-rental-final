@@ -32,6 +32,8 @@ function Navbar() {
     "Yachts",
   ];
   const [showList, setShowList] = useState(false);
+
+  console.log(showList);
   const brandsRef = useRef(null);
   const handleClickOutside = (event) => {
     if (brandsRef.current && !brandsRef.current.contains(event.target)) {
@@ -97,9 +99,12 @@ function Navbar() {
               </Link>
             </li>
             <li>
-              <Link onClick={() => setShowList(!showList)}>Brands</Link>
+              <Link onClick={(e) => {
+                e.stopPropagation();
+                setShowList(!showList);
+              }} to="">Brands</Link>
+              {showList && <Brands isMobile />}
             </li>
-            {showList && <Brands isMobile />}
             <li>
               <Link onClick={openNav} to="/contact">
                 Contact

@@ -23,7 +23,7 @@ function Footer() {
           <div className="footer-content">
             <ul className="footer-content__1">
               <li>
-                <span>55 Car Rental</span> LLC
+                <span>Fifty Five Car Rental</span> LLC
               </li>
               <li>
                 We offer a big range of vehicles for all your driving needs. We

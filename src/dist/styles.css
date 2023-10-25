@@ -1085,11 +1085,35 @@ body {
   }
 }
 
+.view-all-btn {
+  margin-left: 50%;
+  margin-top: 30px;
+  display: flex;
+  font-size: medium;
+}
+
+@media (max-width: 700px) {
+  .view-all-btn {
+    margin-left: 42%;
+    margin-top: 30px;
+    display: flex;
+    font-size: medium;
+  }
+}
+
 .pick-car img {
   width: 100%;
   /* margin-top: 6rem; */
   margin-left: 54px;
   margin-right: 54px;
+}
+
+@media (max-width: 700px) {
+  .pick-car img {
+    width: 100%;
+    margin-left: 18px;
+    margin-right: 54px;
+  }
 }
 
 .pick-description {

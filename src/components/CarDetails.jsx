@@ -112,7 +112,7 @@ const CarDetails = () => {
             <span>{car.name} </span>For Rent in Dubai
           </h2>
           <p style={{ width: "85%", fontSize: "16px", marginLeft: "2rem" }}>
-            55 Car Rental LLC in Dubai offers an extensive selection of the
+            Fifty Five Car Rental LLC in Dubai offers an extensive selection of the
             latest model <span style={{ fontWeight: "bold" }}>{car.name}</span>{" "}
             car available for self-drive rentals in Dubai. These luxury vehicles
             are perfect for special occasions, allowing you to experience the
@@ -124,7 +124,7 @@ const CarDetails = () => {
             The moment you step into a{" "}
             <span style={{ fontWeight: "bold" }}>{car.name}</span>, you'll feel
             the rush of adrenaline. Choosing{" "}
-            <span style={{ fontWeight: "bold" }}>55 Car Rental LLC</span> in
+            <span style={{ fontWeight: "bold" }}>Fifty Five Car Rental LLC</span> in
             Dubai for your{" "}
             <span style={{ fontWeight: "bold" }}>{car.name}</span> rental
             guarantees an unforgettable experience filled with luxury, power,
