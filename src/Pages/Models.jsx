@@ -90,7 +90,6 @@ function Models() {
       const response = await AdditionalImage(data);
       if (response.status === 201) {
         alert("Image uploaded successfully");
-        window.location.reload();
       }
     };
 
