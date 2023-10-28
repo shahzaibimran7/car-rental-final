@@ -76,14 +76,14 @@ const
               <div className="bodyComponent">
                 <div className="border" style={{ marginTop: "24px" }}>
                   <label htmlFor="" className="text">
-                    Drop off Location
+                    Pick up Location
                   </label>
                   <div className="selectLocations">
                     <select
-                      value={dropOff}
+                      value={pickUp}
                       onChange={(e) => {
-                        setDropOff(e.target.value);
-                        props.setDropOff(e.target.value);
+                        setPickUp(e.target.value);
+                        props.setPickUp(e.target.value);
                       }}
                     >
                       {Locations.map((ele, index) => (
@@ -97,14 +97,14 @@ const
 
                 <div className="border" style={{ marginTop: "24px" }}>
                   <label htmlFor="" className="text">
-                    Pick up Location
+                    Drop off Location
                   </label>
                   <div className="selectLocations">
                     <select
-                      value={pickUp}
+                      value={dropOff}
                       onChange={(e) => {
-                        setPickUp(e.target.value);
-                        props.setPickUp(e.target.value);
+                        setDropOff(e.target.value);
+                        props.setDropOff(e.target.value);
                       }}
                     >
                       {Locations.map((ele, index) => (

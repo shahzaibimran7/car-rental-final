@@ -15,29 +15,31 @@ const AddCar = lazy(() => import("./Pages/AddCar"));
 
 function App() {
   const admin = localStorage.getItem("role") === "ADMIN";
+
+  const whatsAppLink = "https://wa.me/971545505358";
+  const gmailLink = "mailto:fiftyfivecarrental@gmail.com";
+  const callLink = "tel:971545505407";
+
+  const openWhatsApp = () => {
+    window.open(whatsAppLink, "_blank");
+  };
+  const openGmail = () => {
+    window.open(gmailLink, "_blank");
+  };
+
+  const openPhone = () => {
+    window.open(callLink, "_blank");
+  }
   return (
     <>
       <Navbar />
       {!admin && (
         <div className="floating-whatsapp">
-          <a
-            href="https://wa.me/971545505407"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <i className="fa fa-whatsapp" id="whatsapp-float" />
-          </a>
-
-          <a
-            href="tel:971545505407"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <i className="fa-solid fa-phone" id="phone-float" />
-          </a>
-
-        </div>
-      )}
+          <i className="fa fa-whatsapp" id="whatsapp-float" onClick={openWhatsApp} />
+          <i className="fa-solid fa-phone" id="phone-float" onClick={openPhone} />
+        </div >
+      )
+      }
 
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>

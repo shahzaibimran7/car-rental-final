@@ -267,20 +267,6 @@ function BookCar({ cars }) {
                     ))}
                   </select>
                 </div>
-                <div className="box-form__car-type">
-                  <label>
-                    <i className="fa-solid fa-location-dot"></i> &nbsp; Drop-of{" "}
-                    <b>*</b>
-                  </label>
-                  <select value={dropOff} onChange={handleDrop}>
-                    <option>Where are you going?</option>
-                    {dropOffOptions.map((drop, id) => (
-                      <option key={id} value={drop}>
-                        {drop}
-                      </option>
-                    ))}
-                  </select>
-                </div>
 
                 <div className="box-form__car-type">
                   <label>
@@ -292,6 +278,21 @@ function BookCar({ cars }) {
                     {pickUpLocations.map((pick, id) => (
                       <option key={id} value={pick}>
                         {pick}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                <div className="box-form__car-type">
+                  <label>
+                    <i className="fa-solid fa-location-dot"></i> &nbsp; Drop-of{" "}
+                    <b>*</b>
+                  </label>
+                  <select value={dropOff} onChange={handleDrop}>
+                    <option>Where are you going?</option>
+                    {dropOffOptions.map((drop, id) => (
+                      <option key={id} value={drop}>
+                        {drop}
                       </option>
                     ))}
                   </select>
@@ -382,8 +383,8 @@ function BookCar({ cars }) {
               <span>
                 <i className="fa-solid fa-location-dot"></i>
                 <div>
-                  <h6>Drop-Off Location</h6>
-                  <p>{dropOff}</p>
+                  <h6>Pick-Up Location</h6>
+                  <p>{pickUp}</p>
                 </div>
               </span>
             </div>
@@ -392,11 +393,12 @@ function BookCar({ cars }) {
               <span>
                 <i className="fa-solid fa-location-dot"></i>
                 <div>
-                  <h6>Pick-Up Location</h6>
-                  <p>{pickUp}</p>
+                  <h6>Drop-Off Location</h6>
+                  <p>{dropOff}</p>
                 </div>
               </span>
             </div>
+
 
           </div>
           <div className="booking-modal__car-info__model">

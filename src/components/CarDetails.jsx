@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import BookingModal from "./BookingModal";
 import { GetCar } from "../services/car-api-services";
 import { RingLoader } from "react-spinners";
+import { useMediaQuery } from "@react-hook/media-query";
 const CarDetails = () => {
   const { id } = useParams();
   const [car, setCar] = useState(null);
@@ -18,6 +19,8 @@ const CarDetails = () => {
   const [dropTime, setDropTime] = useState("");
   const [extraImages, setExtraImages] = useState([]);
   const [totalPrice, setTotalPrice] = useState();
+  const isMobile = useMediaQuery("(max-width: 768px)");
+
 
   const convertImage = (image) => {
     const imageElement = "data:image/jpeg;base64," + image;
@@ -36,7 +39,6 @@ const CarDetails = () => {
     getCarDetails();
   }, [id]);
 
-  console.log(car);
   return (
     <>
       <div className="details-class">
@@ -57,7 +59,7 @@ const CarDetails = () => {
         <h1 className="label-class">{car?.name}</h1>
         {car ? <div className="parent-carousel">
           <div className="carousel">
-            <Carousel showThumbs={true} width={800}>
+            <Carousel showThumbs={true} width={isMobile ? 400 : 800}>
               <div>
                 <img src={car?.image} alt={car?.name} />
               </div>

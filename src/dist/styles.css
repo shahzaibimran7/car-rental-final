@@ -1762,15 +1762,30 @@ footer {
   flex: 1;
 }
 
+.brands-categories {
+  display: flex;
+  justify-content: space-between;
+  gap: inherit
+}
+
 .footer-content-mid2 {
   text-align: center;
   font-size: larger;
   font-weight: 500;
   font-size: 1.5rem;
+  height: 200px;
+  overflow-y: auto;
   flex: 1;
 }
 
+.footer-content-mid2 a {
+  color: black;
+  text-decoration: none;
+}
+
 .footer-content__2 {
+  display: flex;
+  flex-direction: column;
   list-style: none;
 }
 

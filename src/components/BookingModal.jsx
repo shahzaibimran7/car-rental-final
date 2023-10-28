@@ -166,6 +166,15 @@ const BookingModal = (props) => {
             </span>
           </div>
 
+          <div className="booking-modal__car-info__dates">
+            <span>
+              <i className="fa-solid fa-calendar-days"></i>
+              <div>
+                <h6>Pick-Up Location</h6>
+                <p>{pickUp}</p>
+              </div>
+            </span>
+          </div>
 
           <div className="booking-modal__car-info__dates">
             <span>
@@ -177,15 +186,7 @@ const BookingModal = (props) => {
             </span>
           </div>
 
-          <div className="booking-modal__car-info__dates">
-            <span>
-              <i className="fa-solid fa-calendar-days"></i>
-              <div>
-                <h6>Pick-Up Location</h6>
-                <p>{pickUp}</p>
-              </div>
-            </span>
-          </div>
+
         </div>
         <div className="booking-modal__car-info__model">
           <h5>

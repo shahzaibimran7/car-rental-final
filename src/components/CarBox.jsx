@@ -48,7 +48,7 @@ function CarBox({ data, carID }) {
                 <span>{car.fuel}</span>
               </div>
             </div>
-            <Link className="cta-btn" to={`/models/${car.id}`}>
+            <Link className="cta-btn" to={`/model/${car.id}`}>
               Reserve Now
             </Link>
           </div>

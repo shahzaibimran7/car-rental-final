@@ -35,6 +35,7 @@ const brands = [
   "KIA",
   "Maserati",
   "Yachts",
+  "Lamborghini"
 ];
 const transmissions = ["Automatic", "Manual"];
 const fuelTypes = ["Petrol", "Diesel", "Electric"];

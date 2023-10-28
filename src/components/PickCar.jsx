@@ -3,10 +3,19 @@ import CarBox from "./CarBox";
 import { GetCars } from "../services/car-api-services";
 import { RingLoader } from "react-spinners";
 import { Link } from "react-router-dom";
+import { set } from "lodash";
 
 function PickCar({ cars }) {
   const [active, setActive] = useState(cars?.[0]?.name);
   const [colorBtn, setColorBtn] = useState(null);
+
+  useEffect(
+    () => {
+      setActive(cars?.[0]?.name);
+      setColorBtn(cars?.[0]?.name);
+    },
+    [cars]
+  );
 
   const btnID = (carName) => {
     setColorBtn(carName);
@@ -52,7 +61,7 @@ function PickCar({ cars }) {
                     ))}
                   </div>
 
-                  {active !== null && (
+                  {active && (
                     <CarBox
                       data={[...cars?.filter((car) => car.name === active)]}
                     />
