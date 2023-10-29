@@ -38,7 +38,7 @@ function Models() {
       // Set carId and selectedImage synchronously
       setSelectedImage({
         image: compressedFile,
-        carId: car.id,
+        carId: car,
       });
     }
   };
@@ -102,6 +102,8 @@ function Models() {
     }
   }, [selectedImage]);
 
+  console.log(fileInputRef);
+
   const admin = localStorage.getItem("role") === "ADMIN";
 
   return (
@@ -136,15 +138,19 @@ function Models() {
                       key={index}
                     >
                       <div className="models-div__box__img">
-                        <img
-                          src={car.image}
-                          alt="car_img"
-                          className="car-img"
-                        />
+                        <Link to={`/model/${car.id}`}>
+                          <img
+                            src={car.image}
+                            alt="car_img"
+                            className="car-img"
+                          />
+                        </Link>
                         <div className="models-div__box__descr">
                           <div className="models-div__box__descr__name-price">
                             <div className="models-div__box__descr__name-price__name">
-                              <p>{car.name}</p>
+                              <Link style={{ textDecoration: "none", color: "black" }} to={`/model/${car.id}`}>
+                                <p>{car.name}</p>
+                              </Link>
                               <span>
                                 <i className="fa-solid fa-star"></i>
                                 <i className="fa-solid fa-star"></i>
@@ -194,17 +200,24 @@ function Models() {
                                 className="models-div__box__descr__name-price__btn"
                                 title="Upload Additional Image"
                                 onClick={() => {
-                                  fileInputRef.current.click();
+                                  const fileInput = document.createElement("input");
+                                  fileInput.type = "file";
+                                  fileInput.style.display = "none";
+                                  fileInput.addEventListener("change", (event) => {
+                                    handleImageChange(event, car.id);
+                                  });
+                                  fileInput.click();
                                 }}
                               >
-                                <input
+                                {/* <input
                                   type="file"
-                                  ref={fileInputRef}
+                                  // ref={fileInputRef}
                                   style={{ display: "none" }}
                                   onChange={(event) => {
-                                    handleImageChange(event, car);
+                                    
+                                    handleImageChange(event, car.id);
                                   }}
-                                />
+                                /> */}
                                 <i
                                   className="fa fa-upload"
                                   aria-hidden="true"
@@ -240,12 +253,13 @@ function Models() {
                 </div>
               )}
             </InfiniteScroll>
-          </div>
+          </div >
         ) : (
           <div style={{ marginTop: "44px", marginLeft: "50%" }}>
             <RingLoader color="#2596be" />
           </div>
-        )}
+        )
+        }
 
         <div className="book-banner">
           <div className="book-banner__overlay"></div>
@@ -260,7 +274,7 @@ function Models() {
           </div>
         </div>
         <Footer />
-      </section>
+      </section >
     </>
   );
 }
