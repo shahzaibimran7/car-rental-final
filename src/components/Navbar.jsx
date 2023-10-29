@@ -33,7 +33,6 @@ function Navbar() {
   ];
   const [showList, setShowList] = useState(false);
 
-  console.log(showList);
   const brandsRef = useRef(null);
   const handleClickOutside = (event) => {
     if (brandsRef.current && !brandsRef.current.contains(event.target)) {
