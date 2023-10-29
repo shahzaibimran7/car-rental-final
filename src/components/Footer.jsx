@@ -138,7 +138,7 @@ function Footer() {
           </span>
           <span className="links">
             <Link
-              to={"https://www.instagram.com/fiftyfivecarrental/"}
+              to={"https://www.instagram.com/fiftyfivecarrental_55/"}
               target="_blank"
             >
               <i className="fa fa-instagram fa-2xl">
