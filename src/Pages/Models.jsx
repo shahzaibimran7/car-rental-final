@@ -230,7 +230,7 @@ function Models() {
                                 onClick={() => {
                                   if (window.confirm("Are you sure?")) {
                                     DeleteCar(car.id);
-                                    window.location.reload();
+                                    // window.location.reload()
                                   }
                                 }}
                               >
