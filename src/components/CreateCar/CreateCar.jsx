@@ -11,6 +11,7 @@ const validationSchema = Yup.object().shape({
   transmission: Yup.string().required("Transmission is required"),
   fuel: Yup.string().required("Fuel Type is required"),
   doors: Yup.number().required("Number of Doors is required"),
+  categories: Yup.array().required("Category is required"),
 });
 
 const brands = [
@@ -35,8 +36,18 @@ const brands = [
   "KIA",
   "Maserati",
   "Yachts",
-  "Lamborghini"
+  "Lamborghini",
 ];
+
+const categories = [
+  "SUVs",
+  "Luxury Cars",
+  "Sports Cars",
+  "Hybrid Cars",
+  "Sedans",
+  "Electric Cars",
+];
+
 const transmissions = ["Automatic", "Manual"];
 const fuelTypes = ["Petrol", "Diesel", "Electric"];
 function CreateCar() {
@@ -79,6 +90,7 @@ function CreateCar() {
           transmission: "",
           fuel: "",
           doors: "",
+          categories: [],
         }}
         validationSchema={validationSchema}
         onSubmit={handleSubmit}
@@ -125,6 +137,22 @@ function CreateCar() {
                 ))}
               </Field>
               <ErrorMessage name="brand" component="div" className="error" />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="categories">Categories:</label>
+              <Field as="select" name="categories" id="categories" multiple>
+                {categories.map((category) => (
+                  <option key={category} value={category}>
+                    {category}
+                  </option>
+                ))}
+              </Field>
+              <ErrorMessage
+                name="categories"
+                component="div"
+                className="error"
+              />
             </div>
 
             <div className="form-group">

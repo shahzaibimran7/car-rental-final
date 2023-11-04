@@ -11,6 +11,7 @@ function Navbar() {
   const brands = [
     "Mercedes",
     "BMW",
+    "Lamborghini",
     "Audi",
     "Lexus",
     "Tesla",
@@ -31,14 +32,37 @@ function Navbar() {
     "Maserati",
     "Yachts",
   ];
+
+  const categories = [
+    "SUVs",
+    "Luxury Cars",
+    "Sports Cars",
+    "Hybrid Cars",
+    "Sedans",
+    "Electric Cars",
+  ];
+
   const [showList, setShowList] = useState(false);
+  const [showCategories, setShowCategories] = useState(false);
+  const categoriesRef = useRef(null);
 
   const brandsRef = useRef(null);
   const handleClickOutside = (event) => {
     if (brandsRef.current && !brandsRef.current.contains(event.target)) {
       setShowList(false);
     }
+    if (
+      categoriesRef.current &&
+      !categoriesRef.current.contains(event.target)
+    ) {
+      setShowCategories(false);
+    }
   };
+
+  const handleCategoriesHover = () => {
+    setShowCategories(true);
+  };
+
   useEffect(() => {
     document.addEventListener("click", handleClickOutside);
     return () => {
@@ -63,6 +87,32 @@ function Navbar() {
                 to={`models/${brand}`}
               >
                 {brand}
+              </Link>
+            </li>
+          );
+        })}
+      </div>
+    );
+  };
+
+  const Categories = ({ isMobile }) => {
+    return (
+      <div
+        className={!isMobile ? "categories-card" : "mobile-brands-card"}
+        onMouseLeave={() => setShowCategories(false)}
+      >
+        {categories.map((category) => {
+          return (
+            <li key={category} style={{ zIndex: 50 }}>
+              <Link
+                className="about-link"
+                onClick={() => {
+                  setShowCategories(false);
+                  isMobile && openNav();
+                }}
+                to={`models/${category}`}
+              >
+                {category}
               </Link>
             </li>
           );
@@ -98,10 +148,15 @@ function Navbar() {
               </Link>
             </li>
             <li>
-              <Link onClick={(e) => {
-                e.stopPropagation();
-                setShowList(!showList);
-              }} to="">Brands</Link>
+              <Link
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setShowList(!showList);
+                }}
+                to=""
+              >
+                Brands
+              </Link>
               {showList && <Brands isMobile />}
             </li>
             <li>
@@ -153,12 +208,13 @@ function Navbar() {
                 About
               </Link>
             </li>
-            <li>
-              {" "}
-              <Link className="models-link" to="/models">
+            <li onMouseEnter={handleCategoriesHover}>
+              <Link className="models-link" ref={categoriesRef}>
                 Our Fleet
+                {showCategories && <Categories isMobile={false} />}
               </Link>
             </li>
+
             <li>
               {" "}
               <Link className="contact-link" to="/contact">
@@ -179,7 +235,7 @@ function Navbar() {
           <div className="navbar__buttons">
             {isLoggedIn ? (
               <Link
-                className="navbar__buttons__sign-in"
+                className="navbar_buttons_sign-in"
                 onClick={() => {
                   localStorage.removeItem("token");
                   localStorage.removeItem("role");
@@ -190,11 +246,11 @@ function Navbar() {
                 Sign Out
               </Link>
             ) : (
-              <Link className="navbar__buttons__sign-in" to="/login">
+              <Link className="navbar_buttons_sign-in" to="/login">
                 Sign In
               </Link>
             )}
-            <Link className="navbar__buttons__register" to="/signUp">
+            <Link className="navbar_buttons_register" to="/signUp">
               Register
             </Link>
           </div>
