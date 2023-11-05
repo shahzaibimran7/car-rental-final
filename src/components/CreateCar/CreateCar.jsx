@@ -11,7 +11,6 @@ const validationSchema = Yup.object().shape({
   transmission: Yup.string().required("Transmission is required"),
   fuel: Yup.string().required("Fuel Type is required"),
   doors: Yup.number().required("Number of Doors is required"),
-  categories: Yup.array().required("Category is required"),
 });
 
 const brands = [
@@ -67,9 +66,17 @@ function CreateCar() {
     const formData = new FormData();
 
     for (const key in values) {
-      formData.append(key, values[key]);
+      if (key === "categories") {
+        console.log(values[key]);
+        values[key].map((catId) => {
+          return formData.append(key, catId);
+        });
+      } else {
+        formData.append(key, values[key]);
+      }
     }
-    console.log("FORMDATA", formData.get("image"));
+    // console.log("FORMDATA", formData.get("image"));
+    console.log(formData);
     const response = await CreateOneCar(formData);
     if (response.status === 200) {
       alert("Car Created Successfully");
@@ -141,9 +148,9 @@ function CreateCar() {
 
             <div className="form-group">
               <label htmlFor="categories">Categories:</label>
-              <Field as="select" name="categories" id="categories" multiple>
-                {categories.map((category) => (
-                  <option key={category} value={category}>
+              <Field as="select" multiple name="categories" id="categories">
+                {categories.map((category, index) => (
+                  <option key={category} value={index}>
                     {category}
                   </option>
                 ))}
