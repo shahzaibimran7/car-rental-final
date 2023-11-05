@@ -34,12 +34,46 @@ function Navbar() {
   ];
 
   const categories = [
-    "SUVs",
-    "Luxury Cars",
-    "Sports Cars",
-    "Hybrid Cars",
-    "Sedans",
-    "Electric Cars",
+    {
+      id: 1,
+      name: "SUVs",
+      createdAt: "2023-11-04T17:20:41.000Z",
+      updatedAt: "2023-11-04T17:20:41.000Z",
+    },
+    {
+      id: 2,
+      name: "Luxury Cars",
+      createdAt: "2023-11-04T17:32:11.000Z",
+      updatedAt: "2023-11-04T17:32:11.000Z",
+    },
+    {
+      id: 3,
+      name: "Hybrid Cars",
+      createdAt: "2023-11-04T17:36:41.000Z",
+      updatedAt: "2023-11-04T17:36:41.000Z",
+    },
+    {
+      id: 4,
+      name: "Sport Cars",
+      createdAt: "2023-11-04T17:38:13.000Z",
+      updatedAt: "2023-11-04T17:38:13.000Z",
+    },
+    {
+      id: 5,
+      name: "Sedan Cars",
+      createdAt: "2023-11-04T17:59:45.000Z",
+      updatedAt: "2023-11-04T17:59:45.000Z",
+    },
+    {
+      id: 6,
+      name: "Electric Cars",
+      createdAt: "2023-11-04T18:02:23.000Z",
+      updatedAt: "2023-11-04T18:02:23.000Z",
+    },
+    {
+      id: "",
+      name: "All",
+    },
   ];
 
   const [showList, setShowList] = useState(false);
@@ -103,16 +137,16 @@ function Navbar() {
       >
         {categories.map((category) => {
           return (
-            <li key={category} style={{ zIndex: 50 }}>
+            <li key={category.id} style={{ zIndex: 50 }}>
               <Link
                 className="about-link"
                 onClick={() => {
                   setShowCategories(false);
                   isMobile && openNav();
                 }}
-                to={`models/${category}`}
+                to={`cars/${category.id}`}
               >
-                {category}
+                {category.name}
               </Link>
             </li>
           );

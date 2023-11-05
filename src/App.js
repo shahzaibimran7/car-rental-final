@@ -4,6 +4,7 @@ import { Route, Routes } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import { SignIn } from "./Pages/SignIn";
 import Models from "./Pages/Models";
+import Cars from "./Pages/CategoriesCars";
 
 const Home = lazy(() => import("./Pages/Home"));
 const About = lazy(() => import("./Pages/About"));
@@ -29,17 +30,24 @@ function App() {
 
   const openPhone = () => {
     window.open(callLink, "_blank");
-  }
+  };
   return (
     <>
       <Navbar />
       {!admin && (
         <div className="floating-whatsapp">
-          <i className="fa fa-whatsapp" id="whatsapp-float" onClick={openWhatsApp} />
-          <i className="fa-solid fa-phone" id="phone-float" onClick={openPhone} />
-        </div >
-      )
-      }
+          <i
+            className="fa fa-whatsapp"
+            id="whatsapp-float"
+            onClick={openWhatsApp}
+          />
+          <i
+            className="fa-solid fa-phone"
+            id="phone-float"
+            onClick={openPhone}
+          />
+        </div>
+      )}
 
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
@@ -47,6 +55,7 @@ function App() {
           <Route path="about" element={<About />} />
           <Route path="models/:brand?" element={<Models />} />
           <Route path="model/:id" element={<CarDetails />} />
+          <Route path="cars/:category?" element={<Cars />} />
           <Route path="contact" element={<Contact />} />
           <Route path="bookings" element={<BookingsDashboard />} />
           <Route path="login" element={<SignIn />} />

@@ -12,6 +12,11 @@ const GetCarsPaginated = (query) => {
 const GetCarsByBrand = (brand, query) => {
   return instance.get(`getCarsByBrand/${brand}${query}`);
 };
+
+const GetCarsByCategory = (id, query) => {
+  return instance.get(`categories/${id}${query}`);
+};
+
 const GetCar = (id) => {
   return instance.get(`getAllDetails/${id}`);
 };
@@ -39,4 +44,5 @@ export {
   DeleteCar,
   AdditionalImage,
   GetCarsByBrand,
+  GetCarsByCategory,
 };

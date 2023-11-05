@@ -39,12 +39,42 @@ const brands = [
 ];
 
 const categories = [
-  "SUVs",
-  "Luxury Cars",
-  "Sports Cars",
-  "Hybrid Cars",
-  "Sedans",
-  "Electric Cars",
+  {
+    id: 1,
+    name: "SUVs",
+    createdAt: "2023-11-04T17:20:41.000Z",
+    updatedAt: "2023-11-04T17:20:41.000Z",
+  },
+  {
+    id: 2,
+    name: "Luxury Cars",
+    createdAt: "2023-11-04T17:32:11.000Z",
+    updatedAt: "2023-11-04T17:32:11.000Z",
+  },
+  {
+    id: 3,
+    name: "Hybrid Cars",
+    createdAt: "2023-11-04T17:36:41.000Z",
+    updatedAt: "2023-11-04T17:36:41.000Z",
+  },
+  {
+    id: 4,
+    name: "Sport Cars",
+    createdAt: "2023-11-04T17:38:13.000Z",
+    updatedAt: "2023-11-04T17:38:13.000Z",
+  },
+  {
+    id: 5,
+    name: "Sedan Cars",
+    createdAt: "2023-11-04T17:59:45.000Z",
+    updatedAt: "2023-11-04T17:59:45.000Z",
+  },
+  {
+    id: 6,
+    name: "Electric Cars",
+    createdAt: "2023-11-04T18:02:23.000Z",
+    updatedAt: "2023-11-04T18:02:23.000Z",
+  },
 ];
 
 const transmissions = ["Automatic", "Manual"];
@@ -150,8 +180,8 @@ function CreateCar() {
               <label htmlFor="categories">Categories:</label>
               <Field as="select" multiple name="categories" id="categories">
                 {categories.map((category, index) => (
-                  <option key={category} value={index}>
-                    {category}
+                  <option key={category.name} value={category.id}>
+                    {category.name}
                   </option>
                 ))}
               </Field>

@@ -852,7 +852,6 @@ body {
 }
 
 @media (max-width: 650px) {
-
   .info-form__2col,
   .info-form__1col {
     grid-template-columns: 1fr;
@@ -1765,7 +1764,7 @@ footer {
 .brands-categories {
   display: flex;
   justify-content: space-between;
-  gap: inherit
+  gap: inherit;
 }
 
 .footer-content-mid2 {
@@ -2077,7 +2076,7 @@ footer {
 
 .infinite-scroll-container {
   height: auto;
-  overflow: hidden
+  overflow: hidden;
 }
 
 .book-banner {
@@ -2616,4 +2615,17 @@ tbody tr:nth-child(even) {
 
 #additional {
   font-size: larger;
+}
+.categories-card {
+  position: absolute;
+  top: 85px;
+  left: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background-color: white;
+  padding: 20px;
+  height: 200px;
+  overflow-y: scroll;
+  border-radius: 10px;
 }
