@@ -4,10 +4,8 @@ import { RingLoader } from "react-spinners";
 import InfiniteScroll from "react-infinite-scroll-component";
 import {
   AdditionalImage,
-  GetCars,
   GetCarsPaginated,
   DeleteCar,
-  GetCarsByBrand,
   GetCarsByCategory,
 } from "../services/car-api-services";
 import Footer from "../components/Footer";
@@ -54,13 +52,13 @@ function Cars() {
       if (category) {
         response = await GetCarsByCategory(
           category,
-          `nextPage ? ?page=${nextPage} : ```
+          nextPage ? `?page=${nextPage}` : ``
         );
       } else {
-        response = await GetCarsPaginated(`nextPage ? ?page=${nextPage} : ```);
+        response = await GetCarsPaginated(nextPage ? `?page=${nextPage}` : ``);
       }
 
-      const newCars = response.data;
+      const newCars = response.data.cars;
 
       setCars((prevCars) => [...prevCars, ...newCars]);
 
@@ -75,7 +73,6 @@ function Cars() {
       setIsLoadingMore(false);
     }
   };
-
   const getAllCars = () => {
     if (!isLoadingMore) {
       const nextPage = pagination ? pagination.nextPage : null;
@@ -140,7 +137,7 @@ function Cars() {
                       style={{ borderRadius: "38px", height: "100%" }}
                       key={index}
                     >
-                      <div className="models-div_box_img">
+                      <div className="models-div__box__img">
                         <Link to={`/model/${car.id}`}>
                           <img
                             src={car.image}
@@ -148,9 +145,9 @@ function Cars() {
                             className="car-img"
                           />
                         </Link>
-                        <div className="models-div_box_descr">
-                          <div className="models-div_boxdescr_name-price">
-                            <div className="models-div_boxdescrname-price_name">
+                        <div className="models-div__box__descr">
+                          <div className="models-div__box__descr__name-price">
+                            <div className="models-div__box__descr__name-price__name">
                               <Link
                                 style={{
                                   textDecoration: "none",
@@ -168,11 +165,11 @@ function Cars() {
                                 <i className="fa-solid fa-star"></i>
                               </span>
                             </div>
-                            <div className="models-div_boxdescrname-price_price">
+                            <div className="models-div__box__descr__name-price__price">
                               <h4>${car.price}/ day</h4>
                             </div>
                           </div>
-                          <div className="models-div_boxdescrname-price_details">
+                          <div className="models-div__box__descr__name-price__details">
                             <span title="Brand">
                               <i className="fa-solid fa-car-side"></i> &nbsp;{" "}
                               {car.brand}
@@ -193,7 +190,7 @@ function Cars() {
                           {!admin ? (
                             <Link
                               to={`/model/${car.id}`}
-                              className="models-div_boxdescrname-price_btn"
+                              className="models-div__box__descr__name-price__btn"
                             >
                               Book Ride
                             </Link>
@@ -206,7 +203,7 @@ function Cars() {
                               }}
                             >
                               <div
-                                className="models-div_boxdescrname-price_btn"
+                                className="models-div__box__descr__name-price__btn"
                                 title="Upload Additional Image"
                                 onClick={() => {
                                   const fileInput =
@@ -238,7 +235,7 @@ function Cars() {
                                 ></i>
                               </div>
                               <div
-                                className="models-div_boxdescrname-price_btn"
+                                className="models-div__box__descr__name-price__btn"
                                 title="Delete Car"
                                 onClick={() => {
                                   if (window.confirm("Are you sure?")) {
