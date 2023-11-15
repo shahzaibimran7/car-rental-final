@@ -14,7 +14,7 @@ function Footer() {
 
   const openPhone = () => {
     window.open(callLink, "_blank");
-  }
+  };
 
   const brands = [
     "Mercedes",
@@ -38,7 +38,7 @@ function Footer() {
     "KIA",
     "Maserati",
     "Yachts",
-    "Lamborghini"
+    "Lamborghini",
   ];
 
   return (
@@ -88,23 +88,21 @@ function Footer() {
                   <h2>Collections</h2>
                 </li>
                 <li>SUVs</li>
+                <li>Business</li>
+                <li>Economy</li>
                 <li>Luxury Cars</li>
                 <li>Sports Cars</li>
-                <li>Hybrid Cars</li>
-                <li>Sedan Cars</li>
-                <li>Electric Cars</li>
                 <li>All Cars</li>
               </ul>
               <ul className="footer-content-mid2">
                 <li>
                   <h2>Brands</h2>
                 </li>
-                {brands.map((brand, index) =>
+                {brands.map((brand, index) => (
                   <li>
-                    <Link to={`/models/${brand}`}>
-                      {brand}
-                    </Link>
-                  </li>)}
+                    <Link to={`/models/${brand}`}>{brand}</Link>
+                  </li>
+                ))}
               </ul>
             </div>
             <ul className="footer-content__2">

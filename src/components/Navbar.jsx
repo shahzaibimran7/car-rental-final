@@ -36,40 +36,35 @@ function Navbar() {
   const categories = [
     {
       id: 1,
-      name: "SUVs",
+      name: "BUSINESS",
       createdAt: "2023-11-04T17:20:41.000Z",
-      updatedAt: "2023-11-04T17:20:41.000Z",
+      updatedAt: "2023-11-14T21:05:56.000Z",
     },
     {
       id: 2,
-      name: "Luxury Cars",
+      name: "ECONOMY",
       createdAt: "2023-11-04T17:32:11.000Z",
-      updatedAt: "2023-11-04T17:32:11.000Z",
+      updatedAt: "2023-11-14T21:06:36.000Z",
     },
     {
       id: 3,
-      name: "Hybrid Cars",
+      name: "LUXURY",
       createdAt: "2023-11-04T17:36:41.000Z",
-      updatedAt: "2023-11-04T17:36:41.000Z",
+      updatedAt: "2023-11-14T21:06:53.000Z",
     },
     {
       id: 4,
-      name: "Sport Cars",
+      name: "SPORTS",
       createdAt: "2023-11-04T17:38:13.000Z",
-      updatedAt: "2023-11-04T17:38:13.000Z",
+      updatedAt: "2023-11-14T21:07:08.000Z",
     },
     {
       id: 5,
-      name: "Sedan Cars",
+      name: "SUV",
       createdAt: "2023-11-04T17:59:45.000Z",
-      updatedAt: "2023-11-04T17:59:45.000Z",
+      updatedAt: "2023-11-14T21:07:19.000Z",
     },
-    {
-      id: 6,
-      name: "Electric Cars",
-      createdAt: "2023-11-04T18:02:23.000Z",
-      updatedAt: "2023-11-04T18:02:23.000Z",
-    },
+
     {
       id: "",
       name: "All",
