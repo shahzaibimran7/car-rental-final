@@ -36,25 +36,25 @@ function Navbar() {
   const categories = [
     {
       id: 1,
-      name: "BUSINESS",
+      name: "Business",
       createdAt: "2023-11-04T17:20:41.000Z",
       updatedAt: "2023-11-14T21:05:56.000Z",
     },
     {
       id: 2,
-      name: "ECONOMY",
+      name: "Economy",
       createdAt: "2023-11-04T17:32:11.000Z",
       updatedAt: "2023-11-14T21:06:36.000Z",
     },
     {
       id: 3,
-      name: "LUXURY",
+      name: "Luxury",
       createdAt: "2023-11-04T17:36:41.000Z",
       updatedAt: "2023-11-14T21:06:53.000Z",
     },
     {
       id: 4,
-      name: "SPORTS",
+      name: "Sports",
       createdAt: "2023-11-04T17:38:13.000Z",
       updatedAt: "2023-11-14T21:07:08.000Z",
     },
@@ -227,7 +227,9 @@ function Navbar() {
             <li onMouseEnter={() => setShowList(true)}>
               {" "}
               <Link className="about-link" ref={brandsRef}>
+              <Link className="contact-link" to="/models">
                 Brands
+                </Link>
                 {showList && <Brands />}
               </Link>
             </li>
@@ -239,7 +241,9 @@ function Navbar() {
             </li>
             <li onMouseEnter={handleCategoriesHover}>
               <Link className="models-link" ref={categoriesRef}>
+                <Link className="contact-link" to="/cars">
                 Our Fleet
+                </Link>
                 {showCategories && <Categories isMobile={false} />}
               </Link>
             </li>

@@ -175,7 +175,7 @@ function Cars() {
                               {car.brand}
                             </span>
                             <span title="Doors">
-                              <i className="fa-solid fa-door-open"></i>&nbsp;{" "}
+                              <i className="fa-light fa-door-open"></i>&nbsp;{" "}
                               {car.doors}/5
                             </span>
                             <span title="Gear Shift">
