@@ -48,7 +48,9 @@ function Footer() {
           <div className="footer-content">
             <ul className="footer-content__1">
               <li>
-                <span>Fifty Five Car Rental</span> LLC
+                <span style={{
+                  color: "#2565be"
+                }}>Fifty Five Car Rental</span> LLC
               </li>
               <li>
                 We offer a big range of vehicles for all your driving needs. We
@@ -85,7 +87,9 @@ function Footer() {
             <div className="brands-categories">
               <ul className="footer-content-mid1">
                 <li>
-                  <h2>Collections</h2>
+                  <h2 style={{
+                  color: "#2565be"
+                }}>Collections</h2>
                 </li>
                 <li>SUVs</li>
                 <li>Business</li>
@@ -96,7 +100,9 @@ function Footer() {
               </ul>
               <ul className="footer-content-mid2">
                 <li>
-                  <h2>Brands</h2>
+                  <h2 style={{
+                  color: "#2565be"
+                }}>Brands</h2>
                 </li>
                 {brands.map((brand, index) => (
                   <li>
@@ -106,7 +112,9 @@ function Footer() {
               </ul>
             </div>
             <ul className="footer-content__2">
-              <li>Working Hours</li>
+              <li style={{
+                  color: "#2565be"
+                }}>Working Hours</li>
               <li>Mon - Sun</li>
               <li>24/7</li>
             </ul>
@@ -118,12 +126,14 @@ function Footer() {
               to={"https://www.youtube.com/@FIFTYFIVECARRENTAL"}
               target="_blank"
             >
-              <i className="fa fa-youtube fa-2xl"></i>
+              <i className="fa fa-youtube fa-2xl" style={{color: "#2596be"}}></i>
             </Link>
           </span>
           <span className="links">
             <Link to={"https://twitter.com/FiftyFiveCar"} target="_blank">
-              <i className="fa fa-twitter fa-2xl">{/* <h4>Twitter</h4> */}</i>
+              <i className="fa fa-twitter fa-2xl" style={{
+                  color: "#2565be"
+                }}>{/* <h4>Twitter</h4> */}</i>
             </Link>
           </span>
           <span className="links">
@@ -131,7 +141,7 @@ function Footer() {
               to={"https://www.facebook.com/profile.php?id=61551860040920"}
               target="_blank"
             >
-              <i className="fa fa-facebook fa-2xl">{/* <h4>Facebook</h4> */}</i>
+              <i className="fa fa-facebook fa-2xl" style={{color: "#2596be"}}>{/* <h4>Facebook</h4> */}</i>
             </Link>
           </span>
           <span className="links">
@@ -139,7 +149,9 @@ function Footer() {
               to={"https://www.instagram.com/fiftyfivecarrental_55/"}
               target="_blank"
             >
-              <i className="fa fa-instagram fa-2xl">
+              <i className="fa fa-instagram fa-2xl" style={{
+                  color: "#2565be"
+                }}>
                 {/* <h4>instagram</h4> */}
               </i>
             </Link>
@@ -149,7 +161,7 @@ function Footer() {
               to={" https://www.pinterest.com/fiftyfivecarrental/"}
               target="_blank"
             >
-              <i className="fa fa-pinterest fa-2xl">
+              <i className="fa fa-pinterest fa-2xl" style={{color: "#2596be"}}>
                 {/* <h4>Pinterest</h4> */}
               </i>
             </Link>

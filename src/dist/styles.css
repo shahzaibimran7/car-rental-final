@@ -88,7 +88,7 @@ body {
 
 .brands-card {
   position: absolute;
-  top: 85px;
+  top: 50px;
   left: 444px;
   display: flex;
   flex-direction: column;
@@ -2619,8 +2619,8 @@ tbody tr:nth-child(even) {
 }
 .categories-card {
   position: absolute;
-  top: 85px;
-  left: 600px;
+  top: 50px;
+  left: 669px;
   display: flex;
   flex-direction: column;
   gap: 8px;
